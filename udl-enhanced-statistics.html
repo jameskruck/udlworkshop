@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDL-Enhanced Statistics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Lesson</a>
+                </li>
+                                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Enhanced Lesson Options</a>
+                </li>
+            <li class="flex items-center">
+                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span class="text-blue-600 font-medium">Enhanced Lesson</span>
+            </li>
+        </ol>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Introduction -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold mb-4">UDL Enhancements: Chi-Square Test</h2>
+            <p class="mb-4">Below are several ways you could enhance the original text-based lesson using the Plus One approach. Each section represents a different way to make the content more accessible and engaging. Adding any one of these options to your original lesson would be an example of applying the Plus One principle.</p>
+            <p class="mb-4 text-gray-600">Note: These are separate examples - you wouldn't necessarily use all of them at once. Choose the enhancement that best serves your learning objectives and student needs.</p>
+        
+            <!-- Jump Navigation -->
+            <div class="mt-6 border-t pt-4">
+                <button 
+                    onclick="document.getElementById('section-list').classList.toggle('hidden')"
+                    class="w-full md:w-auto flex items-center justify-between bg-gray-100 p-3 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                    aria-expanded="false"
+                    aria-controls="section-list"
+                >
+                    <span class="font-medium">Jump to a section</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                
+                <nav id="section-list" class="hidden mt-2 p-3 bg-white rounded-lg shadow-sm border border-gray-200" aria-label="Page sections">
+                    <ul class="space-y-2">
+                        <li><a href="#real-world" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Real World Connection</a></li>
+                        <li><a href="#visual" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Visual Representation</a></li>
+                        <li><a href="#videos" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Video Demonstration</a></li>
+                        <li><a href="#interactive" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Interactive Calculator</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Real World Connection -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 id="real-world" class="text-lg font-bold mb-3">Enhancement Option 1: Real World Connection</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Plus One Focus: Adding relatable examples to help students connect abstract statistical concepts to everyday situations.</p>
+            </div>
+            <p class="mb-4">Imagine you're wondering if there's a connection between two things - like whether people's ice cream flavor preferences are related to their age group. Are certain flavors more popular with certain age groups, or is it just random? The chi-square test helps us figure this out.</p>
+        </div>
+
+        <!-- Visual Representation -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 id="visual" class="text-lg font-bold mb-3">Enhancement Option 2: Visual Representation</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Plus One Focus: Adding visual diagrams to help learners understand the concept of expected versus observed frequencies.</p>
+            </div>
+            <img src="images/ice-cream-chi.png" alt="A visual representation of chi-square testing using ice cream cone choices to illustrate expected versus observed distributions." class="w-full rounded mb-4">
+            <p class="mb-4">The chi-square test tells us how different these two pictures are. The bigger the difference, the more likely age affects ice cream choice.</p>
+        </div>
+
+<!-- Video Demonstration -->
+<div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+    <h3 id="videos" class="text-lg font-bold mb-3">Enhancement Option 3: Video Demonstration</h3>
+    <div class="bg-blue-50 p-3 rounded mb-4">
+        <p class="text-sm text-blue-800">Plus One Focus: Adding step-by-step video explanation to support visual and auditory learners.</p>
+    </div>
+    
+    <!-- Two-column layout for Video and Transcript -->
+    <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Video Column -->
+        <div>
+            <iframe 
+                class="w-full h-72 rounded shadow"
+                src="https://www.youtube.com/embed/tnmmCFv63s8"
+                title="Chi-Square Test Explanation"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <p class="mt-2 text-sm text-gray-600">Video explanation with step-by-step walkthrough</p>
+        </div>
+
+        <!-- Transcript Column -->
+        <div class="bg-gray-100 p-4 rounded-lg shadow-sm h-72 overflow-auto">
+            <h3 class="text-lg font-bold mb-2">Transcript</h3>
+
+            <!-- Collapsible Transcript Toggle -->
+            <button onclick="document.getElementById('transcript-text').classList.toggle('hidden')" 
+                class="text-blue-600 hover:underline text-sm">
+                Show/Hide Transcript
+            </button>
+
+            <!-- Scrollable Transcript -->
+            <pre id="transcript-text" class="text-gray-700 text-sm overflow-auto max-h-56 p-2 bg-white rounded border border-gray-300 hidden">
+                <!-- Insert transcript text here -->
+00:00:00.000 hey everybody today we're getting into
+00:00:01.680 the chi-squared test for homogeneity
+00:00:03.560 we're in this situation where we're
+00:00:05.700 measuring one categorical variable
+00:00:07.560 across two groups and asking whether the
+00:00:10.349 groups are different or not whether they
+00:00:11.550 come actually from the same population
+00:00:13.790 here's an example
+00:00:15.599 we've got people under 50 and people
+00:00:17.940 over 50 and we're asking them do you
+00:00:20.130 agree with the statement I prefer to
+00:00:22.260 work from home as much as possible you
+00:00:24.359 can either agree be neutral or disagree
+00:00:26.730 here are our totals do young and old
+00:00:29.550 people prefer working from home in equal
+00:00:31.410 proportions so we've got a null
+00:00:36.510 hypothesis that the probability of
+00:00:38.219 agreeing with that statement is the same
+00:00:40.079 in either group the probability of being
+00:00:41.940 neutral is the same in either group and
+00:00:44.010 so on we want to use a chi-square test
+00:00:47.640 on this table and in order to do that
+00:00:49.829 we're gonna need expected cell counts of
+00:00:51.780 course as usual so how are we going to
+00:00:55.020 do it well under the null hypothesis we
+00:00:57.629 expect that the corresponding
+00:00:59.940 respondents are going to have equal
+00:01:01.199 proportions in each group the same
+00:01:03.000 proportion in group a and Group B is
+00:01:04.979 going to agree the same proportion is
+00:01:06.960 going to be neutral the same proportion
+00:01:08.520 is going to disagree and if in fact
+00:01:10.860 those proportions are the same they'll
+00:01:12.479 also be the same as the pooled
+00:01:14.760 proportions
+00:01:16.530 so the overall proportion that agreeing
+00:01:19.830 neutral disagree so let's get those
+00:01:24.119 pooled proportions we take the total
+00:01:26.909 number that agree and take it over the
+00:01:29.189 total number period the total number
+00:01:31.079 that our Neutral take it over the total
+00:01:32.430 number period and so on we're going to
+00:01:35.700 multiply those by the different row
+00:01:37.049 totals and those are going to give us
+00:01:38.549 expected cell counts here's what we get
+00:01:41.369 as usual we don't worry if our expected
+00:01:44.159 counts aren't integers and now we're
+00:01:47.759 going to compute a chi-squared statistic
+00:01:48.840 in the usual way we're gonna do the
+00:01:51.299 values we got - the ones we expected
+00:01:53.430 square it and divide by the predicted
+00:01:57.630 number the expected number add all those
+00:01:59.549 up to get the chi-squared statistic
+00:02:01.820 there's the calculation we get 6.8 for
+00:02:05.750 the last thing we got to do before we
+00:02:07.979 compute a p-value is to talk about
+00:02:09.869 degrees of freedom so in this case we
+00:02:12.420 have two independent
+00:02:13.240 samples one for each row so we're
+00:02:15.430 starting with four degrees of freedom we
+00:02:18.070 had six total cells we take away those
+00:02:20.320 two for the two independent samples we
+00:02:24.250 also have to take away two degrees of
+00:02:25.720 freedom because we estimated two
+00:02:27.730 parameters one for each column except
+00:02:30.040 the last which is determined by the
+00:02:31.570 other two so overall we've got two
+00:02:33.370 degrees of freedom we compute the
+00:02:36.190 p-value as usual in a chi-squared
+00:02:38.290 distribution probability that
+00:02:40.120 chi-squared is greater than or equal to
+00:02:41.710 that 6.8 for that we got in chi square
+00:02:45.010 root of 2 and we get 0.03 3 so this
+00:02:47.830 provides good evidence against the null
+00:02:49.330 hypothesis we have good reason to
+00:02:51.400 believe that in fact these two groups
+00:02:53.320 young people and old people are
+00:02:55.090 different in their opinions about
+00:02:56.440 working from home
+            </pre>
+
+            <!-- Open in New Tab Option -->
+            <p class="mt-2">
+                <a href="transcriptstats.txt" 
+                   target="_blank" 
+                   class="bg-gray-600 text-white px-3 py-2 rounded hover:bg-gray-700 text-sm">
+                   Open in New Tab
+                </a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+        </div>
+
+        <!-- Interactive Calculator -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 id="interactive" class="text-lg font-bold mb-3">Enhancement Option 4: Interactive Calculator</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Plus One Focus: Adding hands-on interaction to help learners experiment with and understand how the chi-square calculation works.</p>
+            </div>
+            <p class="mb-4">Use this interactive tool to explore how chi-square tests work. Try adjusting the numbers in the table below to see how they affect the chi-square value. The bigger the difference between what we observe and what we expect, the stronger the relationship between age and ice cream choice.</p>
+            <div id="chi-square-placeholder" class="bg-gray-100 p-6 rounded shadow mb-6"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-6">
+            <a href="shared-transition.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+            <a href="udl-enhanced-assessment-statistics.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+
+ <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const ChiSquareVisualizer = () => {
+        const [data, setData] = useState({
+            young: { vanilla: 20, chocolate: 30 },
+            old: { vanilla: 25, chocolate: 25 }
+        });
+
+        const [expected, setExpected] = useState({});
+        const [chiSquare, setChiSquare] = useState(0);
+        const [relationship, setRelationship] = useState('');
+
+        useEffect(() => {
+            calculateExpected();
+        }, [data]);
+
+        const calculateExpected = () => {
+            const total = Object.values(data).reduce((acc, row) => 
+                acc + Object.values(row).reduce((sum, val) => sum + val, 0), 0);
+            
+            const rowTotals = {
+                young: Object.values(data.young).reduce((sum, val) => sum + val, 0),
+                old: Object.values(data.old).reduce((sum, val) => sum + val, 0)
+            };
+            
+            const colTotals = {
+                vanilla: data.young.vanilla + data.old.vanilla,
+                chocolate: data.young.chocolate + data.old.chocolate
+            };
+
+            const exp = {
+                young: {
+                    vanilla: (rowTotals.young * colTotals.vanilla) / total,
+                    chocolate: (rowTotals.young * colTotals.chocolate) / total
+                },
+                old: {
+                    vanilla: (rowTotals.old * colTotals.vanilla) / total,
+                    chocolate: (rowTotals.old * colTotals.chocolate) / total
+                }
+            };
+
+            setExpected(exp);
+
+            // Calculate chi-square
+            let chi = 0;
+            Object.keys(data).forEach(age => {
+                Object.keys(data[age]).forEach(flavor => {
+                    const o = data[age][flavor];
+                    const e = exp[age][flavor];
+                    chi += Math.pow(o - e, 2) / e;
+                });
+            });
+
+            setChiSquare(chi);
+            setRelationship(chi > 3.84 ? 'Likely Related' : 'Likely Independent');
+        };
+
+        const adjustValue = (age, flavor, change) => {
+            setData(prev => ({
+                ...prev,
+                [age]: {
+                    ...prev[age],
+                    [flavor]: Math.max(0, prev[age][flavor] + change)
+                }
+            }));
+        };
+
+        const getDifference = (age, flavor) => {
+            const diff = data[age][flavor] - expected[age]?.[flavor];
+            return diff ? diff.toFixed(1) : '0';
+        };
+
+        const getColor = (age, flavor) => {
+            const diff = Math.abs(data[age][flavor] - expected[age]?.[flavor]);
+            const intensity = Math.min(diff * 5, 100);
+            return `rgba(${diff > 0 ? '255,0,0' : '0,0,255'},${intensity/100})`;
+        };
+
+        return (
+            <div className="p-6 max-w-2xl mx-auto bg-white rounded-xl shadow-md">
+                <h2 className="text-xl font-bold mb-4">Ice Cream Preferences by Age Group</h2>
+                
+                <div className="mb-6">
+                    <table className="w-full border-collapse">
+                        <thead>
+                            <tr>
+                                <th className="p-2"></th>
+                                <th className="p-2">Vanilla</th>
+                                <th className="p-2">Chocolate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {['young', 'old'].map(age => (
+                                <tr key={age}>
+                                    <td className="p-2 font-bold">{age === 'young' ? 'Young' : 'Older'}</td>
+                                    {['vanilla', 'chocolate'].map(flavor => (
+                                        <td key={flavor} className="p-2">
+                                            <div className="flex flex-col items-center p-2 rounded" 
+                                                style={{backgroundColor: getColor(age, flavor)}}>
+                                                <div className="flex space-x-2 mb-2">
+                                                    <button 
+                                                        className="px-2 bg-gray-200 rounded"
+                                                        onClick={() => adjustValue(age, flavor, -1)}>-</button>
+                                                    <span>{data[age][flavor]}</span>
+                                                    <button 
+                                                        className="px-2 bg-gray-200 rounded"
+                                                        onClick={() => adjustValue(age, flavor, 1)}>+</button>
+                                                </div>
+                                                <div className="text-sm">
+                                                    Expected: {expected[age]?.[flavor]?.toFixed(1)}
+                                                    <br/>
+                                                    Difference: {getDifference(age, flavor)}
+                                                </div>
+                                            </div>
+                                        </td>
+                                    ))}
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="text-center p-4 bg-gray-100 rounded">
+                    <div className="text-lg font-bold mb-2">
+                        Chi-Square Value: {chiSquare.toFixed(2)}
+                    </div>
+                    <div className="text-lg">
+                        Interpretation: {relationship}
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    ReactDOM.render(<ChiSquareVisualizer />, document.getElementById('chi-square-placeholder'));
+</script>
+</body>
+</html>

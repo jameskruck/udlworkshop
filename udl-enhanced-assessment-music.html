@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDL-Enhanced Music Theory Assessment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Introduction -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold mb-4">Demonstrating Understanding: Multiple Approaches</h2>
+            <p class="mb-4">Now that you've explored modal interchange through multiple representations, you have several options for demonstrating your understanding. Choose the methods that best suit your preferences.</p>
+            
+            <div class="bg-blue-50 p-4 rounded mb-4">
+                <h3 class="font-medium mb-2">Choose Your Assessment Methods:</h3>
+                <ul class="list-disc pl-6">
+                    <li>Create chord progressions using an interactive tool</li>
+                    <li>Write about emotional effects in music</li>
+                    <li>Record a video explanation</li>
+                    <li>Participate in peer discussion</li>
+                    <li>Build a concept map of musical relationships</li>
+                </ul>
+                <p class="mt-2 text-sm text-blue-800">Note: You don't need to complete all options - choose those that best help you demonstrate your understanding.</p>
+            </div>
+
+            <!-- Jump Navigation -->
+            <div class="mt-6 border-t pt-4">
+                <button 
+                    onclick="document.getElementById('section-list').classList.toggle('hidden')"
+                    class="w-full md:w-auto flex items-center justify-between bg-gray-100 p-3 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                    aria-expanded="false"
+                    aria-controls="section-list"
+                >
+                    <span class="font-medium">Jump to an assessment option</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                
+                <nav id="section-list" class="hidden mt-2 p-3 bg-white rounded-lg shadow-sm border border-gray-200" aria-label="Assessment options">
+                    <ul class="space-y-2">
+                        <li><a href="#interactive" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Interactive Chord Progression</a></li>
+                        <li><a href="#written" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Written Analysis</a></li>
+                        <li><a href="#video" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Video Explanation</a></li>
+                        <li><a href="#peer-feedback" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Peer Discussion</a></li>
+                        <li><a href="#concept-map" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Concept Map</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Interactive Exercise -->
+        <div id="interactive" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Interactive Chord Progression</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Create progressions that demonstrate your understanding of modal interchange by using borrowed chords effectively.</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded shadow mb-6">
+                [Interactive Chord Progression Builder Component]
+            </div>
+        </div>
+
+        <!-- Written Analysis -->
+        <div id="written" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Written Analysis</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Explain how modal interchange affects the emotional impact of music, using specific examples.</p>
+            </div>
+            <div class="space-y-4">
+                <p>Explain how you might use modal interchange to add emotional depth to a song. Consider:</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Which borrowed chords create specific moods</li>
+                    <li>How the transition between modes affects listener experience</li>
+                    <li>Real songs that effectively use this technique</li>
+                </ul>
+                <textarea 
+                    class="w-full border rounded p-3 min-h-[150px]" 
+                    placeholder="Write your analysis here..."
+                    aria-label="Written analysis input"
+                ></textarea>
+            </div>
+        </div>
+
+        <!-- Video Response -->
+        <div id="video" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Video Explanation</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Create a short video demonstrating your understanding of modal interchange concepts.</p>
+            </div>
+            <div class="space-y-4">
+                <p>Record a 1-2 minute video explaining one of the following:</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>How modal interchange adds emotional depth to music</li>
+                    <li>A specific example of borrowed chords in a song you know</li>
+                    <li>Tips for effectively using modal interchange in composition</li>
+                </ul>
+                <div class="flex items-center justify-center w-full">
+                    <label class="w-full flex flex-col items-center px-4 py-6 bg-gray-50 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-gray-100">
+                        <svg class="w-8 h-8 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                        </svg>
+                        <span class="mt-2 text-base leading-normal">Upload Video</span>
+                        <input type='file' class="hidden" accept="video/*" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Peer Discussion -->
+        <div id="peer-feedback" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Peer Discussion</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Share your understanding with peers and learn from their perspectives.</p>
+            </div>
+            <div class="space-y-4">
+                <p>Work with a peer to:</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Explain your understanding of modal interchange</li>
+                    <li>Listen to their explanation and provide feedback</li>
+                    <li>Discuss different applications in various musical styles</li>
+                </ul>
+                <textarea 
+                    class="w-full border rounded p-3 min-h-[100px]" 
+                    placeholder="Record key points from your discussion here..."
+                    aria-label="Discussion notes input"
+                ></textarea>
+            </div>
+        </div>
+
+        <!-- Concept Map -->
+        <div id="concept-map" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Concept Map</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Create a visual representation showing how different musical concepts relate to modal interchange.</p>
+            </div>
+            <div class="space-y-4">
+                <p>Create a concept map that includes:</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>Key terms (parallel modes, borrowed chords, etc.)</li>
+                    <li>Relationships between concepts</li>
+                    <li>Examples of practical applications</li>
+                </ul>
+                <div class="flex items-center justify-center w-full">
+                    <label class="w-full flex flex-col items-center px-4 py-6 bg-gray-50 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-gray-100">
+                        <svg class="w-8 h-8 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                        </svg>
+                        <span class="mt-2 text-base leading-normal">Upload Concept Map</span>
+                        <input type='file' class="hidden" accept="image/*" />
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-6">
+            <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+            <a href="udl-three-principles.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

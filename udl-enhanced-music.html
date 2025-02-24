@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDL-Enhanced Music Theory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Lesson</a>
+                </li>
+                                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Enhanced Lesson Options</a>
+                </li>
+            <li class="flex items-center">
+                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span class="text-blue-600 font-medium">Enhanced Lesson</span>
+            </li>
+        </ol>
+    </div>
+</nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Introduction -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold mb-4">UDL Enhancements: Modal Interchange</h2>
+            <p class="mb-4">Below are several ways you could enhance the original text-based lesson using the Plus One approach. Each section represents a different way to make the content more accessible and engaging. Adding any one of these options to your original lesson would be an example of applying the Plus One principle.</p>
+            <p class="mb-4 text-gray-600">Note: These are separate examples - you wouldn't necessarily use all of them at once. Choose the enhancement that best serves your learning objectives and student needs.</p>
+        
+            <!-- Jump Navigation -->
+            <div class="mt-6 border-t pt-4">
+                <button 
+                    onclick="document.getElementById('section-list').classList.toggle('hidden')"
+                    class="w-full md:w-auto flex items-center justify-between bg-gray-100 p-3 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                    aria-expanded="false"
+                    aria-controls="section-list"
+                >
+                    <span class="font-medium">Jump to a section</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                
+                <nav id="section-list" class="hidden mt-2 p-3 bg-white rounded-lg shadow-sm border border-gray-200" aria-label="Page sections">
+                    <ul class="space-y-2">
+                        <li><a href="#real-world" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Real World Connection</a></li>
+                        <li><a href="#visual" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Visual Representation</a></li>
+                        <li><a href="#videos" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Video Demonstrations</a></li>
+                        <li><a href="#interactive" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Interactive Piano</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Real World Connection -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 id="real-world" class="text-lg font-bold mb-3">Enhancement Option 1: Real World Connection</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Plus One Focus: Adding relatable analogies and real-world examples to help students connect with abstract concepts.</p>
+            </div>
+            <p class="mb-4">Have you ever noticed how some songs seem to shift between feeling happy and sad? Imagine you're writing a happy song in a major key, but want to add a moment of sadness or tension. That's where modal interchange comes in - it lets you "borrow" chords from a parallel minor key to create these emotional shifts. Think of it like being able to borrow ingredients from a different cooking style to add unexpected flavors to a familiar recipe.</p>
+        </div>
+
+        <!-- Visual Representation -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 id="visual" class="text-lg font-bold mb-3">Enhancement Option 2: Visual Representation</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Plus One Focus: Adding visual diagrams to help learners understand relationships between musical concepts.</p>
+            </div>
+            <p class="mb-4">The following diagram illustrates major scale chords on the top row and minor scale chords on the bottom row, with arrows indicating common borrowing patterns:</p>
+            <img src="images/Modal Interchange Borrowing Chords.png" alt="Chord diagram showing relationships between major and minor scales. Major scale chords are arranged in a row at the top, with minor scale chords below. Arrows indicate common chord borrowing patterns between the scales." class="w-full rounded mb-4">
+        </div>
+
+<!-- Video Demonstrations -->
+<div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+    <h3 id="videos" class="text-lg font-bold mb-3">Enhancement Option 3: Video Demonstrations</h3>
+    <div class="bg-blue-50 p-3 rounded mb-4">
+        <p class="text-sm text-blue-800">Plus One Focus: Adding visual and auditory demonstrations to support learners who prefer multimedia instruction.</p>
+    </div>
+    <p class="mb-4">Watch these videos to see and hear how modal interchange is used in real-world music examples. Text transcripts are available below each video.</p>
+    
+    <!-- First Video with Transcript -->
+    <div class="mb-6">
+        <h4 class="font-medium mb-2">Video 1: Theory Demonstration</h4>
+        <iframe class="w-full h-72 rounded shadow mb-4" src="https://www.youtube.com/embed/1dRA28cdt5c" title="Music Theory Demonstration Video" frameborder="0" allowfullscreen></iframe>
+        
+        <!-- Transcript Section -->
+        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+            <div class="flex justify-between items-center mb-2">
+                <h5 class="font-medium">Transcript</h5>
+                <button onclick="document.getElementById('transcript1').classList.toggle('hidden')" 
+                    class="text-blue-600 hover:underline text-sm">
+                    Show/Hide Transcript
+                </button>
+            </div>
+            <pre id="transcript1" class="text-gray-700 text-sm overflow-auto max-h-40 p-2 bg-white rounded border border-gray-300 hidden">
+                [Transcript text for first video]
+            </pre>
+            <a href="transcript1.txt" target="_blank" class="inline-block mt-2 bg-gray-600 text-white px-3 py-2 rounded hover:bg-gray-700 text-sm">
+                Open in New Tab
+            </a>
+        </div>
+    </div>
+
+    <!-- Second Video with Transcript -->
+    <div>
+        <h4 class="font-medium mb-2">Video 2: Popular Music Examples</h4>
+        <iframe class="w-full h-72 rounded shadow mb-4" src="https://www.youtube.com/embed/D6HjVQUzza0" title="Popular Song Examples Video" frameborder="0" allowfullscreen></iframe>
+        
+        <!-- Transcript Section -->
+        <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+            <div class="flex justify-between items-center mb-2">
+                <h5 class="font-medium">Transcript</h5>
+                <button onclick="document.getElementById('transcript2').classList.toggle('hidden')" 
+                    class="text-blue-600 hover:underline text-sm">
+                    Show/Hide Transcript
+                </button>
+            </div>
+            <pre id="transcript2" class="text-gray-700 text-sm overflow-auto max-h-40 p-2 bg-white rounded border border-gray-300 hidden">
+                [Transcript text for second video]
+            </pre>
+            <a href="transcript2.txt" target="_blank" class="inline-block mt-2 bg-gray-600 text-white px-3 py-2 rounded hover:bg-gray-700 text-sm">
+                Open in New Tab
+            </a>
+        </div>
+    </div>
+</div>
+
+        <!-- Interactive Piano -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 id="interactive" class="text-lg font-bold mb-3">Enhancement Option 4: Interactive Tool</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Plus One Focus: Adding hands-on interaction to help learners experiment with and internalize concepts.</p>
+            </div>
+            <p class="mb-4">Use the virtual piano below to experiment with modal interchange by playing different chord progressions:</p>
+            <div id="virtual-piano-placeholder" class="bg-gray-100 p-6 rounded shadow mb-6">
+                [Virtual Piano Component Would Render Here]
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-6">
+            <a href="udl-enhanced-assessment-music.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+            <a href="udl-enhanced-assessment-statistics.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Piano Component Script -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        const VirtualPiano = () => {
+            const [activeNote, setActiveNote] = useState(null);
+            const [audioContext, setAudioContext] = useState(null);
+
+            // Define keyboard shortcuts for notes
+            const keyboardMap = {
+                'a': 'C', 'w': 'C#', 's': 'D', 'e': 'D#', 'd': 'F',
+                'f': 'F', 't': 'F#', 'g': 'G', 'y': 'G#', 'h': 'A',
+                'u': 'A#', 'j': 'B'
+            };
+
+            const notes = [
+                { note: 'C', freq: 261.63, type: 'white', shortcut: 'A' },
+                { note: 'C#', freq: 277.18, type: 'black', shortcut: 'W' },
+                { note: 'D', freq: 293.66, type: 'white', shortcut: 'S' },
+                { note: 'D#', freq: 311.13, type: 'black', shortcut: 'E' },
+                { note: 'E', freq: 329.63, type: 'white', shortcut: 'D' },
+                { note: 'F', freq: 349.23, type: 'white', shortcut: 'F' },
+                { note: 'F#', freq: 369.99, type: 'black', shortcut: 'T' },
+                { note: 'G', freq: 392.00, type: 'white', shortcut: 'G' },
+                { note: 'G#', freq: 415.30, type: 'black', shortcut: 'Y' },
+                { note: 'A', freq: 440.00, type: 'white', shortcut: 'H' },
+                { note: 'A#', freq: 466.16, type: 'black', shortcut: 'U' },
+                { note: 'B', freq: 493.88, type: 'white', shortcut: 'J' }
+            ];
+
+            useEffect(() => {
+                // Initialize audio context
+                setAudioContext(new (window.AudioContext || window.webkitAudioContext)());
+                
+                // Add keyboard event listeners
+                document.addEventListener('keydown', handleKeyPress);
+                return () => {
+                    document.removeEventListener('keydown', handleKeyPress);
+                };
+            }, []);
+
+            const handleKeyPress = (event) => {
+                const note = keyboardMap[event.key.toLowerCase()];
+                if (note) {
+                    const noteObj = notes.find(n => n.note === note);
+                    if (noteObj) {
+                        playNote(noteObj.freq);
+                        setActiveNote(noteObj.note);
+                        setTimeout(() => setActiveNote(null), 200);
+                    }
+                }
+            };
+
+            const playNote = (freq) => {
+                if (!audioContext) return;
+
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.type = 'sine';
+                oscillator.frequency.value = freq;
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                
+                oscillator.start();
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+                oscillator.stop(audioContext.currentTime + 1);
+            };
+
+            const playProgression = (progression) => {
+                progression.forEach((freq, i) => {
+                    setTimeout(() => playNote(freq), i * 1000);
+                });
+            };
+
+            return (
+<div className="w-full mx-auto" role="region" aria-label="Virtual Piano">                    
+<h2 className="text-xl font-bold mb-4">Virtual Piano</h2>
+                    
+                    {/* Keyboard instructions for screen readers */}
+                    <div className="sr-only">
+                        Use keyboard keys A through J for white keys, and W, E, T, Y, U for black keys.
+                        Tab to navigate between keys, Space or Enter to play notes.
+                    </div>
+                    
+                    <div className="relative h-48 bg-gray-100 rounded-lg overflow-hidden" role="group" aria-label="Piano Keys">
+                        {/* White Keys */}
+                        <div className="absolute inset-0 flex">
+                            {notes.filter(n => n.type === 'white').map((note) => (
+                                <div
+                                    key={note.note}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label={`${note.note} key (${note.shortcut} key)`}
+                                    className="flex-1 border border-gray-300 bg-white hover:bg-gray-100 cursor-pointer transition-colors relative focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    onClick={() => {
+                                        playNote(note.freq);
+                                        setActiveNote(note.note);
+                                        setTimeout(() => setActiveNote(null), 200);
+                                    }}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            playNote(note.freq);
+                                            setActiveNote(note.note);
+                                            setTimeout(() => setActiveNote(null), 200);
+                                        }
+                                    }}
+                                    style={{
+                                        backgroundColor: activeNote === note.note ? '#e5e7eb' : 'white'
+                                    }}
+                                >
+                                    <span className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm">
+                                        {note.note}
+                                        <span className="text-xs text-gray-500 ml-1">({note.shortcut})</span>
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Black Keys */}
+                        {notes.map((note, i) => (
+                            note.type === 'black' ? (
+                                <div
+                                    key={note.note}
+                                    role="button"
+                                    tabIndex={0}
+                                    aria-label={`${note.note} key (${note.shortcut} key)`}
+                                    className="w-8 h-28 bg-black hover:bg-gray-800 cursor-pointer transition-colors absolute focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    style={{
+                                        left: `${(i * 14) + 10}%`,
+                                        zIndex: 1
+                                    }}
+                                    onClick={() => {
+                                        playNote(note.freq);
+                                        setActiveNote(note.note);
+                                        setTimeout(() => setActiveNote(null), 200);
+                                    }}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            playNote(note.freq);
+                                            setActiveNote(note.note);
+                                            setTimeout(() => setActiveNote(null), 200);
+                                        }
+                                    }}
+                                >
+                                    <span className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm text-white">
+                                        {note.note}
+                                        <span className="text-xs opacity-75 ml-1">({note.shortcut})</span>
+                                    </span>
+                                </div>
+                            ) : null
+                        ))}
+                    </div>
+
+                    {/* Progression Buttons */}
+                    <div className="mt-4" role="group" aria-label="Chord Progressions">
+                        <h3 className="font-bold mb-2">Pre-programmed Progressions:</h3>
+                        <div className="space-x-2">
+                            <button 
+                                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                onClick={() => playProgression([261.63, 349.23, 392.00, 261.63])}
+                                aria-label="Play C-F-G-C progression"
+                            >
+                                Play C-F-G-C
+                            </button>
+                            <button 
+                                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                onClick={() => playProgression([261.63, 349.23, 415.30, 261.63])}
+                                aria-label="Play progression with borrowed chord"
+                            >
+                                Play with Borrowed Chord
+                            </button>
+                        </div>
+                    </div>
+                    {/* Visual Keyboard Guide */}
+                    <div className="mt-4 p-4 bg-gray-100 rounded" role="complementary">
+                        <h3 className="font-medium mb-2">Keyboard Controls:</h3>
+                        <ul className="text-sm">
+                            <li>White keys: A, S, D, F, G, H, J</li>
+                            <li>Black keys: W, E, T, Y, U</li>
+                            <li>Use Tab to navigate between keys</li>
+                            <li>Press Space or Enter to play a note</li>
+                        </ul>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<VirtualPiano />, document.getElementById('virtual-piano-placeholder'));
+    </script>
+</body>
+</html>

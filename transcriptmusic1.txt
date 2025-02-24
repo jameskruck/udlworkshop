@@ -1,0 +1,45 @@
+# Modal Interchange | Music with Myles
+# https://www.youtube.com/watch/1dRA28cdt5c
+
+00:00:05.560 Imagine we're writing a tune in, for instance, C major. We have seven diatonic chords, or chords in the key.
+00:00:15.429 And they can each come in many different forms, like power chords, triads,
+00:00:20.470 seventh chords, extended structures, and various inversions.
+00:00:25.210 This already gives us a ton of diverse harmonic possibilities. Here's one example of a diatonic chord progression we might come up with.
+00:00:40.750 Not bad at all, but what if the song called for some more ~exotic colors?~
+00:00:46.539 Well, one powerful technique
+00:00:48.420 we could employ is Modal Interchange, or the borrowing of chords from parallel modes.
+00:00:54.579 We refer to two different modes as being "parallel" to one another when they share the same
+00:00:59.230 tonic, or home pitch. For example C Major and C minor.
+00:01:03.329 Since these are different modes, they contain different diatonic chords.
+00:01:07.540 This is where the magic happens. So our song is in C major,
+00:01:10.799 but how would it sound if we took a chord from the parallel minor and inserted it into our major chord progression?
+00:01:24.810 Pretty cool! That II-7(b5) chord injects just a little taste of Aeolian at a specific moment
+00:01:32.040 into our progression. And that's just one example.
+00:01:34.110 We can get different sounds depending on which chords we borrow and in what context we put them. Let's try another one.
+00:01:47.280 Modal interchange can help us to capture a wide range of highly specific
+00:01:51.509 emotions and atmospheres with our harmony. Now that we have the basic concept down, it's time to take it to the next level.
+00:01:58.140 Here are the diatonic chords from the seven modern modes all running parallel to one another. Not only can we borrow chords from the parallel minor,
+00:02:05.429 we can borrow any chords from any parallel modes. You can probably already imagine the number of possibilities here is massive.
+00:02:12.870 Let's try borrowing one of Phrygian's chords for that progression of ours.
+00:02:24.180 So that was an Ionian chord progression that used both Aeolian and Phrygian modal interchange chords.
+00:02:30.170 We can make this stuff as complex
+00:02:32.000 or as simple as we want.
+00:02:33.700 And modal interchange is not limited to using borrowed chords only in major key progressions.
+00:02:38.569 Here's a Dorian progression that uses a modal interchange chord from Locrian.
+00:02:49.620 Now, how do we know what notes to use in our melodies on top of all these crazy chords? Well, this can actually get pretty
+00:02:56.310 intricate, but for the purposes of this video,
+00:02:58.340 we'll do the quick and dirty version. You want to simply stay in the mode from which any given chord is derived.
+00:03:04.439 Let's go back to that
+00:03:05.669 Ionian progression with borrowed chords from Aeolian and Phrygian. Since the I, IVmaj7(#11), and Imaj7 chords are
+00:03:13.680 diatonic to C Ionian, our melody over these chords will draw from the pitches of the C Ionian scale. Again,
+00:03:20.000 we can make these things as complex or as simple as we want. Let's try something like this.
+00:03:24.780 Now, since we borrowed the bVII chord from C Aeolian, our melody will use the pitches of the C Aeolian scale for the duration
+00:03:31.729 of this chord
+00:03:33.150 And finally, since our bIImaj7 chord was borrowed from C Phrygian, our melody here will use the pitches of the C Phrygian scale.
+00:03:40.739 Altogether, we have an effective melody that moves through several different colors while working well with our harmonic progression.
+00:03:54.130 So, modal interchange really opens the door to a huge landscape of both harmonic and melodic possibilities. Now,
+00:04:01.350 we've really only scratched the surface in this video,
+00:04:03.480 so I recommend spending some time just playing around and exploring all these options.
+00:04:08.080 Eventually, you'll find yourself with a pretty robust sonic palette. If you enjoyed this video and are interested in learning more about anything in the
+00:04:14.550 wide world of music, I do one-on-one Skype lessons.
+00:04:17.380 Just message or email me to learn more about that, and feel free to ask questions in the comments below as well.

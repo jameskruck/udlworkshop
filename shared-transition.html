@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDL Plus One Workshop - Transition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+<!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Lesson</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-blue-600 font-medium">Enhanced Lesson Options</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Initial Reflection -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold mb-4">Reflecting on Your Experience</h2>
+            <p class="mb-4">You've just experienced a lesson presented in a traditional, single-mode format. Before moving forward, consider:</p>
+            <ul class="list-disc pl-6 mb-4">
+                <li>How comfortable were you with the way the information was presented?</li>
+                <li>Did you find anything challenging about the format?</li>
+                <li>What might have made the learning experience more effective for you?</li>
+            </ul>
+        </div>
+
+        <!-- Looking Ahead -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h2 class="text-xl font-bold mb-4">What Comes Next</h2>
+            <p class="mb-4">Next, you'll experience the same content presented through multiple modes of learning. You'll have the opportunity to:</p>
+            <ul class="list-disc pl-6 mb-4">
+                <li>Engage with the content in different ways</li>
+                <li>Choose how you want to interact with the material</li>
+                <li>Demonstrate your understanding through various methods</li>
+            </ul>
+            <p class="mb-4">This enhanced version isn't meant to represent a single lesson - instead, it showcases various ways you might adapt your own teaching using the Plus One approach.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-4">Continue Your Learning Journey</h3>
+            <p class="mb-4">Select the same topic you explored earlier to see how it can be enhanced with UDL principles:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="udl-enhanced-music.html" class="block bg-blue-100 hover:bg-blue-200 p-4 rounded shadow">
+                    <h4 class="text-lg font-medium">Music Theory: Modal Interchange</h4>
+                    <p>Experience how multiple representations can help clarify complex musical concepts.</p>
+                </a>
+                <a href="udl-enhanced-statistics.html" class="block bg-green-100 hover:bg-green-200 p-4 rounded shadow">
+                    <h4 class="text-lg font-medium">Statistics: Chi-Square Test</h4>
+                    <p>Explore the chi-square test through various modes of representation and engagement.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex mt-6">
+            <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors duration-200">Back</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

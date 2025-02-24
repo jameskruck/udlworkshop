@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDL-Enhanced Statistics Assessment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<!-- Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>Workshop Home</li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Lesson</span>
+                </li>
+                  <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Enhanced Lesson Options</span>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Enhanced Lesson</span>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-blue-600 font-medium">Enhanced Assessment</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Introduction -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold mb-4">Demonstrating Understanding: Multiple Approaches</h2>
+            <p class="mb-4">Now that you've explored chi-square testing through multiple representations, you have several options for demonstrating your understanding. Choose the methods that best suit your preferences.</p>
+            
+            <div class="bg-blue-50 p-4 rounded mb-4">
+                <h3 class="font-medium mb-2">Choose Your Assessment Methods:</h3>
+                <ul class="list-disc pl-6">
+                    <li>Analyze interactive visualizations of statistical data</li>
+                    <li>Work through a real-world scenario</li>
+                    <li>Create a video explanation</li>
+                    <li>Engage in peer feedback</li>
+                    <li>Build a concept map showing relationships between key ideas</li>
+                </ul>
+                <p class="mt-2 text-sm text-blue-800">Note: You don't need to complete all options - choose those that best help you demonstrate your understanding.</p>
+            </div>
+
+            <!-- Jump Navigation -->
+            <div class="mt-6 border-t pt-4">
+                <button 
+                    onclick="document.getElementById('section-list').classList.toggle('hidden')"
+                    class="w-full md:w-auto flex items-center justify-between bg-gray-100 p-3 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                    aria-expanded="false"
+                    aria-controls="section-list"
+                >
+                    <span class="font-medium">Jump to an assessment option</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                
+                <nav id="section-list" class="hidden mt-2 p-3 bg-white rounded-lg shadow-sm border border-gray-200" aria-label="Assessment options">
+                    <ul class="space-y-2">
+                        <li><a href="#data-analysis" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Interactive Data Analysis</a></li>
+                        <li><a href="#scenario" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Study Habits Scenario</a></li>
+                        <li><a href="#video" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Video Explanation</a></li>
+                        <li><a href="#peer-feedback" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Peer Feedback</a></li>
+                        <li><a href="#concept-map" class="block p-2 text-gray-700 hover:bg-gray-50 rounded">Concept Map</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Interactive Data Analysis -->
+        <div id="data-analysis" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Interactive Data Analysis</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Explore how observed values differ from expected values in a real dataset.</p>
+            </div>
+            <div id="contingency-explorer"></div>
+        </div>
+
+        <!-- Scenario Analysis -->
+        <div id="scenario" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Study Habits Scenario</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Apply chi-square concepts to analyze a real-world research question.</p>
+            </div>
+            <div id="statistics-assessment"></div>
+        </div>
+                
+       <!-- Video Explanation -->
+        <div id="video" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Video Explanation</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Create a short video explaining key concepts in your own words.</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <p class="mb-4">Record a 1-2 minute video explaining how to interpret a p-value from a chi-square test. Include:</p>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>What a p-value represents</li>
+                    <li>How to interpret different p-values (e.g., 0.03 vs 0.20)</li>
+                    <li>A real-world example</li>
+                </ul>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-center w-full">
+                                <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-50">
+                                    <svg class="w-8 h-8 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                    </svg>
+                                    <span class="mt-2 text-base leading-normal">Upload Video</span>
+                                    <input type='file' class="hidden" accept="video/*" />
+                                </label>
+                            </div>
+                            <p class="text-sm text-gray-600 text-center">Supported formats: MP4, MOV, WEBM</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Peer Feedback -->
+                <section class="mb-8">
+                    <h3 class="text-lg font-medium mb-3">4. Peer Feedback Exchange</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold mb-2">When Explaining:</h4>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Define chi-square test clearly</li>
+                                    <li>Walk through the interpretation steps</li>
+                                    <li>Use the study habits example</li>
+                                    <li>Connect to real-world implications</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">When Providing Feedback:</h4>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Was the explanation clear?</li>
+                                    <li>Were statistical terms used correctly?</li>
+                                    <li>What could make it more understandable?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <textarea 
+                            class="w-full mt-4 p-3 border rounded-lg" 
+                            rows="4"
+                            placeholder="Type your feedback here..."
+                        ></textarea>
+                    </div>
+                </section>
+                
+        <!-- Concept Map -->
+        <div id="concept-map" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Concept Map Builder</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Create a visual representation of how key statistical concepts relate to each other.</p>
+            </div>
+            <div id="concept-map-container"></div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-6">
+            <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+            <a href="udl-three-principles.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        </div>
+    </main>
+
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Component Scripts -->
+<script type="text/babel">
+// Get React hooks from the React object
+const { useState, useRef, useEffect } = React;
+
+// Concept Map Builder Component
+const ConceptMapBuilder = () => {
+  const [terms, setTerms] = useState([
+    { id: 1, text: 'Categorical Variables', x: 150, y: 100 },
+    { id: 2, text: 'Contingency Table', x: 400, y: 100 },
+    { id: 3, text: 'Expected Frequency', x: 650, y: 100 },
+    { id: 4, text: 'P-value', x: 150, y: 250 },
+    { id: 5, text: 'Null Hypothesis', x: 400, y: 250 },
+    { id: 6, text: 'Chi-Square Value', x: 650, y: 250 }
+  ]);
+
+  const [connections, setConnections] = useState([]);
+  const [activeConnection, setActiveConnection] = useState(null);
+  const [draggingTerm, setDraggingTerm] = useState(null);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const svgRef = useRef(null);
+
+  // Handle term dragging
+const handleMouseDown = (e, term) => {
+  e.preventDefault();
+  e.stopPropagation();
+
+  const svg = svgRef.current.getBoundingClientRect();
+
+  setOffset({
+    x: e.clientX - svg.left - term.x,
+    y: e.clientY - svg.top - term.y
+  });
+
+  setDraggingTerm(term);
+};
+
+
+const handleMouseMove = (e) => {
+  if (!draggingTerm) return; // Stop if nothing is being dragged
+
+  const svg = svgRef.current.getBoundingClientRect();
+  const newX = Math.max(60, Math.min(e.clientX - svg.left - offset.x, svg.width - 60));
+  const newY = Math.max(20, Math.min(e.clientY - svg.top - offset.y, svg.height - 20));
+
+  setTerms(prevTerms =>
+    prevTerms.map(term =>
+      term.id === draggingTerm.id ? { ...term, x: newX, y: newY } : term
+    )
+  );
+};
+
+
+  const handleMouseUp = () => {
+    setDraggingTerm(null);
+  };
+
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      if (draggingTerm) {
+        handleMouseMove(e);
+      }
+    };
+
+    const handleGlobalMouseUp = () => {
+      if (draggingTerm) {
+        handleMouseUp();
+      }
+    };
+
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+    window.addEventListener('mouseup', handleGlobalMouseUp);
+
+    return () => {
+      window.removeEventListener('mousemove', handleGlobalMouseMove);
+      window.removeEventListener('mouseup', handleGlobalMouseUp);
+    };
+  }, [draggingTerm]);
+
+  const startConnection = (term) => {
+    setActiveConnection({ 
+      start: { x: term.x, y: term.y }, 
+      startTerm: term,
+      end: { x: term.x, y: term.y }
+    });
+  };
+
+  const endConnection = (endTerm) => {
+    if (activeConnection && activeConnection.startTerm.id !== endTerm.id) {
+      const label = prompt('Enter a label for this connection (e.g., "is used to create", "helps determine"):');
+      if (label) {
+        setConnections([
+          ...connections,
+          {
+            start: activeConnection.startTerm,
+            end: endTerm,
+            label
+          }
+        ]);
+      }
+    }
+    setActiveConnection(null);
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto w-full p-4 bg-white rounded-lg shadow">
+      <div className="mb-4 bg-blue-50 p-4 rounded">
+        <h3 className="text-lg font-bold mb-2">Build Your Concept Map:</h3>
+        <ul className="list-disc pl-6 text-sm space-y-1">
+          <li>Drag terms around to organize them</li>
+          <li>Double-click a term to start a connection</li>
+          <li>Click another term to complete the connection</li>
+          <li>Add descriptive labels to show relationships</li>
+        </ul>
+      </div>
+
+      <svg 
+        ref={svgRef}
+        className="w-full h-96 border rounded bg-gray-50"
+        onMouseMove={handleMouseMove}
+      >
+        {connections.map((conn, i) => (
+          <g key={i}>
+            <line 
+              x1={conn.start.x} 
+              y1={conn.start.y}
+              x2={conn.end.x} 
+              y2={conn.end.y}
+              stroke="#2563eb"
+              strokeWidth="2"
+            />
+            <text
+              x={(conn.start.x + conn.end.x) / 2}
+              y={(conn.start.y + conn.end.y) / 2 - 10}
+              textAnchor="middle"
+              className="text-sm"
+              fill="#4b5563"
+              backgroundColor="#ffffff"
+            >
+              {conn.label}
+            </text>
+          </g>
+        ))}
+        
+        {activeConnection && (
+          <line
+            x1={activeConnection.start.x}
+            y1={activeConnection.start.y}
+            x2={activeConnection.end.x}
+            y2={activeConnection.end.y}
+            stroke="#2563eb"
+            strokeWidth="2"
+            strokeDasharray="5,5"
+          />
+        )}
+
+        {terms.map(term => (
+          <g 
+            key={term.id}
+            transform={`translate(${term.x},${term.y})`}
+            onMouseDown={(e) => handleMouseDown(e, term)}
+            onDoubleClick={() => startConnection(term)}
+            onClick={() => activeConnection && endConnection(term)}
+            style={{ cursor: draggingTerm ? 'grabbing' : 'grab' }}
+          >
+            <rect
+              x="-75"
+              y="-25"
+              width="150"
+              height="50"
+              rx="25"
+              fill="#dbeafe"
+              stroke="#2563eb"
+              className="transition-colors hover:fill-blue-200"
+            />
+            <text
+              x="0"
+              y="0"
+              textAnchor="middle"
+              dominantBaseline="middle"
+              className="text-sm font-medium select-none pointer-events-none"
+            >
+              {term.text}
+            </text>
+          </g>
+        ))}
+      </svg>
+
+      <div className="mt-4 space-y-2">
+        <div className="flex justify-between items-center">
+          <button 
+            className="px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+            onClick={() => setConnections([])}
+          >
+            Clear Connections
+          </button>
+          <button 
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            onClick={() => {
+              alert('Concept map saved!');
+            }}
+          >
+            Save Map
+          </button>
+        </div>
+        
+        <div className="text-sm text-gray-600 bg-gray-50 p-3 rounded">
+          <p className="font-medium">Tip:</p>
+          <p>Try to show how these concepts relate to each other. For example:</p>
+          <p>"Categorical Variables → are organized in → Contingency Table"</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Statistics Assessment Component
+const StatisticsAssessment = () => {
+  const [responses, setResponses] = useState({
+    hypothesis: '',
+    interpretation: '',
+    conclusion: ''
+  });
+  const [feedback, setFeedback] = useState({});
+  const [showHints, setShowHints] = useState(false);
+
+  const handleResponseChange = (field, value) => {
+    setResponses(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const checkResponses = () => {
+    const newFeedback = {};
+    
+    if (responses.hypothesis.toLowerCase().includes('no relationship') || 
+        responses.hypothesis.toLowerCase().includes('independent')) {
+      newFeedback.hypothesis = 'good';
+    } else {
+      newFeedback.hypothesis = 'review';
+    }
+    
+    if (responses.interpretation.toLowerCase().includes('0.03') && 
+        responses.interpretation.toLowerCase().includes('reject')) {
+      newFeedback.interpretation = 'good';
+    } else {
+      newFeedback.interpretation = 'review';
+    }
+    
+    if (responses.conclusion.toLowerCase().includes('relationship') || 
+        responses.conclusion.toLowerCase().includes('associated')) {
+      newFeedback.conclusion = 'good';
+    } else {
+      newFeedback.conclusion = 'review';
+    }
+    
+    setFeedback(newFeedback);
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <section className="mb-8">
+          <div className="p-4 bg-blue-50 rounded mb-4">
+            <p className="mb-2">A researcher is investigating whether study habits affect test performance. Data from 80 students:</p>
+            <ul className="list-disc ml-6 mb-2">
+              <li>40 students used a study group</li>
+              <li>40 students studied independently</li>
+              <li>Test scores were categorized as "High" or "Low"</li>
+            </ul>
+            <p>The chi-square test yielded a p-value of 0.03.</p>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <label className="block font-semibold mb-2" htmlFor="hypothesis">
+                1. State your null and alternative hypotheses:
+              </label>
+              <textarea
+                id="hypothesis"
+                className="w-full p-2 border rounded"
+                rows="3"
+                value={responses.hypothesis}
+                onChange={(e) => handleResponseChange('hypothesis', e.target.value)}
+                placeholder="H₀: ... 
+H₁: ..."
+                aria-describedby={feedback.hypothesis === 'review' ? 'hypothesis-feedback' : undefined}
+              />
+              {feedback.hypothesis === 'review' && (
+                <p id="hypothesis-feedback" className="mt-2 text-orange-600">
+                  Remember: The null hypothesis typically states there is no relationship between variables.
+                </p>
+              )}
+            </div>
+
+            <div>
+              <label className="block font-semibold mb-2" htmlFor="interpretation">
+                2. Interpret the p-value of 0.03:
+              </label>
+              <textarea
+                id="interpretation"
+                className="w-full p-2 border rounded"
+                rows="3"
+                value={responses.interpretation}
+                onChange={(e) => handleResponseChange('interpretation', e.target.value)}
+                placeholder="The p-value of 0.03 indicates..."
+                aria-describedby={feedback.interpretation === 'review' ? 'interpretation-feedback' : undefined}
+              />
+              {feedback.interpretation === 'review' && (
+                <p id="interpretation-feedback" className="mt-2 text-orange-600">
+                  Consider: How does 0.03 compare to the typical significance level of 0.05?
+                </p>
+              )}
+            </div>
+
+            <div className="flex space-x-4">
+              <button 
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                onClick={checkResponses}
+              >
+                Check Responses
+              </button>
+              <button 
+                className="px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200"
+                onClick={() => setShowHints(!showHints)}
+                aria-expanded={showHints}
+              >
+                {showHints ? 'Hide Hints' : 'Show Hints'}
+              </button>
+            </div>
+
+            {showHints && (
+              <div className="mt-4 p-4 bg-gray-50 rounded" role="region" aria-label="Helpful hints">
+                <h4 className="font-bold mb-2">Helpful Hints:</h4>
+                <ul className="list-disc ml-6 space-y-2">
+                  <li>Null hypothesis typically assumes no relationship between variables</li>
+                  <li>P-value less than 0.05 suggests strong evidence against the null hypothesis</li>
+                  <li>Consider practical implications for students and educators</li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+// Contingency Table Explorer Component
+const ContingencyExplorer = () => {
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [selectedCells, setSelectedCells] = useState([]);
+  
+const data = {
+  observed: {
+    'Study Group/High Score': 38,
+    'Study Group/Low Score': 2,
+    'No Study/High Score': 18,
+    'No Study/Low Score': 22
+  },
+  expected: {
+    'Study Group/High Score': 28,
+    'Study Group/Low Score': 12,
+    'No Study/High Score': 22,
+    'No Study/Low Score': 18
+  }
+};
+
+
+  const getDifference = (category) => Math.abs(data.observed[category] - data.expected[category]);
+
+  const getCellColor = (category) => {
+    const diff = getDifference(category);
+    const intensity = Math.min(diff * 10, 100);
+    return `rgba(66, 135, 245, ${intensity / 100})`;
+  };
+
+  const handleCellClick = (category) => {
+    setSelectedCells(prev =>
+      prev.includes(category) ? prev.filter(cell => cell !== category) : [...prev, category]
+    );
+  };
+
+  const checkAnswer = () => setShowFeedback(true);
+
+  return (
+    <div className="p-6 max-w-4xl mx-auto">
+      <h2 className="text-xl font-bold mb-4">Explore the Differences</h2>
+      <p className="mb-4">Click on the cells where you see the largest differences between observed and expected frequencies.</p>
+      
+      <div className="grid grid-cols-3 gap-4 mb-6">
+        <div></div>
+        <div className="text-center font-bold">High Score</div>
+        <div className="text-center font-bold">Low Score</div>
+        
+        {['Study Group', 'No Study'].map(row => (
+          <>
+            <div className="font-bold">{row}</div>
+            {['High Score', 'Low Score'].map(col => {
+              const category = `${row}/${col}`;
+              return (
+                <div 
+                  key={category}
+                  className={`p-4 border rounded cursor-pointer ${
+                    selectedCells.includes(category) ? 'ring-2 ring-blue-500' : ''
+                  }`}
+                  style={{ backgroundColor: getCellColor(category) }}
+                  onClick={() => handleCellClick(category)}
+                >
+                  <div className="font-bold">Observed: {data.observed[category]}</div>
+                  <div>Expected: {data.expected[category]}</div>
+                  <div>Difference: {getDifference(category)}</div>
+                </div>
+              );
+            })}
+          </>
+        ))}
+      </div>
+
+      <button 
+        className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        onClick={checkAnswer}
+      >
+        Check Answer
+      </button>
+
+      {showFeedback && (
+        <div className="mt-4 p-4 bg-gray-100 rounded">
+          <p>The largest differences are in:</p>
+          <ul className="list-disc ml-6">
+      <li>Study Group/High Score: Difference of +10 (more than expected)</li>
+      <li>Study Group/Low Score: Difference of -10 (fewer than expected)</li>
+      <li>No Study/High Score: Difference of -4 (fewer than expected)</li>
+      <li>No Study/Low Score: Difference of +4 (more than expected)</li>
+          </ul>
+    <p className="mt-2">
+Statistical analysis confirms that studying in a group significantly improves test performance.More students than expected got high scores when studying in a group, while fewer than expected struggled.  
+      Meanwhile, students who didn’t study in a group were slightly more likely to struggle.  
+      These results suggest a strong association between group study and better test performance.
+    </p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Render Components
+ReactDOM.render(<ContingencyExplorer />, document.getElementById('contingency-explorer'));
+ReactDOM.render(<StatisticsAssessment />, document.getElementById('statistics-assessment'));
+ReactDOM.render(<ConceptMapBuilder />, document.getElementById('concept-map'));
+</script>
+</body>
+</html>
