@@ -3,39 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDL Plus One Workshop - Transition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>UDL Plus One Workshop - Transition - James Kruck, PhD</title>
+    <meta name="description" content="Transition between learning experiences in the UDL Plus One Workshop to explore enhanced learning options.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
-<!-- Header -->
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
+                        <a href="shared-transition.html" class="text-blue-600 font-medium" aria-current="page">Transition</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
+                <a href="shared-transition.html" class="text-blue-600 font-medium py-2 px-3 rounded-md bg-blue-50">Transition</a>
+            </div>
+        </div>
+    </nav>
     
-    <!-- Navigation -->
+    <!-- Breadcrumb Navigation -->
     <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <ol class="flex items-center space-x-2 text-sm text-gray-600">
                 <li>
-                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                    <a href="index.html" class="hover:text-gray-900 text-link">Workshop Home</a>
                 </li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Lesson</a>
+                    <a href="#" onclick="history.back()" class="hover:text-gray-900 text-link">Lesson</a>
                 </li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                     <span class="text-blue-600 font-medium">Enhanced Lesson Options</span>
@@ -44,58 +71,188 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero hero-blue" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">UDL Enhanced Learning Experience</h1>
+                <p class="text-xl text-gray-800 mb-6">
+                    Moving from traditional presentation to multiple modes of engagement and representation.
+                </p>
+                <div class="flex flex-wrap gap-3" aria-label="Page focus areas">
+                    <span class="tag tag-blue">Reflection</span>
+                    <span class="tag tag-green">Enhanced Learning</span>
+                    <span class="tag tag-purple">Multiple Modalities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <!-- Initial Reflection -->
-        <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="content-section">
             <h2 class="text-2xl font-bold mb-4">Reflecting on Your Experience</h2>
             <p class="mb-4">You've just experienced a lesson presented in a traditional, single-mode format. Before moving forward, consider:</p>
-            <ul class="list-disc pl-6 mb-4">
-                <li>How comfortable were you with the way the information was presented?</li>
-                <li>Did you find anything challenging about the format?</li>
-                <li>What might have made the learning experience more effective for you?</li>
+            <ul class="space-y-2 ml-6">
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>How comfortable were you with the way the information was presented?</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Did you find anything challenging about the format?</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>What might have made the learning experience more effective for you?</span>
+                </li>
             </ul>
         </div>
 
         <!-- Looking Ahead -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h2 class="text-xl font-bold mb-4">What Comes Next</h2>
+        <div class="content-section">
+            <h2 class="text-xl font-semibold mb-4">What Comes Next</h2>
             <p class="mb-4">Next, you'll experience the same content presented through multiple modes of learning. You'll have the opportunity to:</p>
-            <ul class="list-disc pl-6 mb-4">
-                <li>Engage with the content in different ways</li>
-                <li>Choose how you want to interact with the material</li>
-                <li>Demonstrate your understanding through various methods</li>
-            </ul>
+            
+            <div class="info-box info-box-blue mb-6">
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Engage with the content in different ways</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Choose how you want to interact with the material</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Demonstrate your understanding through various methods</span>
+                    </li>
+                </ul>
+            </div>
+            
             <p class="mb-4">This enhanced version isn't meant to represent a single lesson - instead, it showcases various ways you might adapt your own teaching using the Plus One approach.</p>
         </div>
 
         <!-- Navigation -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-4">Continue Your Learning Journey</h3>
-            <p class="mb-4">Select the same topic you explored earlier to see how it can be enhanced with UDL principles:</p>
+        <div class="content-section">
+            <h3 class="text-xl font-semibold mb-4">Continue Your Learning Journey</h3>
+            <p class="mb-6">Select the same topic you explored earlier to see how it can be enhanced with UDL principles:</p>
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="udl-enhanced-music.html" class="block bg-blue-100 hover:bg-blue-200 p-4 rounded shadow">
-                    <h4 class="text-lg font-medium">Music Theory: Modal Interchange</h4>
-                    <p>Experience how multiple representations can help clarify complex musical concepts.</p>
+                <a href="udl-enhanced-music.html" class="learning-card block p-6 rounded-lg">
+                    <div class="mb-3">
+                        <span class="tag tag-purple">Music Theory</span>
+                        <span class="tag tag-blue">Enhanced Learning</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Modal Interchange</h4>
+                    <p class="text-gray-700 mb-4">
+                        Experience how multiple representations can help clarify complex musical concepts.
+                    </p>
+                    <div class="flex justify-end">
+                        <span class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition">
+                            Explore enhanced version
+                            <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
                 </a>
-                <a href="udl-enhanced-statistics.html" class="block bg-green-100 hover:bg-green-200 p-4 rounded shadow">
-                    <h4 class="text-lg font-medium">Statistics: Chi-Square Test</h4>
-                    <p>Explore the chi-square test through various modes of representation and engagement.</p>
+                
+                <a href="udl-enhanced-statistics.html" class="learning-card block p-6 rounded-lg">
+                    <div class="mb-3">
+                        <span class="tag tag-green">Statistics</span>
+                        <span class="tag tag-orange">Enhanced Learning</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Chi-Square Test</h4>
+                    <p class="text-gray-700 mb-4">
+                        Explore the chi-square test through various modes of representation and engagement.
+                    </p>
+                    <div class="flex justify-end">
+                        <span class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition">
+                            Explore enhanced version
+                            <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
                 </a>
             </div>
         </div>
 
         <!-- Navigation Buttons -->
-        <div class="flex mt-6">
-            <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors duration-200">Back</a>
+        <div class="flex mt-6 mb-8">
+            <a href="#" onclick="history.back()" class="nav-button nav-button-secondary">
+                <svg class="button-icon button-icon-left" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Previous Lesson
+            </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 mt-12 py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="scroll-top-btn bg-blue-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,60 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDL-Enhanced Statistics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>UDL-Enhanced Statistics - James Kruck, PhD</title>
+    <meta name="description" content="Enhanced statistics lesson on chi-square test with multiple modes of representation, engagement, and expression.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
+                        <a href="shared-transition.html" class="text-gray-700 hover:text-blue-600 transition">Transition</a>
+                        <a href="udl-enhanced-statistics.html" class="text-green-600 font-medium" aria-current="page">Enhanced Statistics</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
+                <a href="shared-transition.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Transition</a>
+                <a href="udl-enhanced-statistics.html" class="text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">Enhanced Statistics</a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Navigation -->
+    <!-- Breadcrumb Navigation -->
     <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <ol class="flex items-center space-x-2 text-sm text-gray-600">
                 <li>
-                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                    <a href="index.html" class="hover:text-gray-900 text-link">Workshop Home</a>
                 </li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Lesson</a>
+                    <a href="statistics.html" class="hover:text-gray-900 text-link">Statistics</a>
                 </li>
-                                <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <a href="#" onclick="history.back()" class="hover:text-gray-900">Enhanced Lesson Options</a>
+                    <a href="shared-transition.html" class="hover:text-gray-900 text-link">Enhanced Options</a>
                 </li>
-            <li class="flex items-center">
-                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-                <span class="text-blue-600 font-medium">Enhanced Lesson</span>
-            </li>
-        </ol>
-    </div>
-</nav>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-green-600 font-medium">Enhanced Statistics</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-green" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">UDL-Enhanced: Chi-Square Test</h1>
+                <p class="text-xl text-gray-800 mb-6">
+                    Multiple ways to engage with statistical concepts through different modes of representation and engagement.
+                </p>
+                <div class="flex flex-wrap gap-3" aria-label="Enhancement focuses">
+                    <span class="tag tag-green">Multiple Representations</span>
+                    <span class="tag tag-blue">Real-World Applications</span>
+                    <span class="tag tag-purple">Visual Learning</span>
+                    <span class="tag tag-orange">Interactive Tools</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Content -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <!-- Introduction -->
-        <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="content-section">
             <h2 class="text-2xl font-bold mb-4">UDL Enhancements: Chi-Square Test</h2>
             <p class="mb-4">Below are several ways you could enhance the original text-based lesson using the Plus One approach. Each section represents a different way to make the content more accessible and engaging. Adding any one of these options to your original lesson would be an example of applying the Plus One principle.</p>
             <p class="mb-4 text-gray-600">Note: These are separate examples - you wouldn't necessarily use all of them at once. Choose the enhancement that best serves your learning objectives and student needs.</p>
@@ -87,60 +134,97 @@
         </div>
 
         <!-- Real World Connection -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 id="real-world" class="text-lg font-bold mb-3">Enhancement Option 1: Real World Connection</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Plus One Focus: Adding relatable examples to help students connect abstract statistical concepts to everyday situations.</p>
+        <div class="content-section">
+            <h3 id="real-world" class="text-xl font-semibold mb-4">Enhancement Option 1: Real World Connection</h3>
+            <div class="info-box info-box-green mb-4">
+                <p class="text-sm text-green-800">Plus One Focus: Adding relatable examples to help students connect abstract statistical concepts to everyday situations.</p>
             </div>
             <p class="mb-4">Imagine you're wondering if there's a connection between two things - like whether people's ice cream flavor preferences are related to their age group. Are certain flavors more popular with certain age groups, or is it just random? The chi-square test helps us figure this out.</p>
+            
+            <p class="mb-4">For example, if we observe that:</p>
+            <ul class="space-y-2 mb-4 ml-6">
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Young adults seem to prefer chocolate ice cream</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Older adults seem to prefer vanilla ice cream</span>
+                </li>
+            </ul>
+            <p class="mb-4">The chi-square test will tell us if this pattern is likely to be a real relationship or just a coincidence due to our small sample.</p>
         </div>
 
         <!-- Visual Representation -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 id="visual" class="text-lg font-bold mb-3">Enhancement Option 2: Visual Representation</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Plus One Focus: Adding visual diagrams to help learners understand the concept of expected versus observed frequencies.</p>
+        <div class="content-section">
+            <h3 id="visual" class="text-xl font-semibold mb-4">Enhancement Option 2: Visual Representation</h3>
+            <div class="info-box info-box-green mb-4">
+                <p class="text-sm text-green-800">Plus One Focus: Adding visual diagrams to help learners understand the concept of expected versus observed frequencies.</p>
             </div>
-            <img src="images/ice-cream-chi.png" alt="A visual representation of chi-square testing using ice cream cone choices to illustrate expected versus observed distributions." class="w-full rounded mb-4">
+            <img src="images/ice-cream-chi.png" alt="A visual representation of chi-square testing using ice cream cone choices to illustrate expected versus observed distributions." class="w-full rounded mb-4 border border-gray-200 shadow-sm">
             <p class="mb-4">The chi-square test tells us how different these two pictures are. The bigger the difference, the more likely age affects ice cream choice.</p>
+            
+            <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                <h4 class="font-medium mb-2 text-green-800">Key Concept: Expected vs. Observed</h4>
+                <p class="mb-2">The chi-square test compares:</p>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><strong>What we expect</strong> if the variables are independent (no relationship)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><strong>What we actually observe</strong> in our data</span>
+                    </li>
+                </ul>
+                <p class="mt-2">The greater the difference between these two, the stronger the evidence of a relationship.</p>
+            </div>
         </div>
 
-<!-- Video Demonstration -->
-<div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-    <h3 id="videos" class="text-lg font-bold mb-3">Enhancement Option 3: Video Demonstration</h3>
-    <div class="bg-blue-50 p-3 rounded mb-4">
-        <p class="text-sm text-blue-800">Plus One Focus: Adding step-by-step video explanation to support visual and auditory learners.</p>
-    </div>
-    
-    <!-- Two-column layout for Video and Transcript -->
-    <div class="grid md:grid-cols-2 gap-6">
-        
-        <!-- Video Column -->
-        <div>
-            <iframe 
-                class="w-full h-72 rounded shadow"
-                src="https://www.youtube.com/embed/tnmmCFv63s8"
-                title="Chi-Square Test Explanation"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <p class="mt-2 text-sm text-gray-600">Video explanation with step-by-step walkthrough</p>
-        </div>
+        <!-- Video Demonstration -->
+        <div class="content-section">
+            <h3 id="videos" class="text-xl font-semibold mb-4">Enhancement Option 3: Video Demonstration</h3>
+            <div class="info-box info-box-green mb-4">
+                <p class="text-sm text-green-800">Plus One Focus: Adding step-by-step video explanation to support visual and auditory learners.</p>
+            </div>
+            
+            <!-- Two-column layout for Video and Transcript -->
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <!-- Video Column -->
+                <div>
+                    <iframe 
+                        class="w-full h-72 rounded shadow"
+                        src="https://www.youtube.com/embed/tnmmCFv63s8"
+                        title="Chi-Square Test Explanation"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <p class="mt-2 text-sm text-gray-600">Video explanation with step-by-step walkthrough</p>
+                </div>
 
-        <!-- Transcript Column -->
-        <div class="bg-gray-100 p-4 rounded-lg shadow-sm h-72 overflow-auto">
-            <h3 class="text-lg font-bold mb-2">Transcript</h3>
+                <!-- Transcript Column -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm h-72 overflow-auto">
+                    <h3 class="text-lg font-medium mb-2">Transcript</h3>
 
-            <!-- Collapsible Transcript Toggle -->
-            <button onclick="document.getElementById('transcript-text').classList.toggle('hidden')" 
-                class="text-blue-600 hover:underline text-sm">
-                Show/Hide Transcript
-            </button>
+                    <!-- Collapsible Transcript Toggle -->
+                    <button onclick="document.getElementById('transcript-text').classList.toggle('hidden')" 
+                        class="text-blue-600 hover:underline text-sm">
+                        Show/Hide Transcript
+                    </button>
 
-            <!-- Scrollable Transcript -->
-            <pre id="transcript-text" class="text-gray-700 text-sm overflow-auto max-h-56 p-2 bg-white rounded border border-gray-300 hidden">
-                <!-- Insert transcript text here -->
+                    <!-- Scrollable Transcript -->
+                    <pre id="transcript-text" class="text-gray-700 text-sm overflow-auto max-h-56 p-2 bg-white rounded border border-gray-300 hidden">
+                        <!-- Insert transcript text here -->
 00:00:00.000 hey everybody today we're getting into
 00:00:01.680 the chi-squared test for homogeneity
 00:00:03.560 we're in this situation where we're
@@ -220,183 +304,261 @@
 00:02:53.320 young people and old people are
 00:02:55.090 different in their opinions about
 00:02:56.440 working from home
-            </pre>
+                    </pre>
 
-            <!-- Open in New Tab Option -->
-            <p class="mt-2">
-                <a href="transcriptstats.txt" 
-                   target="_blank" 
-                   class="bg-gray-600 text-white px-3 py-2 rounded hover:bg-gray-700 text-sm">
-                   Open in New Tab
-                </a>
-            </p>
-        </div>
-
-    </div>
-</div>
-
+                    <!-- Open in New Tab Option -->
+                    <p class="mt-2">
+                        <a href="transcriptstats.txt" 
+                           target="_blank" 
+                           class="nav-button nav-button-secondary">
+                           Open in New Tab
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
 
         <!-- Interactive Calculator -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 id="interactive" class="text-lg font-bold mb-3">Enhancement Option 4: Interactive Calculator</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Plus One Focus: Adding hands-on interaction to help learners experiment with and understand how the chi-square calculation works.</p>
+        <div class="content-section">
+            <h3 id="interactive" class="text-xl font-semibold mb-4">Enhancement Option 4: Interactive Calculator</h3>
+            <div class="info-box info-box-green mb-4">
+                <p class="text-sm text-green-800">Plus One Focus: Adding hands-on interaction to help learners experiment with and understand how the chi-square calculation works.</p>
             </div>
             <p class="mb-4">Use this interactive tool to explore how chi-square tests work. Try adjusting the numbers in the table below to see how they affect the chi-square value. The bigger the difference between what we observe and what we expect, the stronger the relationship between age and ice cream choice.</p>
             <div id="chi-square-placeholder" class="bg-gray-100 p-6 rounded shadow mb-6"></div>
+            
+            <div class="bg-green-50 p-4 rounded-lg border border-green-100 mt-4">
+                <h4 class="font-medium mb-2 text-green-800">How to Use This Tool</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Click the + and - buttons to change the observed values</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Watch how the expected values and chi-square update automatically</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Try to create scenarios where the variables are clearly related vs. independent</span>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <!-- Navigation -->
-        <div class="flex justify-between mt-6">
-            <a href="shared-transition.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
-            <a href="udl-enhanced-assessment-statistics.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        <div class="flex justify-between mb-8">
+            <a href="shared-transition.html" class="nav-button nav-button-secondary">
+                <svg class="button-icon button-icon-left" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Options
+            </a>
+            <a href="udl-enhanced-assessment-statistics.html" class="nav-button nav-button-green">
+                Continue to Assessment
+                <svg class="button-icon button-icon-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 mt-12 py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
         </div>
     </footer>
 
- <script type="text/babel">
-    const { useState, useEffect } = React;
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="scroll-top-btn bg-green-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
 
-    const ChiSquareVisualizer = () => {
-        const [data, setData] = useState({
-            young: { vanilla: 20, chocolate: 30 },
-            old: { vanilla: 25, chocolate: 25 }
+    <!-- Common Scripts -->
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
         });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
-        const [expected, setExpected] = useState({});
-        const [chiSquare, setChiSquare] = useState(0);
-        const [relationship, setRelationship] = useState('');
+   <!-- Chi-Square Visualizer React Component -->
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-        useEffect(() => {
-            calculateExpected();
-        }, [data]);
-
-        const calculateExpected = () => {
-            const total = Object.values(data).reduce((acc, row) => 
-                acc + Object.values(row).reduce((sum, val) => sum + val, 0), 0);
-            
-            const rowTotals = {
-                young: Object.values(data.young).reduce((sum, val) => sum + val, 0),
-                old: Object.values(data.old).reduce((sum, val) => sum + val, 0)
-            };
-            
-            const colTotals = {
-                vanilla: data.young.vanilla + data.old.vanilla,
-                chocolate: data.young.chocolate + data.old.chocolate
-            };
-
-            const exp = {
-                young: {
-                    vanilla: (rowTotals.young * colTotals.vanilla) / total,
-                    chocolate: (rowTotals.young * colTotals.chocolate) / total
-                },
-                old: {
-                    vanilla: (rowTotals.old * colTotals.vanilla) / total,
-                    chocolate: (rowTotals.old * colTotals.chocolate) / total
-                }
-            };
-
-            setExpected(exp);
-
-            // Calculate chi-square
-            let chi = 0;
-            Object.keys(data).forEach(age => {
-                Object.keys(data[age]).forEach(flavor => {
-                    const o = data[age][flavor];
-                    const e = exp[age][flavor];
-                    chi += Math.pow(o - e, 2) / e;
-                });
+        const ChiSquareVisualizer = () => {
+            const [data, setData] = useState({
+                young: { vanilla: 20, chocolate: 30 },
+                old: { vanilla: 25, chocolate: 25 }
             });
 
-            setChiSquare(chi);
-            setRelationship(chi > 3.84 ? 'Likely Related' : 'Likely Independent');
-        };
+            const [expected, setExpected] = useState({});
+            const [chiSquare, setChiSquare] = useState(0);
+            const [relationship, setRelationship] = useState('');
 
-        const adjustValue = (age, flavor, change) => {
-            setData(prev => ({
-                ...prev,
-                [age]: {
-                    ...prev[age],
-                    [flavor]: Math.max(0, prev[age][flavor] + change)
-                }
-            }));
-        };
+            useEffect(() => {
+                calculateExpected();
+            }, [data]);
 
-        const getDifference = (age, flavor) => {
-            const diff = data[age][flavor] - expected[age]?.[flavor];
-            return diff ? diff.toFixed(1) : '0';
-        };
-
-        const getColor = (age, flavor) => {
-            const diff = Math.abs(data[age][flavor] - expected[age]?.[flavor]);
-            const intensity = Math.min(diff * 5, 100);
-            return `rgba(${diff > 0 ? '255,0,0' : '0,0,255'},${intensity/100})`;
-        };
-
-        return (
-            <div className="p-6 max-w-2xl mx-auto bg-white rounded-xl shadow-md">
-                <h2 className="text-xl font-bold mb-4">Ice Cream Preferences by Age Group</h2>
+            const calculateExpected = () => {
+                const total = Object.values(data).reduce((acc, row) => 
+                    acc + Object.values(row).reduce((sum, val) => sum + val, 0), 0);
                 
-                <div className="mb-6">
-                    <table className="w-full border-collapse">
-                        <thead>
-                            <tr>
-                                <th className="p-2"></th>
-                                <th className="p-2">Vanilla</th>
-                                <th className="p-2">Chocolate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {['young', 'old'].map(age => (
-                                <tr key={age}>
-                                    <td className="p-2 font-bold">{age === 'young' ? 'Young' : 'Older'}</td>
-                                    {['vanilla', 'chocolate'].map(flavor => (
-                                        <td key={flavor} className="p-2">
-                                            <div className="flex flex-col items-center p-2 rounded" 
-                                                style={{backgroundColor: getColor(age, flavor)}}>
-                                                <div className="flex space-x-2 mb-2">
-                                                    <button 
-                                                        className="px-2 bg-gray-200 rounded"
-                                                        onClick={() => adjustValue(age, flavor, -1)}>-</button>
-                                                    <span>{data[age][flavor]}</span>
-                                                    <button 
-                                                        className="px-2 bg-gray-200 rounded"
-                                                        onClick={() => adjustValue(age, flavor, 1)}>+</button>
-                                                </div>
-                                                <div className="text-sm">
-                                                    Expected: {expected[age]?.[flavor]?.toFixed(1)}
-                                                    <br/>
-                                                    Difference: {getDifference(age, flavor)}
-                                                </div>
-                                            </div>
-                                        </td>
-                                    ))}
+                const rowTotals = {
+                    young: Object.values(data.young).reduce((sum, val) => sum + val, 0),
+                    old: Object.values(data.old).reduce((sum, val) => sum + val, 0)
+                };
+                
+                const colTotals = {
+                    vanilla: data.young.vanilla + data.old.vanilla,
+                    chocolate: data.young.chocolate + data.old.chocolate
+                };
+
+                const exp = {
+                    young: {
+                        vanilla: (rowTotals.young * colTotals.vanilla) / total,
+                        chocolate: (rowTotals.young * colTotals.chocolate) / total
+                    },
+                    old: {
+                        vanilla: (rowTotals.old * colTotals.vanilla) / total,
+                        chocolate: (rowTotals.old * colTotals.chocolate) / total
+                    }
+                };
+
+                setExpected(exp);
+
+                // Calculate chi-square
+                let chi = 0;
+                Object.keys(data).forEach(age => {
+                    Object.keys(data[age]).forEach(flavor => {
+                        const o = data[age][flavor];
+                        const e = exp[age][flavor];
+                        chi += Math.pow(o - e, 2) / e;
+                    });
+                });
+
+                setChiSquare(chi);
+                setRelationship(chi > 3.84 ? 'Likely Related' : 'Likely Independent');
+            };
+
+            const adjustValue = (age, flavor, change) => {
+                setData(prev => ({
+                    ...prev,
+                    [age]: {
+                        ...prev[age],
+                        [flavor]: Math.max(0, prev[age][flavor] + change)
+                    }
+                }));
+            };
+
+            const getDifference = (age, flavor) => {
+                const diff = data[age][flavor] - expected[age]?.[flavor];
+                return diff ? diff.toFixed(1) : '0';
+            };
+
+            const getColor = (age, flavor) => {
+                const diff = Math.abs(data[age][flavor] - expected[age]?.[flavor]);
+                const intensity = Math.min(diff * 5, 100);
+                return `rgba(${diff > 0 ? '255,0,0' : '0,0,255'},${intensity/100})`;
+            };
+
+            return (
+                <div className="p-6 max-w-2xl mx-auto bg-white rounded-xl shadow-md">
+                    <h2 className="text-xl font-bold mb-4">Ice Cream Preferences by Age Group</h2>
+                    
+                    <div className="mb-6">
+                        <table className="w-full border-collapse">
+                            <thead>
+                                <tr>
+                                    <th className="p-2"></th>
+                                    <th className="p-2">Vanilla</th>
+                                    <th className="p-2">Chocolate</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-
-                <div className="text-center p-4 bg-gray-100 rounded">
-                    <div className="text-lg font-bold mb-2">
-                        Chi-Square Value: {chiSquare.toFixed(2)}
+                            </thead>
+                            <tbody>
+                                {['young', 'old'].map(age => (
+                                    <tr key={age}>
+                                        <td className="p-2 font-bold">{age === 'young' ? 'Young' : 'Older'}</td>
+                                        {['vanilla', 'chocolate'].map(flavor => (
+                                            <td key={flavor} className="p-2">
+                                                <div className="flex flex-col items-center p-2 rounded" 
+                                                    style={{backgroundColor: getColor(age, flavor)}}>
+                                                    <div className="flex space-x-2 mb-2">
+                                                        <button 
+                                                            className="px-2 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                            onClick={() => adjustValue(age, flavor, -1)}>-</button>
+                                                        <span>{data[age][flavor]}</span>
+                                                        <button 
+                                                            className="px-2 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+                                                            onClick={() => adjustValue(age, flavor, 1)}>+</button>
+                                                    </div>
+                                                    <div className="text-sm">
+                                                        Expected: {expected[age]?.[flavor]?.toFixed(1)}
+                                                        <br/>
+                                                        Difference: {getDifference(age, flavor)}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        ))}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
-                    <div className="text-lg">
-                        Interpretation: {relationship}
+
+                    <div className="text-center p-4 bg-gray-100 rounded">
+                        <div className="text-lg font-bold mb-2">
+                            Chi-Square Value: {chiSquare.toFixed(2)}
+                        </div>
+                        <div className="text-lg">
+                            Interpretation: {relationship}
+                        </div>
+                        <p className="mt-2 text-sm text-gray-600">Critical value at α=0.05 with 1 degree of freedom: 3.84</p>
                     </div>
                 </div>
-            </div>
-        );
-    };
+            );
+        };
 
-    ReactDOM.render(<ChiSquareVisualizer />, document.getElementById('chi-square-placeholder'));
-</script>
+        ReactDOM.render(<ChiSquareVisualizer />, document.getElementById('chi-square-placeholder'));
+    </script>
 </body>
 </html>

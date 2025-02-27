@@ -3,111 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plus One Planning</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Plus One Planning - James Kruck, PhD</title>
+    <meta name="description" content="Plan your UDL Plus One enhancement with this interactive planning tool for implementing Universal Design for Learning principles.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937; /* Darker text for better contrast */
+            line-height: 1.6;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Skip to content link for keyboard navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2563eb;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag-blue {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #1d4ed8; /* Darkened for better contrast */
+        }
+        
+        .tag-green {
+            background-color: rgba(16, 185, 129, 0.15); 
+            color: #047857; /* Darkened for better contrast */
+        }
+        
+        .tag-purple {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #6d28d9; /* Darkened for better contrast */
+        }
+        
+        .tag-orange {
+            background-color: rgba(249, 115, 22, 0.15);
+            color: #c2410c; /* Darkened for better contrast */
+        }
+        
+        .tag-yellow {
+            background-color: rgba(245, 158, 11, 0.15);
+            color: #92400e; /* Darkened for better contrast */
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        /* Increase text size for better readability */
+        p {
+            font-size: 1.0625rem;
+        }
+        
+        /* Improved link styling */
+        .text-link {
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+            padding: 2rem 0;
+        }
+
+        /* Content section styling */
+        .content-section {
+            margin-bottom: 2rem;
+        }
+        
+        /* Info box styling */
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-box-blue {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .info-box-green {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .info-box-purple {
+            background-color: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .info-box-yellow {
+            background-color: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* Scroll to top button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        /* Form elements */
+        input[type="text"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 0.625rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+        }
+        
+        input[type="text"]:focus, input[type="date"]:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        textarea {
+            min-height: 5rem;
+        }
+        
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: #3b82f6;
+            width: 1.25em;
+            height: 1.25em;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25em;
+            display: grid;
+            place-content: center;
+        }
+        
+        input[type="checkbox"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #3b82f6;
+            background-color: #3b82f6;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+        
+        input[type="checkbox"]:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Progress bar */
+        .progress-container {
+            width: 100%;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            height: 0.75rem;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: #3b82f6;
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+        }
+        
+        /* Save notification */
+        .save-notification {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #34d399;
+            border-radius: 0.375rem;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+            opacity: 0;
+            transform: translateY(1rem);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .save-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
+                        <a href="udl-three-principles.html" class="text-gray-700 hover:text-blue-600 transition">UDL Principles</a>
+                        <a href="plus-one-planning.html" class="text-blue-600 font-medium" aria-current="page">Planning Tool</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
-    </header>
-    <!-- Navigation -->
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
+                <a href="udl-three-principles.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Principles</a>
+                <a href="plus-one-planning.html" class="text-blue-600 font-medium py-2 px-3 rounded-md bg-blue-50">Planning Tool</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb Navigation -->
     <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <ol class="flex items-center space-x-2 text-sm text-gray-600">
-                <li>Workshop Home</li>
-                <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <span>Lesson</span>
-                </li>
-                  <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <span>Enhanced Lesson Options</span>
+            <ol class="flex items-center space-x-2 text-sm text-gray-600 flex-wrap">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900 text-link">Workshop Home</a>
                 </li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <span>Enhanced Lesson</span>
+                    <a href="#" class="hover:text-gray-900 text-link">Lesson</a>
                 </li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <span>Enhanced Assessment</span>
+                    <a href="#" class="hover:text-gray-900 text-link">Enhanced Lesson Options</a>
                 </li>
-                                <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <span>Three Core Principles</span>
+                    <a href="#" class="hover:text-gray-900 text-link">Enhanced Lesson</a>
                 </li>
-                                                <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <span class="text-blue-600 font-medium">Plus One Principle</span>
+                    <a href="#" class="hover:text-gray-900 text-link">Enhanced Assessment</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="udl-three-principles.html" class="hover:text-gray-900 text-link">Three Core Principles</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-blue-600 font-medium">Plus One Planning</span>
                 </li>
             </ol>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
-        <!-- Progress Bar -->
-        <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
-            <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">Plus One Planning Tool</h1>
+                <p class="text-xl text-gray-800 mb-6">
+                    Create your personalized plan for implementing UDL principles in your teaching through the practical Plus One approach.
+                </p>
+                <div class="flex flex-wrap gap-3" aria-label="Topic tags">
+                    <span class="tag tag-blue">Accessibility</span>
+                    <span class="tag tag-green">Implementation Planning</span>
+                    <span class="tag tag-purple">Educational Design</span>
+                    <span class="tag tag-orange">Practical Strategies</span>
+                </div>
             </div>
-            <p class="text-sm text-gray-600 mt-2 text-center">Progress will save automatically as you work</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Progress Bar -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-lg font-semibold mb-4">Your Planning Progress</h2>
+            <div class="progress-container mb-3">
+                <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+            </div>
+            <p class="text-sm text-gray-600 text-center">Your work will automatically save as you progress</p>
         </div>
 
         <!-- Introduction -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
             <h2 class="text-2xl font-bold mb-4">Planning Your Plus One Enhancement</h2>
-            <p class="mb-4">You've experienced UDL principles in action and learned about different ways to make learning more accessible. Now it's time to plan a specific enhancement for your own teaching.</p>
+            <p class="mb-6">You've experienced UDL principles in action and learned about different ways to make learning more accessible. Now it's time to plan a specific enhancement for your own teaching using the Plus One approach.</p>
             
-            <div class="bg-blue-50 p-4 rounded">
-                <h3 class="font-medium mb-2">Remember:</h3>
-                <ul class="list-disc pl-6">
-                    <li>Start small - choose one specific area to enhance</li>
-                    <li>Focus on your biggest "pain point" first</li>
-                    <li>Plan for something you can implement soon</li>
+            <div class="info-box info-box-blue">
+                <h3 class="font-semibold mb-3 text-blue-700">Remember the Plus One Approach:</h3>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Start small - choose one specific area to enhance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Focus on your biggest "pinch point" first</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Plan for something you can implement soon</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Make incremental improvements rather than complete redesigns</span>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <!-- Step 1: Pinch Point -->
-        <section id="pinch-point" class="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <section id="pinch-point" class="bg-white rounded-lg shadow-sm p-6 mb-8">
             <h2 class="text-2xl font-bold mb-4">Step 1: Identify Your Pinch Point</h2>
             
-            <div class="bg-yellow-50 p-4 rounded mb-4">
-                <p class="font-medium">A "pinch point" is a specific part of your course where:</p>
-                <ul class="list-disc pl-6 mt-2">
-                    <li>Students consistently struggle</li>
-                    <li>You receive frequent questions or requests for clarification</li>
-                    <li>Assessment results show lower understanding</li>
-                    <li>You notice decreased engagement</li>
+            <div class="info-box info-box-yellow">
+                <h3 class="font-semibold mb-3 text-yellow-800">What is a "Pinch Point"?</h3>
+                <p class="mb-3">A "pinch point" is a specific part of your course where:</p>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Students consistently struggle</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>You receive frequent questions or requests for clarification</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Assessment results show lower understanding</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>You notice decreased engagement</span>
+                    </li>
                 </ul>
             </div>
 
-            <div class="space-y-4">
-                <label class="block">
-                    <span class="block text-sm font-medium text-gray-700">Select a content area:</span>
-                    <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" id="content-area">
+            <div class="space-y-6 mt-6">
+                <div>
+                    <label for="content-area" class="block text-sm font-medium text-gray-700 mb-2">Select a content area:</label>
+                    <select id="content-area" class="w-full rounded-md border-gray-300 shadow-sm">
                         <option value="">Choose an area...</option>
                         <option value="math">Mathematics</option>
                         <option value="science">Science</option>
@@ -115,21 +442,21 @@
                         <option value="languages">Languages</option>
                         <option value="other">Other</option>
                     </select>
-                </label>
+                </div>
 
-                <label class="block">
-                    <span class="block text-sm font-medium text-gray-700">Select or describe your pinch point:</span>
-                    <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" id="pinch-point-select">
+                <div>
+                    <label for="pinch-point-select" class="block text-sm font-medium text-gray-700 mb-2">Select or describe your pinch point:</label>
+                    <select id="pinch-point-select" class="w-full rounded-md border-gray-300 shadow-sm">
                         <option value="">Choose an example or create your own...</option>
                         <!-- Options will update based on content area -->
                     </select>
-                </label>
+                </div>
 
-                <div class="mt-4">
-                    <label class="block text-sm font-medium text-gray-700">Describe your pinch point in detail:</label>
+                <div>
+                    <label for="pinch-point-description" class="block text-sm font-medium text-gray-700 mb-2">Describe your pinch point in detail:</label>
                     <textarea 
                         id="pinch-point-description"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                        class="w-full rounded-md border-gray-300 shadow-sm"
                         rows="4"
                         placeholder="What specific challenges do students face? How do you know this is a problem area?"
                     ></textarea>
@@ -137,343 +464,527 @@
             </div>
         </section>
 
-        <!-- Step 2: Current Approach -->
-        <section id="current-approach" class="bg-white rounded-lg shadow-sm p-6 mb-6">
+  <!-- Step 2: Current Approach -->
+        <section id="current-approach" class="bg-white rounded-lg shadow-sm p-6 mb-8">
             <h2 class="text-2xl font-bold mb-4">Step 2: Analyze Your Current Approach</h2>
             
-            <div class="bg-green-50 p-4 rounded mb-4">
-                <p class="font-medium mb-2">Consider how you currently teach this content:</p>
-                <ul class="list-disc pl-6">
-                    <li>What methods do you use?</li>
-                    <li>What materials do students access?</li>
-                    <li>How do students practice or apply the content?</li>
-                    <li>How do students demonstrate their understanding?</li>
+            <div class="info-box info-box-green">
+                <h3 class="font-semibold mb-3 text-green-700">Reflect on Your Current Methods</h3>
+                <p class="mb-3">Consider how you currently teach this content:</p>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>What teaching methods do you use?</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>What materials do students access?</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>How do students practice or apply the content?</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>How do students demonstrate their understanding?</span>
+                    </li>
                 </ul>
             </div>
 
-            <div class="space-y-4">
-                <textarea 
-                    id="current-approach"
-                    class="w-full rounded-md border-gray-300 shadow-sm"
-                    rows="4"
-                    placeholder="Describe your current teaching approach..."
-                ></textarea>
+            <div class="space-y-6 mt-6">
+                <div>
+                    <label for="current-approach" class="block text-sm font-medium text-gray-700 mb-2">Describe your current teaching approach:</label>
+                    <textarea 
+                        id="current-approach"
+                        class="w-full rounded-md border-gray-300 shadow-sm"
+                        rows="4"
+                        placeholder="What methods, materials, and activities do you currently use?"
+                    ></textarea>
+                </div>
 
-                <div class="mt-6">
+                <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
                     <h3 class="text-lg font-medium mb-3">Check for Single-Stream Content</h3>
-                    <p class="text-sm text-gray-600 mb-4">Select all that apply to your current approach:</p>
+                    <p class="text-sm text-gray-700 mb-4">Select all that apply to your current approach:</p>
                     
-                    <div class="space-y-2">
+                    <div class="space-y-3">
                         <label class="flex items-start">
-                            <input type="checkbox" class="mt-1">
+                            <input type="checkbox" id="check-format" class="mt-1">
                             <span class="ml-2">Content exists in only one format (e.g., text only, video only)</span>
                         </label>
                         <label class="flex items-start">
-                            <input type="checkbox" class="mt-1">
+                            <input type="checkbox" id="check-demonstration" class="mt-1">
                             <span class="ml-2">Students can only demonstrate understanding in one way</span>
                         </label>
                         <label class="flex items-start">
-                            <input type="checkbox" class="mt-1">
+                            <input type="checkbox" id="check-technology" class="mt-1">
                             <span class="ml-2">Activities require specific technology or conditions</span>
                         </label>
                         <label class="flex items-start">
-                            <input type="checkbox" class="mt-1">
+                            <input type="checkbox" id="check-alternatives" class="mt-1">
                             <span class="ml-2">No alternatives or choices are offered</span>
                         </label>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        </div>
+</div>
+</div>
+</section>
 
-        <!-- Step 3: UDL Principles -->
-        <section id="udl-principles" class="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <h2 class="text-2xl font-bold mb-4">Step 3: Apply UDL Principles</h2>
-            
-            <div class="space-y-6">
-                <div class="bg-blue-50 p-4 rounded">
-                    <h3 class="font-medium text-lg mb-2">Engagement</h3>
-                    <p class="mb-2">How can you spark interest and maintain motivation?</p>
-                    <textarea 
-                        id="engagement-ideas"
-                        class="w-full rounded-md border-gray-300 shadow-sm mt-2"
-                        rows="3"
-                        placeholder="Ideas for improving engagement..."
-                    ></textarea>
-                </div>
-
-                <div class="bg-green-50 p-4 rounded">
-                    <h3 class="font-medium text-lg mb-2">Representation</h3>
-                    <p class="mb-2">How can you present the information in different ways?</p>
-                    <textarea 
-                        id="representation-ideas"
-                        class="w-full rounded-md border-gray-300 shadow-sm mt-2"
-                        rows="3"
-                        placeholder="Ideas for different representations..."
-                    ></textarea>
-                </div>
-
-                <div class="bg-purple-50 p-4 rounded">
-                    <h3 class="font-medium text-lg mb-2">Action & Expression</h3>
-                    <p class="mb-2">How can students demonstrate their understanding?</p>
-                    <textarea 
-                        id="expression-ideas"
-                        class="w-full rounded-md border-gray-300 shadow-sm mt-2"
-                        rows="3"
-                        placeholder="Ideas for different expressions..."
-                    ></textarea>
-                </div>
-            </div>
-        </section>
-
-        <!-- Step 4: Plus One Enhancement -->
-        <section id="enhancement" class="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <h2 class="text-2xl font-bold mb-4">Step 4: Choose Your Plus One Enhancement</h2>
-            
-            <div class="bg-yellow-50 p-4 rounded mb-4">
-                <p class="font-medium">Choose ONE enhancement that:</p>
-                <ul class="list-disc pl-6 mt-2">
-                    <li>You can implement relatively quickly</li>
-                    <li>Will make a meaningful difference</li>
-                    <li>Fits your available resources</li>
-                    <li>You feel confident about trying</li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <textarea 
-                    id="enhancement-plan"
-                    class="w-full rounded-md border-gray-300 shadow-sm"
-                    rows="4"
-                    placeholder="Describe your chosen enhancement in detail..."
-                ></textarea>
-<div class="bg-gray-50 p-4 rounded">
-    <h3 class="font-medium mb-2">Example Enhancements by UDL Principle:</h3>
-    <div class="grid md:grid-cols-3 gap-4 text-sm">
-        <div>
-            <h4 class="font-medium text-blue-700">Engagement</h4>
-            <ul class="list-disc pl-4">
-                <li>Add real-world examples and applications</li>
-                <li>Include student choice in topics or methods</li>
-                <li>Create collaborative learning opportunities</li>
-            </ul>
+<!-- Step 3: UDL Principles -->
+<section id="udl-principles" class="bg-white rounded-lg shadow-sm p-6 mb-8">
+    <h2 class="text-2xl font-bold mb-4">Step 3: Apply UDL Principles</h2>
+    <p class="mb-6">Consider how each of the three UDL principles could be applied to address your pinch point. Think about small, manageable changes that could make a significant difference.</p>
+    
+    <div class="space-y-6">
+        <div class="info-box info-box-blue">
+            <h3 class="font-semibold text-lg mb-3 text-blue-700">Engagement</h3>
+            <p class="mb-4 text-gray-800">"The Why of Learning" - How can you spark interest and maintain motivation?</p>
+            <textarea 
+                id="engagement-ideas"
+                class="w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Ideas for improving engagement..."
+            ></textarea>
         </div>
-        <div>
-            <h4 class="font-medium text-green-700">Representation</h4>
-            <ul class="list-disc pl-4">
-                <li>Create step-by-step video demonstrations</li>
-                <li>Add interactive visualizations</li>
-                <li>Provide annotated examples</li>
-            </ul>
+
+        <div class="info-box info-box-green">
+            <h3 class="font-semibold text-lg mb-3 text-green-700">Representation</h3>
+            <p class="mb-4 text-gray-800">"The What of Learning" - How can you present the information in different ways?</p>
+            <textarea 
+                id="representation-ideas"
+                class="w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Ideas for different representations..."
+            ></textarea>
         </div>
-        <div>
-            <h4 class="font-medium text-purple-700">Action & Expression</h4>
-            <ul class="list-disc pl-4">
-                <li>Offer multiple assessment formats</li>
-                <li>Allow for peer teaching/explanation</li>
-                <li>Enable digital or physical submissions</li>
-            </ul>
+
+        <div class="info-box info-box-purple">
+            <h3 class="font-semibold text-lg mb-3 text-purple-700">Action & Expression</h3>
+            <p class="mb-4 text-gray-800">"The How of Learning" - How can students demonstrate their understanding?</p>
+            <textarea 
+                id="expression-ideas"
+                class="w-full rounded-md border-gray-300 shadow-sm"
+                rows="3"
+                placeholder="Ideas for different expressions..."
+            ></textarea>
         </div>
     </div>
-</div>
-            </div>
-        </section>
+</section>
 
-        <!-- Step 5: Implementation Plan -->
-        <section id="implementation" class="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <h2 class="text-2xl font-bold mb-4">Step 5: Plan Your Implementation</h2>
-            
-            <div class="space-y-4">
+<!-- Step 4: Plus One Enhancement (correctly closed) -->
+<section id="enhancement" class="bg-white rounded-lg shadow-sm p-6 mb-8">
+    <h2 class="text-2xl font-bold mb-4">Step 4: Choose Your Plus One Enhancement</h2>
+    
+    <div class="info-box info-box-yellow">
+        <div class="info-box info-box-yellow">
+        <h3 class="font-semibold mb-3 text-yellow-800">Select Your Best Option</h3>
+        <p class="mb-3">Choose ONE enhancement that:</p>
+        <ul class="space-y-2">
+            <li class="flex items-start">
+                <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>You can implement relatively quickly</span>
+            </li>
+            <li class="flex items-start">
+                <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Will make a meaningful difference</span>
+            </li>
+            <li class="flex items-start">
+                <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Fits your available resources</span>
+            </li>
+            <li class="flex items-start">
+                <svg class="h-5 w-5 text-yellow-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>You feel confident about trying</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="space-y-6 mt-6">
+        <div>
+            <label for="enhancement-plan" class="block text-sm font-medium text-gray-700 mb-2">Describe your chosen enhancement in detail:</label>
+            <textarea 
+                id="enhancement-plan"
+                class="w-full rounded-md border-gray-300 shadow-sm"
+                rows="4"
+                placeholder="What specific enhancement will you implement? How will it address the pinch point?"
+            ></textarea>
+        </div>
+
+        <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+            <h3 class="font-medium mb-4">Example Enhancements by UDL Principle:</h3>
+            <div class="grid md:grid-cols-3 gap-6 text-sm">
+                <!-- First column (Engagement) as it is now -->
+<div>
+                    <h4 class="font-medium text-blue-700 mb-2">Engagement</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Add real-world examples and applications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Include student choice in topics or methods</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Create collaborative learning opportunities</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Second column (missing) -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Target implementation date:</label>
-                    <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                    <h4 class="font-medium text-green-700 mb-2">Representation</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Create step-by-step video demonstrations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Add interactive visualizations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-green-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Provide annotated examples</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Third column (missing) -->
+                <div>
+                    <h4 class="font-medium text-purple-700 mb-2">Action & Expression</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Offer multiple assessment formats</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Allow for peer teaching/explanation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-4 w-4 text-purple-600 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Enable digital or physical submissions</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+                         <!-- Step 5: Implementation Plan -->
+        <section id="implementation" class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Step 5: Plan Your Implementation</h2>
+            <p class="mb-6">Outline the concrete steps you'll take to implement your Plus One enhancement. Being specific about what you'll need and when you'll start will increase the likelihood of successful implementation.</p>
+            
+            <div class="space-y-6">
+                <div>
+                    <label for="implementation-date" class="block text-sm font-medium text-gray-700 mb-2">Target implementation date:</label>
+                    <input type="date" id="implementation-date" class="w-full rounded-md border-gray-300 shadow-sm">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">Resources needed:</label>
+                    <label for="resources-needed" class="block text-sm font-medium text-gray-700 mb-2">Resources needed:</label>
                     <textarea 
                         id="resources-needed"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                        class="w-full rounded-md border-gray-300 shadow-sm"
                         rows="3"
                         placeholder="List any tools, materials, or support you'll need..."
                     ></textarea>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700">First three steps:</label>
-                    <div class="space-y-2">
-                        <input type="text" class="block w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 1">
-                        <input type="text" class="block w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 2">
-                        <input type="text" class="block w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 3">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">First three implementation steps:</label>
+                    <div class="space-y-3">
+                        <input type="text" id="step-1" class="w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 1">
+                        <input type="text" id="step-2" class="w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 2">
+                        <input type="text" id="step-3" class="w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 3">
                     </div>
+                </div>
+                
+                <div>
+                    <label for="success-criteria" class="block text-sm font-medium text-gray-700 mb-2">How will you measure success?</label>
+                    <textarea 
+                        id="success-criteria"
+                        class="w-full rounded-md border-gray-300 shadow-sm"
+                        rows="3"
+                        placeholder="What evidence will show that your enhancement is working?"
+                    ></textarea>
                 </div>
             </div>
         </section>
 
-        <!-- Controls -->
-        <div class="flex justify-between mt-6">
-            <div class="flex gap-4">
-                <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
-                <button onclick="saveProgress()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Save Progress</button>
-            </div>
-            <div class="flex gap-4">
-                <button onclick="printPlan()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Print Plan</button>
-                <a href="workshop-complete.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Complete Workshop</a>
+        <!-- Save notification -->
+        <div id="save-notification" class="save-notification">
+            <div class="flex items-center">
+                <svg class="h-5 w-5 text-green-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Progress saved!</span>
             </div>
         </div>
+<!-- Controls (correctly formed) -->
+<div class="flex flex-wrap justify-between gap-4 mt-8">
+    <div class="flex flex-wrap gap-4">
+        <a href="udl-three-principles.html" class="inline-flex items-center px-6 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+            <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back
+        </a>
+        <button id="save-btn" onclick="saveProgress()" class="inline-flex items-center px-6 py-2.5 bg-green-600 text-white rounded-md hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+            <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+            </svg>
+            Save Progress
+        </button>
+    </div>
+    <div class="flex flex-wrap gap-4">
+        <button id="print-btn" onclick="printPlan()" class="inline-flex items-center px-6 py-2.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+            Print Plan
+        </button>
+        <a href="udl-recap.html" class="inline-flex items-center px-6 py-2.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Complete Workshop
+            <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+        </a>
+    </div>
+</div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 mt-12 py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
         </div>
     </footer>
 
-   <script>
-    // Progress tracking
-    function updateProgress() {
-        const fields = document.querySelectorAll('input, textarea, select');
-        const filledFields = Array.from(fields).filter(field => field.value.trim() !== '').length;
-        const progress = (filledFields / fields.length) * 100;
-        document.getElementById('progress-bar').style.width = `${progress}%`;
-    }
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="scroll-top-btn bg-blue-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
 
-    // Auto-save
-    function saveProgress() {
-        const formData = {};
-        document.querySelectorAll('input, textarea, select').forEach(field => {
-            formData[field.id] = field.value;
-        });
-        localStorage.setItem('plusOnePlan', JSON.stringify(formData));
-        
-        // Show save confirmation
-        const notification = document.createElement('div');
-        notification.className = 'fixed bottom-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
-        notification.textContent = 'Progress saved!';
-        document.body.appendChild(notification);
-        setTimeout(() => notification.remove(), 3000);
-    }
-
-    // Load saved progress
-    function loadSavedProgress() {
-        const savedData = localStorage.getItem('plusOnePlan');
-        if (savedData) {
-            const formData = JSON.parse(savedData);
-            Object.entries(formData).forEach(([id, value]) => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.value = value;
-                    if (element.type === 'checkbox') {
-                        element.checked = value;
-                    }
-                }
-            });
-            updateProgress();
+    <script>
+        // Progress tracking
+        function updateProgress() {
+            const fields = document.querySelectorAll('input, textarea, select');
+            const filledFields = Array.from(fields).filter(field => field.value.trim() !== '').length;
+            const progress = (filledFields / fields.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
         }
-    }
 
-    // Print plan
-    function printPlan() {
-        // Gather all responses
-        const sections = document.querySelectorAll('section');
-        let printContent = '<div style="max-width: 800px; margin: 0 auto; padding: 20px;">';
-        printContent += '<h1 style="text-align: center; margin-bottom: 20px;">Plus One Planning Summary</h1>';
-        
-        sections.forEach(section => {
-            const title = section.querySelector('h2').textContent;
-            printContent += `<h2 style="margin-top: 30px; color: #1a365d;">${title}</h2>`;
+        // Auto-save
+        function saveProgress() {
+            const formData = {};
+            document.querySelectorAll('input, textarea, select').forEach(field => {
+                formData[field.id] = field.value;
+            });
+            localStorage.setItem('plusOnePlan', JSON.stringify(formData));
             
-            // Get responses from inputs and textareas
-            const responses = section.querySelectorAll('input, textarea, select');
-            responses.forEach(response => {
-                if (response.type === 'checkbox' && response.checked) {
-                    printContent += `<p><strong>${response.nextElementSibling.textContent}</strong></p>`;
-                } else if (response.value && response.type !== 'checkbox') {
-                    const label = response.previousElementSibling?.textContent || '';
-                    printContent += `<p><strong>${label}</strong><br>${response.value}</p>`;
-                }
-            });
-        });
-        
-        printContent += '</div>';
-
-        // Create print window
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-            <html>
-                <head>
-                    <title>Plus One Plan</title>
-                    <style>
-                        body { font-family: Arial, sans-serif; line-height: 1.6; }
-                        h1 { color: #2563eb; }
-                        h2 { color: #1e40af; margin-top: 20px; }
-                        p { margin-bottom: 10px; }
-                    </style>
-                </head>
-                <body>${printContent}</body>
-            </html>
-        `);
-        printWindow.document.close();
-        printWindow.print();
-    }
-
-    // Update field options based on content area
-    function updatePinchPointOptions() {
-        const contentArea = document.getElementById('content-area').value;
-        const pinchPointSelect = document.getElementById('pinch-point-select');
-        
-        const options = {
-            math: [
-                'Understanding multi-step problems',
-                'Visualizing geometric concepts',
-                'Connecting abstract concepts to real applications',
-                'Understanding proofs and mathematical reasoning'
-            ],
-            science: [
-                'Visualizing molecular processes',
-                'Understanding experimental design',
-                'Interpreting data and graphs',
-                'Connecting theory to practical applications'
-            ],
-            humanities: [
-                'Analyzing primary sources',
-                'Developing thesis statements',
-                'Making cross-cultural connections',
-                'Evaluating historical evidence'
-            ],
-            languages: [
-                'Grammar concept application',
-                'Speaking confidence',
-                'Writing structure',
-                'Cultural context understanding'
-            ]
-        };
-
-        // Clear existing options
-        pinchPointSelect.innerHTML = '<option value="">Choose an example or create your own...</option>';
-        
-        // Add new options if content area is selected
-        if (contentArea && options[contentArea]) {
-            options[contentArea].forEach(option => {
-                const optionElement = document.createElement('option');
-                optionElement.value = option;
-                optionElement.textContent = option;
-                pinchPointSelect.appendChild(optionElement);
-            });
+            // Show save confirmation
+            const notification = document.getElementById('save-notification');
+            notification.classList.add('show');
+            setTimeout(() => notification.classList.remove('show'), 3000);
         }
-    }
 
-    // Event Listeners
-    document.addEventListener('DOMContentLoaded', () => {
-        loadSavedProgress();
-        document.getElementById('content-area').addEventListener('change', updatePinchPointOptions);
-        
-        // Auto-save on input
-        document.querySelectorAll('input, textarea, select').forEach(field => {
-            field.addEventListener('input', () => {
+        // Load saved progress
+        function loadSavedProgress() {
+            const savedData = localStorage.getItem('plusOnePlan');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                Object.entries(formData).forEach(([id, value]) => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.value = value;
+                        if (element.type === 'checkbox') {
+                            element.checked = value;
+                        }
+                    }
+                });
                 updateProgress();
-                saveProgress();
+            }
+        }
+
+        // Print plan
+        function printPlan() {
+            // Gather all responses
+            const sections = document.querySelectorAll('section');
+            let printContent = '<div style="max-width: 800px; margin: 0 auto; padding: 20px;">';
+            printContent += '<h1 style="text-align: center; margin-bottom: 20px;">Plus One Planning Summary</h1>';
+            
+            sections.forEach(section => {
+                const title = section.querySelector('h2').textContent;
+                printContent += `<h2 style="margin-top: 30px; color: #1a365d;">${title}</h2>`;
+                
+                // Get responses from inputs and textareas
+                const responses = section.querySelectorAll('input, textarea, select');
+                responses.forEach(response => {
+                    if (response.type === 'checkbox' && response.checked) {
+                        printContent += `<p><strong>${response.nextElementSibling.textContent}</strong></p>`;
+                    } else if (response.value && response.type !== 'checkbox') {
+                        const label = response.previousElementSibling?.textContent || '';
+                        printContent += `<p><strong>${label}</strong><br>${response.value}</p>`;
+                    }
+                });
+            });
+            
+            printContent += '</div>';
+
+            // Create print window
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Plus One Plan</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; line-height: 1.6; }
+                            h1 { color: #2563eb; }
+                            h2 { color: #1e40af; margin-top: 20px; }
+                            p { margin-bottom: 10px; }
+                        </style>
+                    </head>
+                    <body>${printContent}</body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        // Update field options based on content area
+        function updatePinchPointOptions() {
+            const contentArea = document.getElementById('content-area').value;
+            const pinchPointSelect = document.getElementById('pinch-point-select');
+            
+            const options = {
+                math: [
+                    'Understanding multi-step problems',
+                    'Visualizing geometric concepts',
+                    'Connecting abstract concepts to real applications',
+                    'Understanding proofs and mathematical reasoning'
+                ],
+                science: [
+                    'Visualizing molecular processes',
+                    'Understanding experimental design',
+                    'Interpreting data and graphs',
+                    'Connecting theory to practical applications'
+                ],
+                humanities: [
+                    'Analyzing primary sources',
+                    'Developing thesis statements',
+                    'Making cross-cultural connections',
+                    'Evaluating historical evidence'
+                ],
+                languages: [
+                    'Grammar concept application',
+                    'Speaking confidence',
+                    'Writing structure',
+                    'Cultural context understanding'
+                ]
+            };
+
+            // Clear existing options
+            pinchPointSelect.innerHTML = '<option value="">Choose an example or create your own...</option>';
+            
+            // Add new options if content area is selected
+            if (contentArea && options[contentArea]) {
+                options[contentArea].forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option;
+                    optionElement.textContent = option;
+                    pinchPointSelect.appendChild(optionElement);
+                });
+            }
+        }
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
-    });
-</script>
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedProgress();
+            document.getElementById('content-area').addEventListener('change', updatePinchPointOptions);
+            
+            // Auto-save on input
+            document.querySelectorAll('input, textarea, select').forEach(field => {
+                field.addEventListener('input', () => {
+                    updateProgress();
+                    saveProgress();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

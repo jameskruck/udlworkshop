@@ -1,0 +1,479 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus One Planning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>Workshop Home</li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Lesson</span>
+                </li>
+                  <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Enhanced Lesson Options</span>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Enhanced Lesson</span>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Enhanced Assessment</span>
+                </li>
+                                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span>Three Core Principles</span>
+                </li>
+                                                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-blue-600 font-medium">Plus One Principle</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Progress Bar -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div id="progress-bar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+            <p class="text-sm text-gray-600 mt-2 text-center">Progress will save automatically as you work</p>
+        </div>
+
+        <!-- Introduction -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Planning Your Plus One Enhancement</h2>
+            <p class="mb-4">You've experienced UDL principles in action and learned about different ways to make learning more accessible. Now it's time to plan a specific enhancement for your own teaching.</p>
+            
+            <div class="bg-blue-50 p-4 rounded">
+                <h3 class="font-medium mb-2">Remember:</h3>
+                <ul class="list-disc pl-6">
+                    <li>Start small - choose one specific area to enhance</li>
+                    <li>Focus on your biggest "pain point" first</li>
+                    <li>Plan for something you can implement soon</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Step 1: Pinch Point -->
+        <section id="pinch-point" class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Step 1: Identify Your Pinch Point</h2>
+            
+            <div class="bg-yellow-50 p-4 rounded mb-4">
+                <p class="font-medium">A "pinch point" is a specific part of your course where:</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>Students consistently struggle</li>
+                    <li>You receive frequent questions or requests for clarification</li>
+                    <li>Assessment results show lower understanding</li>
+                    <li>You notice decreased engagement</li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <label class="block">
+                    <span class="block text-sm font-medium text-gray-700">Select a content area:</span>
+                    <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" id="content-area">
+                        <option value="">Choose an area...</option>
+                        <option value="math">Mathematics</option>
+                        <option value="science">Science</option>
+                        <option value="humanities">Humanities</option>
+                        <option value="languages">Languages</option>
+                        <option value="other">Other</option>
+                    </select>
+                </label>
+
+                <label class="block">
+                    <span class="block text-sm font-medium text-gray-700">Select or describe your pinch point:</span>
+                    <select class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" id="pinch-point-select">
+                        <option value="">Choose an example or create your own...</option>
+                        <!-- Options will update based on content area -->
+                    </select>
+                </label>
+
+                <div class="mt-4">
+                    <label class="block text-sm font-medium text-gray-700">Describe your pinch point in detail:</label>
+                    <textarea 
+                        id="pinch-point-description"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                        rows="4"
+                        placeholder="What specific challenges do students face? How do you know this is a problem area?"
+                    ></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Current Approach -->
+        <section id="current-approach" class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Step 2: Analyze Your Current Approach</h2>
+            
+            <div class="bg-green-50 p-4 rounded mb-4">
+                <p class="font-medium mb-2">Consider how you currently teach this content:</p>
+                <ul class="list-disc pl-6">
+                    <li>What methods do you use?</li>
+                    <li>What materials do students access?</li>
+                    <li>How do students practice or apply the content?</li>
+                    <li>How do students demonstrate their understanding?</li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <textarea 
+                    id="current-approach"
+                    class="w-full rounded-md border-gray-300 shadow-sm"
+                    rows="4"
+                    placeholder="Describe your current teaching approach..."
+                ></textarea>
+
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium mb-3">Check for Single-Stream Content</h3>
+                    <p class="text-sm text-gray-600 mb-4">Select all that apply to your current approach:</p>
+                    
+                    <div class="space-y-2">
+                        <label class="flex items-start">
+                            <input type="checkbox" class="mt-1">
+                            <span class="ml-2">Content exists in only one format (e.g., text only, video only)</span>
+                        </label>
+                        <label class="flex items-start">
+                            <input type="checkbox" class="mt-1">
+                            <span class="ml-2">Students can only demonstrate understanding in one way</span>
+                        </label>
+                        <label class="flex items-start">
+                            <input type="checkbox" class="mt-1">
+                            <span class="ml-2">Activities require specific technology or conditions</span>
+                        </label>
+                        <label class="flex items-start">
+                            <input type="checkbox" class="mt-1">
+                            <span class="ml-2">No alternatives or choices are offered</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: UDL Principles -->
+        <section id="udl-principles" class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Step 3: Apply UDL Principles</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-blue-50 p-4 rounded">
+                    <h3 class="font-medium text-lg mb-2">Engagement</h3>
+                    <p class="mb-2">How can you spark interest and maintain motivation?</p>
+                    <textarea 
+                        id="engagement-ideas"
+                        class="w-full rounded-md border-gray-300 shadow-sm mt-2"
+                        rows="3"
+                        placeholder="Ideas for improving engagement..."
+                    ></textarea>
+                </div>
+
+                <div class="bg-green-50 p-4 rounded">
+                    <h3 class="font-medium text-lg mb-2">Representation</h3>
+                    <p class="mb-2">How can you present the information in different ways?</p>
+                    <textarea 
+                        id="representation-ideas"
+                        class="w-full rounded-md border-gray-300 shadow-sm mt-2"
+                        rows="3"
+                        placeholder="Ideas for different representations..."
+                    ></textarea>
+                </div>
+
+                <div class="bg-purple-50 p-4 rounded">
+                    <h3 class="font-medium text-lg mb-2">Action & Expression</h3>
+                    <p class="mb-2">How can students demonstrate their understanding?</p>
+                    <textarea 
+                        id="expression-ideas"
+                        class="w-full rounded-md border-gray-300 shadow-sm mt-2"
+                        rows="3"
+                        placeholder="Ideas for different expressions..."
+                    ></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: Plus One Enhancement -->
+        <section id="enhancement" class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Step 4: Choose Your Plus One Enhancement</h2>
+            
+            <div class="bg-yellow-50 p-4 rounded mb-4">
+                <p class="font-medium">Choose ONE enhancement that:</p>
+                <ul class="list-disc pl-6 mt-2">
+                    <li>You can implement relatively quickly</li>
+                    <li>Will make a meaningful difference</li>
+                    <li>Fits your available resources</li>
+                    <li>You feel confident about trying</li>
+                </ul>
+            </div>
+
+            <div class="space-y-4">
+                <textarea 
+                    id="enhancement-plan"
+                    class="w-full rounded-md border-gray-300 shadow-sm"
+                    rows="4"
+                    placeholder="Describe your chosen enhancement in detail..."
+                ></textarea>
+<div class="bg-gray-50 p-4 rounded">
+    <h3 class="font-medium mb-2">Example Enhancements by UDL Principle:</h3>
+    <div class="grid md:grid-cols-3 gap-4 text-sm">
+        <div>
+            <h4 class="font-medium text-blue-700">Engagement</h4>
+            <ul class="list-disc pl-4">
+                <li>Add real-world examples and applications</li>
+                <li>Include student choice in topics or methods</li>
+                <li>Create collaborative learning opportunities</li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-medium text-green-700">Representation</h4>
+            <ul class="list-disc pl-4">
+                <li>Create step-by-step video demonstrations</li>
+                <li>Add interactive visualizations</li>
+                <li>Provide annotated examples</li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-medium text-purple-700">Action & Expression</h4>
+            <ul class="list-disc pl-4">
+                <li>Offer multiple assessment formats</li>
+                <li>Allow for peer teaching/explanation</li>
+                <li>Enable digital or physical submissions</li>
+            </ul>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <!-- Step 5: Implementation Plan -->
+        <section id="implementation" class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-2xl font-bold mb-4">Step 5: Plan Your Implementation</h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Target implementation date:</label>
+                    <input type="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Resources needed:</label>
+                    <textarea 
+                        id="resources-needed"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                        rows="3"
+                        placeholder="List any tools, materials, or support you'll need..."
+                    ></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">First three steps:</label>
+                    <div class="space-y-2">
+                        <input type="text" class="block w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 1">
+                        <input type="text" class="block w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 2">
+                        <input type="text" class="block w-full rounded-md border-gray-300 shadow-sm" placeholder="Step 3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Controls -->
+        <div class="flex justify-between mt-6">
+            <div class="flex gap-4">
+                <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+                <button onclick="saveProgress()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Save Progress</button>
+            </div>
+            <div class="flex gap-4">
+                <button onclick="printPlan()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Print Plan</button>
+                <a href="workshop-complete.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Complete Workshop</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+
+   <script>
+    // Progress tracking
+    function updateProgress() {
+        const fields = document.querySelectorAll('input, textarea, select');
+        const filledFields = Array.from(fields).filter(field => field.value.trim() !== '').length;
+        const progress = (filledFields / fields.length) * 100;
+        document.getElementById('progress-bar').style.width = `${progress}%`;
+    }
+
+    // Auto-save
+    function saveProgress() {
+        const formData = {};
+        document.querySelectorAll('input, textarea, select').forEach(field => {
+            formData[field.id] = field.value;
+        });
+        localStorage.setItem('plusOnePlan', JSON.stringify(formData));
+        
+        // Show save confirmation
+        const notification = document.createElement('div');
+        notification.className = 'fixed bottom-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded';
+        notification.textContent = 'Progress saved!';
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 3000);
+    }
+
+    // Load saved progress
+    function loadSavedProgress() {
+        const savedData = localStorage.getItem('plusOnePlan');
+        if (savedData) {
+            const formData = JSON.parse(savedData);
+            Object.entries(formData).forEach(([id, value]) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.value = value;
+                    if (element.type === 'checkbox') {
+                        element.checked = value;
+                    }
+                }
+            });
+            updateProgress();
+        }
+    }
+
+    // Print plan
+    function printPlan() {
+        // Gather all responses
+        const sections = document.querySelectorAll('section');
+        let printContent = '<div style="max-width: 800px; margin: 0 auto; padding: 20px;">';
+        printContent += '<h1 style="text-align: center; margin-bottom: 20px;">Plus One Planning Summary</h1>';
+        
+        sections.forEach(section => {
+            const title = section.querySelector('h2').textContent;
+            printContent += `<h2 style="margin-top: 30px; color: #1a365d;">${title}</h2>`;
+            
+            // Get responses from inputs and textareas
+            const responses = section.querySelectorAll('input, textarea, select');
+            responses.forEach(response => {
+                if (response.type === 'checkbox' && response.checked) {
+                    printContent += `<p><strong>${response.nextElementSibling.textContent}</strong></p>`;
+                } else if (response.value && response.type !== 'checkbox') {
+                    const label = response.previousElementSibling?.textContent || '';
+                    printContent += `<p><strong>${label}</strong><br>${response.value}</p>`;
+                }
+            });
+        });
+        
+        printContent += '</div>';
+
+        // Create print window
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(`
+            <html>
+                <head>
+                    <title>Plus One Plan</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; line-height: 1.6; }
+                        h1 { color: #2563eb; }
+                        h2 { color: #1e40af; margin-top: 20px; }
+                        p { margin-bottom: 10px; }
+                    </style>
+                </head>
+                <body>${printContent}</body>
+            </html>
+        `);
+        printWindow.document.close();
+        printWindow.print();
+    }
+
+    // Update field options based on content area
+    function updatePinchPointOptions() {
+        const contentArea = document.getElementById('content-area').value;
+        const pinchPointSelect = document.getElementById('pinch-point-select');
+        
+        const options = {
+            math: [
+                'Understanding multi-step problems',
+                'Visualizing geometric concepts',
+                'Connecting abstract concepts to real applications',
+                'Understanding proofs and mathematical reasoning'
+            ],
+            science: [
+                'Visualizing molecular processes',
+                'Understanding experimental design',
+                'Interpreting data and graphs',
+                'Connecting theory to practical applications'
+            ],
+            humanities: [
+                'Analyzing primary sources',
+                'Developing thesis statements',
+                'Making cross-cultural connections',
+                'Evaluating historical evidence'
+            ],
+            languages: [
+                'Grammar concept application',
+                'Speaking confidence',
+                'Writing structure',
+                'Cultural context understanding'
+            ]
+        };
+
+        // Clear existing options
+        pinchPointSelect.innerHTML = '<option value="">Choose an example or create your own...</option>';
+        
+        // Add new options if content area is selected
+        if (contentArea && options[contentArea]) {
+            options[contentArea].forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.value = option;
+                optionElement.textContent = option;
+                pinchPointSelect.appendChild(optionElement);
+            });
+        }
+    }
+
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', () => {
+        loadSavedProgress();
+        document.getElementById('content-area').addEventListener('change', updatePinchPointOptions);
+        
+        // Auto-save on input
+        document.querySelectorAll('input, textarea, select').forEach(field => {
+            field.addEventListener('input', () => {
+                updateProgress();
+                saveProgress();
+            });
+        });
+    });
+</script>

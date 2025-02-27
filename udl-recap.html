@@ -3,90 +3,514 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDL Recap</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>UDL Recap - James Kruck, PhD</title>
+    <meta name="description" content="Reflect on the different learning approaches experienced in the UDL Plus One Workshop and prepare for exploring UDL principles.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937; /* Darker text for better contrast */
+            line-height: 1.6;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Skip to content link for keyboard navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2563eb;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag-blue {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #1d4ed8; /* Darkened for better contrast */
+        }
+        
+        .tag-green {
+            background-color: rgba(16, 185, 129, 0.15); 
+            color: #047857; /* Darkened for better contrast */
+        }
+        
+        .tag-purple {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #6d28d9; /* Darkened for better contrast */
+        }
+        
+        .tag-orange {
+            background-color: rgba(249, 115, 22, 0.15);
+            color: #c2410c; /* Darkened for better contrast */
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        /* Increase text size for better readability */
+        p {
+            font-size: 1.0625rem;
+        }
+        
+        /* Improved link styling */
+        .text-link {
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
+            padding: 2rem 0;
+        }
+
+        /* Content section styling */
+        .content-section {
+            margin-bottom: 2rem;
+        }
+        
+        /* Info box styling */
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-box-blue {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .info-box-green {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .info-box-purple {
+            background-color: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        /* Scroll to top button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        /* Checkbox styling */
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: #3b82f6;
+            width: 1.25em;
+            height: 1.25em;
+            border: 1px solid #d1d5db;
+            border-radius: 0.25em;
+            display: grid;
+            place-content: center;
+        }
+        
+        input[type="checkbox"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #3b82f6;
+            background-color: #3b82f6;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+        
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+        
+        input[type="checkbox"]:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Fieldset styling */
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        legend {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+        
+        /* Checkbox label styling */
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 0.25rem;
+            margin-right: 0.5rem;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
-     <!-- Header -->
-    <header class="header-nav shadow-sm py-4">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
-        </nav>
-    </header>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
+                        <a href="udl-recap.html" class="text-blue-600 font-medium" aria-current="page">UDL Recap</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
+                <a href="udl-recap.html" class="text-blue-600 font-medium py-2 px-3 rounded-md bg-blue-50">UDL Recap</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600 flex-wrap">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900 text-link">Workshop Home</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" class="hover:text-gray-900 text-link">Lesson</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" class="hover:text-gray-900 text-link">Enhanced Lesson</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="#" class="hover:text-gray-900 text-link">Enhanced Assessment</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-blue-600 font-medium">UDL Recap</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">Reflecting on Learning Approaches</h1>
+                <p class="text-xl text-gray-800 mb-6">
+                    Compare the different learning experiences you've just had and identify key elements of Universal Design for Learning.
+                </p>
+                <div class="flex flex-wrap gap-3" aria-label="Topic tags">
+                    <span class="tag tag-blue">Reflection</span>
+                    <span class="tag tag-green">Experiential Learning</span>
+                    <span class="tag tag-purple">UDL Framework</span>
+                    <span class="tag tag-orange">Learning Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Content -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
-        <div class="bg-white rounded-lg shadow-sm p-6">
-            <h2 class="text-2xl font-bold mb-4">Recap: Reflecting on Experiences</h2>
-            <p class="mb-4">Now that you've experienced both ways of delivering the lesson, take a moment to reflect on your experiences.</p>
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Introduction -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Recap: Reflecting on Your Experiences</h2>
+            <p class="mb-4">Now that you've experienced both ways of delivering the lesson, take a moment to reflect on your experiences. This reflection will help you understand the core principles of UDL that you'll explore in the next section.</p>
+            <p>By examining how the enhanced version provided multiple pathways for learning, you'll gain insights into practical ways to implement UDL in your own teaching.</p>
         </div>
 
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-medium mb-3">What Did Version 1 Assume About Learners?</h3>
-            <p class="mb-2">Select all that apply based on your experience with the first version of the lesson.</p>
+        <!-- Version 1 Reflections -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h3 class="text-xl font-semibold mb-4">What Did Version 1 Assume About Learners?</h3>
+            <p class="mb-4">Select all that apply based on your experience with the first version of the lesson. What knowledge or abilities were learners expected to already have?</p>
             <form>
-                <fieldset class="mb-6">
-                    <legend class="font-semibold">Possible Assumptions for Music Theory</legend>
-                    <div class="mb-2">
-                        <input type="checkbox" id="assumption-music-1" name="assumption-music">
-                        <label for="assumption-music-1">Understanding of music theory terminology</label>
-                    </div>
-                    <div class="mb-2">
-                        <input type="checkbox" id="assumption-music-2" name="assumption-music">
-                        <label for="assumption-music-2">Ability to think abstractly about chord functions</label>
-                    </div>
-                    <div class="mb-2">
-                        <input type="checkbox" id="assumption-music-3" name="assumption-music">
-                        <label for="assumption-music-3">Prior knowledge of modes and scales</label>
-                    </div>
-                </fieldset>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <fieldset class="mb-6">
+                        <legend class="text-lg font-medium text-blue-700">Possible Assumptions for Music Theory</legend>
+                        <div class="space-y-3 mt-3">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-music-1" name="assumption-music">
+                                <label for="assumption-music-1">Understanding of music theory terminology</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-music-2" name="assumption-music">
+                                <label for="assumption-music-2">Ability to think abstractly about chord functions</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-music-3" name="assumption-music">
+                                <label for="assumption-music-3">Prior knowledge of modes and scales</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-music-4" name="assumption-music">
+                                <label for="assumption-music-4">Ability to process information in text format only</label>
+                            </div>
+                        </div>
+                    </fieldset>
 
-                <fieldset class="mb-6">
-                    <legend class="font-semibold">Possible Assumptions for Statistics</legend>
-                    <div class="mb-2">
-                        <input type="checkbox" id="assumption-stats-1" name="assumption-stats">
-                        <label for="assumption-stats-1">Understanding of statistical terminology</label>
-                    </div>
-                    <div class="mb-2">
-                        <input type="checkbox" id="assumption-stats-2" name="assumption-stats">
-                        <label for="assumption-stats-2">Comfort with mathematical notation</label>
-                    </div>
-                    <div class="mb-2">
-                        <input type="checkbox" id="assumption-stats-3" name="assumption-stats">
-                        <label for="assumption-stats-3">Abstract thinking about probability</label>
-                    </div>
-                    <div class="mb-2">
-                        <input type="checkbox" id="assumption-stats-4" name="assumption-stats">
-                        <label for="assumption-stats-4">Familiarity with hypothesis testing</label>
-                    </div>
-                </fieldset>
+                    <fieldset class="mb-6">
+                        <legend class="text-lg font-medium text-green-700">Possible Assumptions for Statistics</legend>
+                        <div class="space-y-3 mt-3">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-stats-1" name="assumption-stats">
+                                <label for="assumption-stats-1">Understanding of statistical terminology</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-stats-2" name="assumption-stats">
+                                <label for="assumption-stats-2">Comfort with mathematical notation</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-stats-3" name="assumption-stats">
+                                <label for="assumption-stats-3">Abstract thinking about probability</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-stats-4" name="assumption-stats">
+                                <label for="assumption-stats-4">Familiarity with hypothesis testing</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="assumption-stats-5" name="assumption-stats">
+                                <label for="assumption-stats-5">Learning primarily through written descriptions</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
             </form>
         </div>
 
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-medium mb-3">What Made Version 2 Different?</h3>
-            <p class="mb-4">Now, think about what changed in Version 2. What additional supports or approaches did you notice?</p>
-            <ul class="list-disc pl-6 mb-4">
-                <li>Real-world examples and applications</li>
-                <li>Visual representations of relationships</li>
-                <li>Interactive explorations</li>
-            </ul>
+        <!-- Version 2 Reflections -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h3 class="text-xl font-semibold mb-4">What Made Version 2 Different?</h3>
+            <p class="mb-4">Now, think about what changed in Version 2. What additional supports or approaches did you notice that made the content more accessible?</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="info-box info-box-blue">
+                    <h4 class="font-semibold mb-3 text-blue-700">Engagement Enhancements</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Real-world examples and applications</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Links to familiar concepts and experiences</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Context for why the content matters</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-box info-box-green">
+                    <h4 class="font-semibold mb-3 text-green-700">Representation Enhancements</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Visual representations of relationships</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Multiple formats for key information</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Scaffolded explanations of complex ideas</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-box info-box-purple mt-6">
+                <h4 class="font-semibold mb-3 text-purple-700">Action & Expression Enhancements</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Interactive exploration opportunities</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Multiple ways to demonstrate understanding</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Integrated feedback and knowledge checks</span>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <!-- Navigation Buttons -->
+        <!-- Looking Ahead -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h3 class="text-xl font-semibold mb-4">Looking Ahead</h3>
+            <p class="mb-4">The enhancements you've just identified are examples of Universal Design for Learning (UDL) principles in action. In the next section, we'll explore these principles more systematically and see how they form a framework for creating more accessible and effective learning experiences.</p>
+            <p>You'll discover how these principles can be applied to your own teaching using the Plus One approach - making small, strategic enhancements that have significant impact.</p>
+        </div>
+
+        <!-- Navigation -->
         <div class="flex justify-between mt-6">
-            <a href="udl-enhanced-assessment-music.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
-            <a href="udl-three-principles.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+            <a href="#" onclick="history.back()" class="inline-flex items-center px-6 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back
+            </a>
+            <a href="udl-three-principles.html" class="inline-flex items-center px-6 py-2.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Continue to UDL Principles
+                <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 mt-12 py-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="scroll-top-btn bg-blue-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>

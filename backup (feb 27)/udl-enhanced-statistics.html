@@ -3,151 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDL-Enhanced Statistics Assessment - James Kruck, PhD</title>
-    <meta name="description" content="Multiple assessment options for demonstrating understanding of chi-square concepts through different modes of expression.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>UDL-Enhanced Statistics Assessment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
-    <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
     <!-- Header -->
-    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <div>
-                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
-                </div>
-                <div class="hidden md:block" aria-label="Desktop Navigation">
-                    <div class="flex space-x-8">
-                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
-                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
-                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
-                        <a href="udl-enhanced-statistics.html" class="text-gray-700 hover:text-blue-600 transition">Enhanced Statistics</a>
-                        <a href="udl-enhanced-assessment-statistics.html" class="text-green-600 font-medium" aria-current="page">Statistics Assessment</a>
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
                     </div>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
             </div>
-        </div>
-        <!-- Mobile menu, hidden by default -->
-        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
-            <div class="flex flex-col space-y-3">
-                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
-                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
-                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
-                <a href="udl-enhanced-statistics.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Enhanced Statistics</a>
-                <a href="udl-enhanced-assessment-statistics.html" class="text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">Statistics Assessment</a>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Breadcrumb Navigation -->
+<!-- Navigation -->
     <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <ol class="flex items-center space-x-2 text-sm text-gray-600">
-                <li>
-                    <a href="index.html" class="hover:text-gray-900 text-link">Workshop Home</a>
-                </li>
+                <li>Workshop Home</li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <a href="statistics.html" class="hover:text-gray-900 text-link">Statistics</a>
+                    <span>Lesson</span>
                 </li>
-                <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <a href="shared-transition.html" class="hover:text-gray-900 text-link">Enhanced Options</a>
+                    <span>Enhanced Lesson Options</span>
                 </li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <a href="udl-enhanced-statistics.html" class="hover:text-gray-900 text-link">Enhanced Statistics</a>
+                    <span>Enhanced Lesson</span>
                 </li>
                 <li class="flex items-center">
-                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
-                    <span class="text-green-600 font-medium">Assessment Options</span>
+                    <span class="text-blue-600 font-medium">Enhanced Assessment</span>
                 </li>
             </ol>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero hero-green" aria-labelledby="hero-heading">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">Multiple Assessment Approaches</h1>
-                <p class="text-xl text-gray-800 mb-6">
-                    Choose from diverse ways to demonstrate your understanding of chi-square concepts.
-                </p>
-                <div class="flex flex-wrap gap-3" aria-label="Assessment focuses">
-                    <span class="tag tag-green">Multiple Expression</span>
-                    <span class="tag tag-blue">Interactive Learning</span>
-                    <span class="tag tag-purple">Self-Assessment</span>
-                    <span class="tag tag-orange">Collaborative Learning</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Main Content -->
-    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <main class="flex-grow max-w-5xl mx-auto p-6">
         <!-- Introduction -->
-        <div class="content-section">
+        <div class="bg-white rounded-lg shadow-sm p-6">
             <h2 class="text-2xl font-bold mb-4">Demonstrating Understanding: Multiple Approaches</h2>
             <p class="mb-4">Now that you've explored chi-square testing through multiple representations, you have several options for demonstrating your understanding. Choose the methods that best suit your preferences.</p>
             
-            <div class="info-box info-box-green mb-4">
+            <div class="bg-blue-50 p-4 rounded mb-4">
                 <h3 class="font-medium mb-2">Choose Your Assessment Methods:</h3>
-                <ul class="space-y-2">
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>Analyze interactive visualizations of statistical data</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>Work through a real-world scenario</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>Create a video explanation</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>Engage in peer feedback</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>Build a concept map showing relationships between key ideas</span>
-                    </li>
+                <ul class="list-disc pl-6">
+                    <li>Analyze interactive visualizations of statistical data</li>
+                    <li>Work through a real-world scenario</li>
+                    <li>Create a video explanation</li>
+                    <li>Engage in peer feedback</li>
+                    <li>Build a concept map showing relationships between key ideas</li>
                 </ul>
-                <p class="mt-4 text-sm text-green-800">Note: You don't need to complete all options - choose those that best help you demonstrate your understanding.</p>
+                <p class="mt-2 text-sm text-blue-800">Note: You don't need to complete all options - choose those that best help you demonstrate your understanding.</p>
             </div>
 
             <!-- Jump Navigation -->
@@ -177,212 +103,105 @@
         </div>
 
         <!-- Interactive Data Analysis -->
-        <div id="data-analysis" class="content-section">
-            <h3 class="text-xl font-semibold mb-4">Interactive Data Analysis</h3>
-            <div class="info-box info-box-green mb-4">
-                <p class="text-sm text-green-800">Explore how observed values differ from expected values in a real dataset.</p>
+        <div id="data-analysis" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Interactive Data Analysis</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Explore how observed values differ from expected values in a real dataset.</p>
             </div>
-            <div id="contingency-explorer" class="bg-gray-100 p-4 rounded-lg"></div>
+            <div id="contingency-explorer"></div>
         </div>
 
         <!-- Scenario Analysis -->
-        <div id="scenario" class="content-section">
-            <h3 class="text-xl font-semibold mb-4">Study Habits Scenario</h3>
-            <div class="info-box info-box-green mb-4">
-                <p class="text-sm text-green-800">Apply chi-square concepts to analyze a real-world research question.</p>
+        <div id="scenario" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Study Habits Scenario</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Apply chi-square concepts to analyze a real-world research question.</p>
             </div>
-            <div id="statistics-assessment" class="bg-gray-100 p-4 rounded-lg"></div>
+            <div id="statistics-assessment"></div>
         </div>
                 
-        <!-- Video Explanation -->
-        <div id="video" class="content-section">
-            <h3 class="text-xl font-semibold mb-4">Video Explanation</h3>
-            <div class="info-box info-box-green mb-4">
-                <p class="text-sm text-green-800">Create a short video explaining key concepts in your own words.</p>
+       <!-- Video Explanation -->
+        <div id="video" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Video Explanation</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Create a short video explaining key concepts in your own words.</p>
             </div>
             <div class="bg-gray-50 p-6 rounded-lg">
                 <p class="mb-4">Record a 1-2 minute video explaining how to interpret a p-value from a chi-square test. Include:</p>
-                <ul class="space-y-2 mb-4 ml-6">
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>What a p-value represents</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>How to interpret different p-values (e.g., 0.03 vs 0.20)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span>A real-world example</span>
-                    </li>
+                <ul class="list-disc pl-6 mb-4">
+                    <li>What a p-value represents</li>
+                    <li>How to interpret different p-values (e.g., 0.03 vs 0.20)</li>
+                    <li>A real-world example</li>
                 </ul>
-                <div class="flex items-center justify-center w-full">
-                    <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-50">
-                        <svg class="w-8 h-8 text-green-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                            <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-                        </svg>
-                        <span class="mt-2 text-base leading-normal">Upload Video</span>
-                        <input type='file' class="hidden" accept="video/*" />
-                    </label>
-                </div>
-                <p class="text-sm text-gray-600 text-center mt-2">Supported formats: MP4, MOV, WEBM</p>
-            </div>
-        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-center w-full">
+                                <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-50">
+                                    <svg class="w-8 h-8 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+                                    </svg>
+                                    <span class="mt-2 text-base leading-normal">Upload Video</span>
+                                    <input type='file' class="hidden" accept="video/*" />
+                                </label>
+                            </div>
+                            <p class="text-sm text-gray-600 text-center">Supported formats: MP4, MOV, WEBM</p>
+                        </div>
+                    </div>
+                </section>
                 
-        <!-- Peer Feedback -->
-        <div id="peer-feedback" class="content-section">
-            <h3 class="text-xl font-semibold mb-4">Peer Feedback Exchange</h3>
-            <div class="info-box info-box-green mb-4">
-                <p class="text-sm text-green-800">Share your understanding with peers and learn from their perspectives.</p>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-lg">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="font-bold mb-2">When Explaining:</h4>
-                        <ul class="space-y-2 ml-6">
-                            <li class="flex items-start">
-                                <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Define chi-square test clearly</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Walk through the interpretation steps</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Use the study habits example</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Connect to real-world implications</span>
-                            </li>
-                        </ul>
+                <!-- Peer Feedback -->
+                <section class="mb-8">
+                    <h3 class="text-lg font-medium mb-3">4. Peer Feedback Exchange</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold mb-2">When Explaining:</h4>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Define chi-square test clearly</li>
+                                    <li>Walk through the interpretation steps</li>
+                                    <li>Use the study habits example</li>
+                                    <li>Connect to real-world implications</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">When Providing Feedback:</h4>
+                                <ul class="list-disc pl-6 mb-4">
+                                    <li>Was the explanation clear?</li>
+                                    <li>Were statistical terms used correctly?</li>
+                                    <li>What could make it more understandable?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <textarea 
+                            class="w-full mt-4 p-3 border rounded-lg" 
+                            rows="4"
+                            placeholder="Type your feedback here..."
+                        ></textarea>
                     </div>
-                    <div>
-                        <h4 class="font-bold mb-2">When Providing Feedback:</h4>
-                        <ul class="space-y-2 ml-6">
-                            <li class="flex items-start">
-                                <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Was the explanation clear?</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>Were statistical terms used correctly?</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span>What could make it more understandable?</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <textarea 
-                    class="w-full mt-4 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
-                    rows="4"
-                    placeholder="Type your feedback here..."
-                ></textarea>
-            </div>
-        </div>
-        
+                </section>
+                
         <!-- Concept Map -->
-        <div id="concept-map" class="content-section">
-            <h3 class="text-xl font-semibold mb-4">Concept Map Builder</h3>
-            <div class="info-box info-box-green mb-4">
-                <p class="text-sm text-green-800">Create a visual representation of how key statistical concepts relate to each other.</p>
+        <div id="concept-map" class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Concept Map Builder</h3>
+            <div class="bg-blue-50 p-3 rounded mb-4">
+                <p class="text-sm text-blue-800">Create a visual representation of how key statistical concepts relate to each other.</p>
             </div>
-            <div id="concept-map-container" class="bg-gray-100 p-4 rounded-lg"></div>
+            <div id="concept-map-container"></div>
         </div>
 
         <!-- Navigation -->
-        <div class="flex justify-between mb-8">
-            <a href="udl-enhanced-statistics.html" class="nav-button nav-button-secondary">
-                <svg class="button-icon button-icon-left" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Back to Enhanced Lesson
-            </a>
-            <a href="udl-three-principles.html" class="nav-button nav-button-green">
-                Continue to UDL Principles
-                <svg class="button-icon button-icon-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-            </a>
+        <div class="flex justify-between mt-6">
+            <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+            <a href="udl-three-principles.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
-            <p class="text-gray-400 text-sm">
-                Designed with a focus on accessibility and inclusive design principles.
-            </p>
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
-    <button 
-        id="scrollToTopBtn" 
-        class="scroll-top-btn bg-green-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-        aria-label="Scroll to top"
-    >
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-        </svg>
-    </button>
-
-    <!-- Common Scripts -->
-    <script>
-        // Mobile menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        menuButton.addEventListener('click', () => {
-            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-            menuButton.setAttribute('aria-expanded', !expanded);
-            mobileMenu.classList.toggle('open');
-        });
-        
-        // Scroll to top functionality
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.style.opacity = '1';
-            } else {
-                scrollToTopBtn.style.opacity = '0';
-            }
-        });
-        
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
-
-   <!-- Component Scripts -->
+    <!-- Component Scripts -->
 <script type="text/babel">
 // Get React hooks from the React object
 const { useState, useRef, useEffect } = React;

@@ -3,41 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDL-Enhanced Music Theory Assessment</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>UDL-Enhanced Music Theory Assessment - James Kruck, PhD</title>
+    <meta name="description" content="Multiple assessment options for demonstrating understanding of modal interchange concepts, following UDL principles.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
+                        <a href="udl-enhanced-music.html" class="text-gray-700 hover:text-blue-600 transition">Enhanced Music</a>
+                        <a href="udl-enhanced-assessment-music.html" class="text-purple-600 font-medium" aria-current="page">Music Assessment</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
+                <a href="udl-enhanced-music.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Enhanced Music</a>
+                <a href="udl-enhanced-assessment-music.html" class="text-purple-600 font-medium py-2 px-3 rounded-md bg-purple-50">Music Assessment</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900 text-link">Workshop Home</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="music-theory.html" class="hover:text-gray-900 text-link">Music Theory</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <a href="udl-enhanced-music.html" class="hover:text-gray-900 text-link">Enhanced Lesson</a>
+                </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-purple-600 font-medium">Assessment Options</span>
+                </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-purple" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">Multiple Assessment Approaches</h1>
+                <p class="text-xl text-gray-800 mb-6">
+                    Choose from diverse ways to demonstrate your understanding of modal interchange concepts.
+                </p>
+                <div class="flex flex-wrap gap-3" aria-label="Assessment focuses">
+                    <span class="tag tag-purple">Multiple Expression</span>
+                    <span class="tag tag-blue">Interactive Learning</span>
+                    <span class="tag tag-green">Self-Assessment</span>
+                    <span class="tag tag-orange">Collaborative Learning</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Content -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <!-- Introduction -->
-        <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="content-section">
             <h2 class="text-2xl font-bold mb-4">Demonstrating Understanding: Multiple Approaches</h2>
             <p class="mb-4">Now that you've explored modal interchange through multiple representations, you have several options for demonstrating your understanding. Choose the methods that best suit your preferences.</p>
             
-            <div class="bg-blue-50 p-4 rounded mb-4">
+            <div class="info-box info-box-purple mb-4">
                 <h3 class="font-medium mb-2">Choose Your Assessment Methods:</h3>
-                <ul class="list-disc pl-6">
-                    <li>Create chord progressions using an interactive tool</li>
-                    <li>Write about emotional effects in music</li>
-                    <li>Record a video explanation</li>
-                    <li>Participate in peer discussion</li>
-                    <li>Build a concept map of musical relationships</li>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Create chord progressions using an interactive tool</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Write about emotional effects in music</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Record a video explanation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Participate in peer discussion</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Build a concept map of musical relationships</span>
+                    </li>
                 </ul>
-                <p class="mt-2 text-sm text-blue-800">Note: You don't need to complete all options - choose those that best help you demonstrate your understanding.</p>
+                <p class="mt-4 text-sm text-purple-800">Note: You don't need to complete all options - choose those that best help you demonstrate your understanding.</p>
             </div>
 
             <!-- Jump Navigation -->
@@ -66,29 +167,147 @@
             </div>
         </div>
 
-        <!-- Interactive Exercise -->
-        <div id="interactive" class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-3">Interactive Chord Progression</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Create progressions that demonstrate your understanding of modal interchange by using borrowed chords effectively.</p>
-            </div>
-            <div class="bg-gray-100 p-6 rounded shadow mb-6">
-                [Interactive Chord Progression Builder Component]
+<!-- Interactive Chord Progression Builder -->
+<div class="bg-gray-100 p-6 rounded shadow mb-6">
+    <!-- Instructions -->
+    <div class="mb-4 bg-white p-4 rounded-lg border border-gray-200">
+        <h4 class="text-lg font-semibold mb-2">Interactive Chord Progression Builder</h4>
+        <p class="mb-2">Create your own progression to demonstrate modal interchange:</p>
+        <ol class="list-decimal ml-5 mb-3 space-y-1">
+            <li>Select a key for your progression</li>
+            <li>Add chords to your progression using the chord selector</li>
+            <li>Use the borrowed chord options to practice modal interchange</li>
+            <li>Play your progression to hear how it sounds</li>
+            <li>Save your work when you're satisfied</li>
+        </ol>
+    </div>
+
+    <!-- Key and Scale Selector -->
+    <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+        <div class="flex flex-wrap items-center">
+            <label for="key-select" class="mr-4 font-medium">Select Key:</label>
+            <select id="key-select" class="border rounded px-3 py-2 mr-6 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                <option value="C">C Major</option>
+                <option value="Db">D♭ Major</option>
+                <option value="D">D Major</option>
+                <option value="Eb">E♭ Major</option>
+                <option value="E">E Major</option>
+                <option value="F">F Major</option>
+                <option value="Gb">G♭ Major</option>
+                <option value="G">G Major</option>
+                <option value="Ab">A♭ Major</option>
+                <option value="A">A Major</option>
+                <option value="Bb">B♭ Major</option>
+                <option value="B">B Major</option>
+            </select>
+
+            <!-- Chord types explanation -->
+            <div class="mt-3 w-full md:w-auto">
+                <span class="inline-block mr-3 text-sm"><span class="inline-block w-3 h-3 bg-gray-200 rounded-full mr-1"></span> Diatonic</span>
+                <span class="inline-block mr-3 text-sm"><span class="inline-block w-3 h-3 bg-purple-200 rounded-full mr-1"></span> Borrowed</span>
             </div>
         </div>
+    </div>
+
+    <!-- Chord Selection Panel -->
+    <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+        <h4 class="font-medium mb-3">Available Chords:</h4>
+        
+        <!-- Diatonic Chords -->
+        <div class="mb-3">
+            <h5 class="text-sm text-gray-600 mb-2">Diatonic Chords (<span id="selected-key">C</span> Major):</h5>
+            <div class="flex flex-wrap gap-2" id="diatonic-chords">
+                <!-- Diatonic chords will be populated here -->
+            </div>
+        </div>
+        
+        <!-- Borrowed Chords -->
+        <div>
+            <h5 class="text-sm text-gray-600 mb-2">Borrowed Chords:</h5>
+            <div class="flex flex-wrap gap-2" id="borrowed-chords">
+                <!-- Borrowed chords will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Progression Builder -->
+    <div class="bg-white p-4 rounded-lg border border-gray-200 mb-4">
+        <h4 class="font-medium mb-3">Your Progression:</h4>
+        <div class="flex flex-wrap items-center gap-2 mb-4" id="progression-display">
+            <!-- Progression will be displayed here -->
+            <div class="p-3 border border-dashed rounded flex items-center justify-center w-12 h-12" id="add-chord-placeholder">
+                <button class="text-gray-400 hover:text-gray-600" title="Add chord" id="add-placeholder-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Control Buttons -->
+        <div class="flex flex-wrap gap-2">
+            <button id="play-btn" class="flex items-center px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Play Progression
+            </button>
+            <button id="clear-btn" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2">
+                Clear
+            </button>
+            <div class="flex items-center ml-auto">
+                <label for="tempo-slider" class="mr-2 text-sm">Tempo:</label>
+                <input type="range" id="tempo-slider" min="60" max="180" value="100" class="w-24 mr-2">
+                <span id="tempo-value">100 BPM</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Theory Analysis -->
+    <div class="bg-white p-4 rounded-lg border border-gray-200">
+        <h4 class="font-medium mb-3">Progression Analysis:</h4>
+        <div id="progression-analysis" class="bg-gray-50 p-3 rounded mb-3">
+            <p>Add chords to your progression to see an analysis.</p>
+        </div>
+        <div id="emotional-effect" class="bg-gray-50 p-3 rounded mb-3">
+            <p><strong>Emotional Effect:</strong> Your progression will be analyzed for its emotional qualities as you add chords.</p>
+        </div>
+        <div class="mt-4">
+            <button id="save-btn" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                Save My Work
+            </button>
+        </div>
+    </div>
+</div>
 
         <!-- Written Analysis -->
-        <div id="written" class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-3">Written Analysis</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Explain how modal interchange affects the emotional impact of music, using specific examples.</p>
+        <div id="written" class="content-section">
+            <h3 class="text-xl font-semibold mb-4">Written Analysis</h3>
+            <div class="info-box info-box-purple mb-4">
+                <p class="text-sm text-purple-800">Explain how modal interchange affects the emotional impact of music, using specific examples.</p>
             </div>
             <div class="space-y-4">
                 <p>Explain how you might use modal interchange to add emotional depth to a song. Consider:</p>
-                <ul class="list-disc pl-6 mb-4">
-                    <li>Which borrowed chords create specific moods</li>
-                    <li>How the transition between modes affects listener experience</li>
-                    <li>Real songs that effectively use this technique</li>
+                <ul class="space-y-2 ml-6">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Which borrowed chords create specific moods</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>How the transition between modes affects listener experience</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Real songs that effectively use this technique</span>
+                    </li>
                 </ul>
                 <textarea 
                     class="w-full border rounded p-3 min-h-[150px]" 
@@ -99,21 +318,36 @@
         </div>
 
         <!-- Video Response -->
-        <div id="video" class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-3">Video Explanation</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Create a short video demonstrating your understanding of modal interchange concepts.</p>
+        <div id="video" class="content-section">
+            <h3 class="text-xl font-semibold mb-4">Video Explanation</h3>
+            <div class="info-box info-box-purple mb-4">
+                <p class="text-sm text-purple-800">Create a short video demonstrating your understanding of modal interchange concepts.</p>
             </div>
             <div class="space-y-4">
                 <p>Record a 1-2 minute video explaining one of the following:</p>
-                <ul class="list-disc pl-6 mb-4">
-                    <li>How modal interchange adds emotional depth to music</li>
-                    <li>A specific example of borrowed chords in a song you know</li>
-                    <li>Tips for effectively using modal interchange in composition</li>
+                <ul class="space-y-2 ml-6">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>How modal interchange adds emotional depth to music</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>A specific example of borrowed chords in a song you know</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Tips for effectively using modal interchange in composition</span>
+                    </li>
                 </ul>
                 <div class="flex items-center justify-center w-full">
                     <label class="w-full flex flex-col items-center px-4 py-6 bg-gray-50 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-gray-100">
-                        <svg class="w-8 h-8 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <svg class="w-8 h-8 text-purple-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                         </svg>
                         <span class="mt-2 text-base leading-normal">Upload Video</span>
@@ -124,17 +358,32 @@
         </div>
 
         <!-- Peer Discussion -->
-        <div id="peer-feedback" class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-3">Peer Discussion</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Share your understanding with peers and learn from their perspectives.</p>
+        <div id="peer-feedback" class="content-section">
+            <h3 class="text-xl font-semibold mb-4">Peer Discussion</h3>
+            <div class="info-box info-box-purple mb-4">
+                <p class="text-sm text-purple-800">Share your understanding with peers and learn from their perspectives.</p>
             </div>
             <div class="space-y-4">
                 <p>Work with a peer to:</p>
-                <ul class="list-disc pl-6 mb-4">
-                    <li>Explain your understanding of modal interchange</li>
-                    <li>Listen to their explanation and provide feedback</li>
-                    <li>Discuss different applications in various musical styles</li>
+                <ul class="space-y-2 ml-6">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Explain your understanding of modal interchange</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Listen to their explanation and provide feedback</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Discuss different applications in various musical styles</span>
+                    </li>
                 </ul>
                 <textarea 
                     class="w-full border rounded p-3 min-h-[100px]" 
@@ -145,21 +394,36 @@
         </div>
 
         <!-- Concept Map -->
-        <div id="concept-map" class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-3">Concept Map</h3>
-            <div class="bg-blue-50 p-3 rounded mb-4">
-                <p class="text-sm text-blue-800">Create a visual representation showing how different musical concepts relate to modal interchange.</p>
+        <div id="concept-map" class="content-section">
+            <h3 class="text-xl font-semibold mb-4">Concept Map</h3>
+            <div class="info-box info-box-purple mb-4">
+                <p class="text-sm text-purple-800">Create a visual representation showing how different musical concepts relate to modal interchange.</p>
             </div>
             <div class="space-y-4">
                 <p>Create a concept map that includes:</p>
-                <ul class="list-disc pl-6 mb-4">
-                    <li>Key terms (parallel modes, borrowed chords, etc.)</li>
-                    <li>Relationships between concepts</li>
-                    <li>Examples of practical applications</li>
+                <ul class="space-y-2 ml-6">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Key terms (parallel modes, borrowed chords, etc.)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Relationships between concepts</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>Examples of practical applications</span>
+                    </li>
                 </ul>
                 <div class="flex items-center justify-center w-full">
                     <label class="w-full flex flex-col items-center px-4 py-6 bg-gray-50 text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-gray-100">
-                        <svg class="w-8 h-8 text-blue-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <svg class="w-8 h-8 text-purple-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                         </svg>
                         <span class="mt-2 text-base leading-normal">Upload Concept Map</span>
@@ -170,17 +434,566 @@
         </div>
 
         <!-- Navigation -->
-        <div class="flex justify-between mt-6">
-            <a href="#" onclick="history.back()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
-            <a href="udl-three-principles.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        <div class="flex justify-between mb-8">
+            <a href="udl-enhanced-music.html" class="nav-button nav-button-secondary">
+                <svg class="button-icon button-icon-left" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Enhanced Lesson
+            </a>
+            <a href="udl-three-principles.html" class="nav-button nav-button-purple">
+                Continue to UDL Principles
+                <svg class="button-icon button-icon-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 mt-12 py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="scroll-top-btn bg-purple-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize audio context
+    let audioContext;
+    // This will be initialized on first user interaction
+    // due to browser autoplay policies
+    
+    // Initialize state
+    let currentKey = 'C';
+    let progression = [];
+    let tempo = 100; // BPM
+    let isPlaying = false;
+    
+    // Musical data for chords and scales
+    const notes = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+    
+    // Major scale degrees (0 = tonic, 2 = major third, etc.)
+    const chordStructures = {
+        'major': [0, 4, 7],        // Root, major third, perfect fifth
+        'minor': [0, 3, 7],        // Root, minor third, perfect fifth
+        'dim': [0, 3, 6],          // Root, minor third, diminished fifth
+        '7': [0, 4, 7, 10],        // Dominant seventh
+        'maj7': [0, 4, 7, 11],     // Major seventh
+        'm7': [0, 3, 7, 10],       // Minor seventh
+        'dim7': [0, 3, 6, 9],      // Diminished seventh
+        'aug': [0, 4, 8]           // Augmented
+    };
+    
+    // For each major key, define the diatonic chords and common borrowed chords
+    const keyData = {
+        'C': {
+            diatonic: [
+                {name: 'C', type: 'major', numeral: 'I'},
+                {name: 'Dm', type: 'minor', numeral: 'ii'},
+                {name: 'Em', type: 'minor', numeral: 'iii'},
+                {name: 'F', type: 'major', numeral: 'IV'},
+                {name: 'G', type: 'major', numeral: 'V'},
+                {name: 'Am', type: 'minor', numeral: 'vi'},
+                {name: 'Bdim', type: 'dim', numeral: 'vii°'}
+            ],
+            borrowed: [
+                {name: 'Cm', type: 'minor', numeral: 'i', source: 'minor'},
+                {name: 'Eb', type: 'major', numeral: '♭III', source: 'minor'},
+                {name: 'Fm', type: 'minor', numeral: 'iv', source: 'minor'},
+                {name: 'Ab', type: 'major', numeral: '♭VI', source: 'minor'},
+                {name: 'Bb', type: 'major', numeral: '♭VII', source: 'minor'},
+                {name: 'Db', type: 'major', numeral: '♭II', source: 'phrygian'}
+            ]
+        },
+        // Additional keys would be defined here with their respective chords
+    };
+    
+    // Elements
+    const keySelect = document.getElementById('key-select');
+    const selectedKeyDisplay = document.getElementById('selected-key');
+    const diatonicChordsContainer = document.getElementById('diatonic-chords');
+    const borrowedChordsContainer = document.getElementById('borrowed-chords');
+    const progressionDisplay = document.getElementById('progression-display');
+    const playBtn = document.getElementById('play-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const tempoSlider = document.getElementById('tempo-slider');
+    const tempoValue = document.getElementById('tempo-value');
+    const progressionAnalysis = document.getElementById('progression-analysis');
+    const emotionalEffect = document.getElementById('emotional-effect');
+    const saveBtn = document.getElementById('save-btn');
+    const addPlaceholderBtn = document.getElementById('add-placeholder-btn');
+    
+    // Generate chord data for all keys
+    function generateAllKeyData() {
+        const allKeyData = {};
+        
+        notes.forEach(rootNote => {
+            // Find the index of the root note
+            const rootIndex = notes.indexOf(rootNote);
+            
+            // Create a copy of the C major data to modify
+            const keyInfo = JSON.parse(JSON.stringify(keyData['C']));
+            
+            // Calculate the semitone difference from C
+            const semitoneShift = rootIndex; // C is index 0
+            
+            // Function to transpose a note by semitones
+            function transposeNote(note, semitones) {
+                const noteIndex = notes.indexOf(note[0]);
+                if (noteIndex === -1) return note; // Not a valid note
+                
+                // Calculate new index with wraparound
+                const newIndex = (noteIndex + semitones) % 12;
+                let newNote = notes[newIndex];
+                
+                // Keep any modifiers (m, dim, etc.)
+                if (note.length > 1) {
+                    newNote += note.substring(1);
+                }
+                
+                return newNote;
+            }
+            
+            // Transpose all chords
+            keyInfo.diatonic = keyInfo.diatonic.map(chord => {
+                return {
+                    name: transposeNote(chord.name, semitoneShift),
+                    type: chord.type,
+                    numeral: chord.numeral
+                };
+            });
+            
+            keyInfo.borrowed = keyInfo.borrowed.map(chord => {
+                return {
+                    name: transposeNote(chord.name, semitoneShift),
+                    type: chord.type,
+                    numeral: chord.numeral,
+                    source: chord.source
+                };
+            });
+            
+            allKeyData[rootNote] = keyInfo;
+        });
+        
+        return allKeyData;
+    }
+    
+    // Store all key data
+    const allKeyData = generateAllKeyData();
+    
+    // Initialize UI
+    function initUI() {
+        updateChordDisplays();
+        updateTempoDisplay();
+        
+        // Event listeners
+        keySelect.addEventListener('change', function() {
+            currentKey = this.value;
+            selectedKeyDisplay.textContent = currentKey;
+            updateChordDisplays();
+            analyzeProgression();
+        });
+        
+        tempoSlider.addEventListener('input', function() {
+            tempo = parseInt(this.value);
+            updateTempoDisplay();
+        });
+        
+        playBtn.addEventListener('click', playProgression);
+        clearBtn.addEventListener('click', clearProgression);
+        saveBtn.addEventListener('click', saveProgression);
+        addPlaceholderBtn.addEventListener('click', function() {
+            // Show a message telling the user to select a chord
+            alert('Please select a chord from the Available Chords section to add to your progression.');
+        });
+    }
+    
+    // Update the chord buttons for the current key
+    function updateChordDisplays() {
+        diatonicChordsContainer.innerHTML = '';
+        borrowedChordsContainer.innerHTML = '';
+        
+        const keyInfo = allKeyData[currentKey];
+        
+        // Add diatonic chords
+        keyInfo.diatonic.forEach(chord => {
+            const button = document.createElement('button');
+            button.className = 'px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500';
+            button.textContent = chord.name;
+            button.dataset.name = chord.name;
+            button.dataset.type = chord.type;
+            button.dataset.numeral = chord.numeral;
+            button.dataset.borrowed = 'false';
+            
+            button.addEventListener('click', function() {
+                addChordToProgression(chord, false);
+            });
+            
+            diatonicChordsContainer.appendChild(button);
+        });
+        
+        // Add borrowed chords
+        keyInfo.borrowed.forEach(chord => {
+            const button = document.createElement('button');
+            button.className = 'px-3 py-2 bg-purple-200 rounded hover:bg-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500';
+            button.textContent = chord.name;
+            button.dataset.name = chord.name;
+            button.dataset.type = chord.type;
+            button.dataset.numeral = chord.numeral;
+            button.dataset.borrowed = 'true';
+            button.dataset.source = chord.source;
+            button.title = `From ${currentKey} ${chord.source}`;
+            
+            button.addEventListener('click', function() {
+                addChordToProgression(chord, true);
+            });
+            
+            borrowedChordsContainer.appendChild(button);
+        });
+    }
+    
+    // Update the tempo display
+    function updateTempoDisplay() {
+        tempoValue.textContent = `${tempo} BPM`;
+    }
+    
+    // Add a chord to the progression
+    function addChordToProgression(chord, isBorrowed) {
+        // Initialize audio context on first user interaction
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        // Create a chord object for our progression
+        const chordObj = {
+            name: chord.name,
+            type: chord.type,
+            numeral: chord.numeral,
+            borrowed: isBorrowed,
+            source: chord.source
+        };
+        
+        progression.push(chordObj);
+        updateProgressionDisplay();
+        analyzeProgression();
+        
+        // Play the chord so the user can hear what they added
+        playChord(chordObj);
+    }
+    
+    // Update the progression display
+    function updateProgressionDisplay() {
+        // Clear current display except for the add button
+        const placeholder = document.getElementById('add-chord-placeholder');
+        progressionDisplay.innerHTML = '';
+        
+        // Add each chord
+        progression.forEach((chord, index) => {
+            const chordElement = document.createElement('div');
+            chordElement.className = 'p-3 border rounded text-center min-w-[60px] bg-gray-50';
+            
+            const removeButton = document.createElement('button');
+            removeButton.className = 'absolute top-0 right-0 -mt-2 -mr-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500';
+            removeButton.innerHTML = '&times;';
+            removeButton.addEventListener('click', () => removeChordFromProgression(index));
+            removeButton.title = 'Remove this chord';
+            
+            const chordButton = document.createElement('button');
+            chordButton.className = `w-full mb-1 ${chord.borrowed ? 'bg-purple-200 hover:bg-purple-300' : 'bg-gray-200 hover:bg-gray-300'} rounded`;
+            chordButton.textContent = chord.name;
+            chordButton.addEventListener('click', () => playChord(chord));
+            
+            const numeralSpan = document.createElement('span');
+            numeralSpan.className = 'text-xs text-gray-500';
+            numeralSpan.textContent = chord.numeral;
+            
+            chordElement.appendChild(chordButton);
+            chordElement.appendChild(numeralSpan);
+            chordElement.style.position = 'relative';
+            chordElement.appendChild(removeButton);
+            
+            progressionDisplay.appendChild(chordElement);
+            
+            // Add arrow if not the last chord
+            if (index < progression.length - 1) {
+                const arrow = document.createElement('span');
+                arrow.className = 'text-xl';
+                arrow.textContent = '→';
+                progressionDisplay.appendChild(arrow);
+            }
+        });
+        
+        // Add the placeholder for adding new chords
+        progressionDisplay.appendChild(placeholder);
+    }
+    
+    // Remove a chord from the progression
+    function removeChordFromProgression(index) {
+        progression.splice(index, 1);
+        updateProgressionDisplay();
+        analyzeProgression();
+    }
+    
+    // Analyze the progression for modal interchange
+    function analyzeProgression() {
+        if (progression.length === 0) {
+            progressionAnalysis.innerHTML = '<p>Add chords to your progression to see an analysis.</p>';
+            emotionalEffect.innerHTML = '<p><strong>Emotional Effect:</strong> Your progression will be analyzed for its emotional qualities as you add chords.</p>';
+            return;
+        }
+        
+        // Count borrowed chords
+        const borrowedChords = progression.filter(chord => chord.borrowed);
+        const borrowedCount = borrowedChords.length;
+        
+        let analysisHTML = '';
+        let emotionalHTML = '<p><strong>Emotional Effect:</strong> ';
+        
+        if (borrowedCount === 0) {
+            analysisHTML = `<p><strong>Modal Interchange:</strong> Your progression uses only diatonic chords from the ${currentKey} major scale. Try adding some borrowed chords to create modal interchange.</p>`;
+            emotionalHTML += 'Your progression stays within the emotional territory of the major key, which typically conveys a stable, happy, or resolved feeling.</p>';
+        } else {
+            // Get the sources of borrowed chords
+            const sources = [...new Set(borrowedChords.map(chord => chord.source))];
+            
+            analysisHTML = `<p><strong>Modal Interchange:</strong> Your progression includes ${borrowedCount} borrowed chord${borrowedCount > 1 ? 's' : ''} from ${sources.join(' and ')} modes, creating modal interchange that adds color and emotional depth.</p>`;
+            
+            // Describe emotional effects based on the borrowed chords
+            let emotionalEffects = [];
+            
+            if (progression.some(chord => chord.numeral === '♭VI')) {
+                emotionalEffects.push('The ♭VI chord adds a surprising, melancholic quality');
+            }
+            
+            if (progression.some(chord => chord.numeral === '♭VII')) {
+                emotionalEffects.push('The ♭VII chord creates a bluesy, rock-like feel');
+            }
+            
+            if (progression.some(chord => chord.numeral === '♭III')) {
+                emotionalEffects.push('The ♭III chord brings warmth and nostalgia');
+            }
+            
+            if (progression.some(chord => chord.numeral === 'iv')) {
+                emotionalEffects.push('The minor iv chord creates a gentle melancholy');
+            }
+            
+            if (progression.some(chord => chord.numeral === '♭II')) {
+                emotionalEffects.push('The ♭II chord adds a dramatic, exotic tension');
+            }
+            
+            if (emotionalEffects.length > 0) {
+                emotionalHTML += emotionalEffects.join('. ') + '.';
+            } else {
+                emotionalHTML += 'The borrowed chords create interesting shifts in the emotional quality of your progression.';
+            }
+            
+            emotionalHTML += '</p>';
+        }
+        
+        progressionAnalysis.innerHTML = analysisHTML;
+        emotionalEffect.innerHTML = emotionalHTML;
+    }
+    
+    // Play a single chord
+    function playChord(chord) {
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        // Get the root note and chord type
+        const rootNote = chord.name.replace(/[^A-Gb]/g, ''); // Extract just the note name
+        const chordType = getChordType(chord.name);
+        
+        // Get the frequencies for the chord
+        const frequencies = getChordFrequencies(rootNote, chordType);
+        
+        // Create oscillators for each note in the chord
+        const oscillators = frequencies.map(freq => {
+            const osc = audioContext.createOscillator();
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            
+            // Create a gain node for envelope
+            const gainNode = audioContext.createGain();
+            gainNode.gain.value = 0;
+            
+            // Connect oscillator to gain node to destination
+            osc.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            // Apply envelope
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.2 / frequencies.length, audioContext.currentTime + 0.02);
+            gainNode.gain.linearRampToValueAtTime(0.1 / frequencies.length, audioContext.currentTime + 0.3);
+            gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 1);
+            
+            // Start the oscillator
+            osc.start();
+            osc.stop(audioContext.currentTime + 1);
+            
+            return osc;
+        });
+    }
+    
+    // Play the entire progression
+    function playProgression() {
+        if (isPlaying) return; // Prevent multiple plays
+        if (progression.length === 0) {
+            alert('Please add chords to your progression before playing.');
+            return;
+        }
+        
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        isPlaying = true;
+        playBtn.disabled = true;
+        
+        // Calculate chord duration based on tempo
+        const beatDuration = 60 / tempo; // seconds per beat
+        const chordDuration = beatDuration * 2; // 2 beats per chord
+        
+        // Play each chord in sequence
+        progression.forEach((chord, index) => {
+            setTimeout(() => {
+                // Highlight the chord being played
+                const chordElements = progressionDisplay.querySelectorAll('.border.rounded.text-center');
+                
+                // Reset all to normal
+                chordElements.forEach(el => {
+                    el.style.backgroundColor = '';
+                    el.style.borderColor = '';
+                });
+                
+                // Highlight the current chord
+                if (chordElements[index]) {
+                    chordElements[index].style.backgroundColor = '#f0f9ff'; // light blue
+                    chordElements[index].style.borderColor = '#3b82f6'; // blue
+                }
+                
+                // Play the chord
+                playChord(chord);
+                
+                // If it's the last chord, reset playing state after it finishes
+                if (index === progression.length - 1) {
+                    setTimeout(() => {
+                        isPlaying = false;
+                        playBtn.disabled = false;
+                        
+                        // Reset all highlights
+                        chordElements.forEach(el => {
+                            el.style.backgroundColor = '';
+                            el.style.borderColor = '';
+                        });
+                    }, chordDuration * 1000);
+                }
+            }, index * chordDuration * 1000);
+        });
+    }
+    
+    // Clear the progression
+    function clearProgression() {
+        progression = [];
+        updateProgressionDisplay();
+        analyzeProgression();
+    }
+    
+    // Save the progression (placeholder for actual save functionality)
+    function saveProgression() {
+        if (progression.length === 0) {
+            alert('Please add chords to your progression before saving.');
+            return;
+        }
+        
+        // Format the progression for display
+        const progressionText = progression.map(chord => chord.name).join(' - ');
+        
+        // In a real application, this would save to a database or file
+        alert(`Progression saved: ${progressionText}\n\nIn a complete implementation, this would be saved to your account or downloaded as a file.`);
+    }
+    
+    // Utility to get chord type from chord name
+    function getChordType(chordName) {
+        if (chordName.includes('dim7')) return 'dim7';
+        if (chordName.includes('dim')) return 'dim';
+        if (chordName.includes('aug')) return 'aug';
+        if (chordName.includes('maj7')) return 'maj7';
+        if (chordName.includes('m7')) return 'm7';
+        if (chordName.includes('7')) return '7';
+        if (chordName.includes('m')) return 'minor';
+        return 'major';
+    }
+    
+    // Get frequencies for a chord
+    function getChordFrequencies(rootNote, chordType) {
+        // Base frequency for each note (A4 = 440 Hz)
+        const A4 = 440;
+        const A4Index = notes.indexOf('A');
+        
+        // Calculate root note frequency relative to A4
+        const rootIndex = notes.indexOf(rootNote);
+        const halfStepsFromA4 = rootIndex - A4Index;
+        
+        // Use the 12th root of 2 to calculate frequency ratios (equal temperament)
+        const rootFrequency = A4 * Math.pow(2, halfStepsFromA4 / 12);
+        
+        // Get the structure for this chord type
+        const structure = chordStructures[chordType] || chordStructures.major;
+        
+        // Calculate frequencies for each note in the chord
+        return structure.map(semitones => rootFrequency * Math.pow(2, semitones / 12));
+    }
+    
+    // Initialize the UI
+    initUI();
+});
+</script>

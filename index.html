@@ -3,67 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDL Plus One Workshop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>UDL Plus One Workshop - James Kruck, PhD</title>
+    <meta name="description" content="An experiential workshop that introduces Universal Design for Learning through the practical 'Plus One' approach.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
-<!-- Header -->
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-blue-600 font-medium" aria-current="page">UDL Workshop</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
-    </header>
-  
-    
-    <!-- Navigation -->
-    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <ol class="flex items-center space-x-2 text-sm text-gray-600">
-                <li>
-                    <span class="text-blue-600 font-medium">Workshop Home</span>
-                </li>
-            </ol>
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-blue-600 font-medium py-2 px-3 rounded-md bg-blue-50">UDL Workshop</a>
+            </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero hero-blue" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex items-center">
+                <div class="md:w-2/3">
+                    <h1 id="hero-heading" class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+                        UDL Plus One Workshop
+                    </h1>
+                    <p class="text-xl text-gray-800 mb-6">
+                        An experiential workshop that introduces safety trainers to Universal Design for Learning through the practical "Plus One" approach.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-6" aria-label="Workshop focus areas">
+                        <span class="tag tag-blue">Accessibility</span>
+                        <span class="tag tag-green">Inclusive Teaching</span>
+                        <span class="tag tag-purple">Practical Application</span>
+                        <span class="tag tag-orange">Multiple Modalities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
-        <div class="bg-white rounded-lg shadow-sm p-6">
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="content-section">
             <h2 class="text-2xl font-bold mb-4">Welcome to the UDL Plus One Workshop</h2>
             <p class="mb-4">This workshop explores how Universal Design for Learning (UDL) can enhance learning experiences. By the end of this session, you will have a practical plan to improve your teaching using the <strong>Plus One Approach</strong> - a strategy for implementing UDL principles in your courses.</p>
-                        <p class="mb-6">Before we start planning out how you are going to use the Plus One Approach in your courses, let's take a look at how the approach might help us understand complex topics.</p>
+            <p class="mb-6">Before we start planning out how you are going to use the Plus One Approach in your courses, let's take a look at how the approach might help us understand complex topics.</p>
         </div>
 
         <!-- Learning Path Selection -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-medium mb-3">Choose a Topic to Explore</h3>
-            <p class="mb-4">Select one of the two topics below to get started. You'll experience the biggest effect if you choose one that you're not familiar with. You want to be in the seat of a student for this experience. </p>
+        <div class="content-section">
+            <h3 class="text-xl font-semibold mb-4">Choose a Topic to Explore</h3>
+            <p class="mb-6">Select one of the two topics below to get started. You'll experience the biggest effect if you choose one that you're not familiar with. You want to be in the seat of a student for this experience.</p>
+            
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="music-theory.html" class="block bg-blue-100 hover:bg-blue-200 p-4 rounded shadow">
-                    <h4 class="text-lg font-medium">Music Theory: Modal Interchange</h4>
-                    <p>Discover how modal interchange can add emotional depth to music by borrowing chords from parallel modes.</p>
+                <a href="music-theory.html" class="learning-card block p-6 rounded-lg">
+                    <div class="mb-3">
+                        <span class="tag tag-purple">Music Theory</span>
+                        <span class="tag tag-blue">Creative Expression</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Modal Interchange</h4>
+                    <p class="text-gray-700 mb-4">
+                        Discover how modal interchange can add emotional depth to music by borrowing chords from parallel modes.
+                    </p>
+                    <div class="flex justify-end">
+                        <span class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition">
+                            Explore this topic
+                            <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
                 </a>
-                <a href="statistics.html" class="block bg-green-100 hover:bg-green-200 p-4 rounded shadow">
-                    <h4 class="text-lg font-medium">Statistics: Chi-Square Test of Independence</h4>
-                    <p>Learn how to determine whether two categorical variables are independent using the chi-square test.</p>
+                
+                <a href="statistics.html" class="learning-card block p-6 rounded-lg">
+                    <div class="mb-3">
+                        <span class="tag tag-green">Statistics</span>
+                        <span class="tag tag-orange">Data Analysis</span>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-2">Chi-Square Test of Independence</h4>
+                    <p class="text-gray-700 mb-4">
+                        Learn how to determine whether two categorical variables are independent using the chi-square test.
+                    </p>
+                    <div class="flex justify-end">
+                        <span class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition">
+                            Explore this topic
+                            <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </span>
+                    </div>
                 </a>
+            </div>
+        </div>
+        
+        <!-- Workshop Overview -->
+        <div class="content-section">
+            <h3 class="text-xl font-semibold mb-4">About the Plus One Approach</h3>
+            <p class="mb-4">The Plus One approach is a practical strategy for implementing Universal Design for Learning (UDL) principles in your teaching. Rather than completely redesigning your courses, you add one alternative method of engagement, representation, or action/expression.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6 mt-6">
+                <div class="info-box info-box-blue">
+                    <h4 class="font-semibold mb-2 text-blue-800">Multiple Means of Engagement</h4>
+                    <p>Provide options for recruiting interest, sustaining effort, and self-regulation to motivate and engage diverse learners.</p>
+                </div>
+                
+                <div class="info-box info-box-green">
+                    <h4 class="font-semibold mb-2 text-green-800">Multiple Means of Representation</h4>
+                    <p>Present information in different formats to accommodate various learning styles and preferences.</p>
+                </div>
+                
+                <div class="info-box info-box-purple">
+                    <h4 class="font-semibold mb-2 text-purple-800">Multiple Means of Action & Expression</h4>
+                    <p>Allow learners to demonstrate their knowledge and skills in various ways that suit their abilities.</p>
+                </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 mt-12 py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="scroll-top-btn bg-blue-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Theory: Modal Interchange</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+<!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                </li>
+                 <li class="flex items-center">
+                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span class="text-blue-600 font-medium">Lesson</span>
+            </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Definition -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold mb-4">Modal Interchange: Definition</h2>
+            <p class="mb-4">Modal interchange is a compositional technique where chords are borrowed from parallel modes to add harmonic variety to a piece of music. For example, a piece in C major might borrow chords from C minor.</p>
+        </div>
+
+        <!-- Technical Explanation -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Technical Details</h3>
+            <p class="mb-4">In traditional harmony, compositions typically use chords from a single mode. Modal interchange expands these options by allowing borrowed chords from parallel modes. Common examples include:</p>
+            <ul class="list-disc pl-6 mb-4">
+                <li class="mb-2">The flat sixth chord (♭VI) borrowed from minor mode</li>
+                <li class="mb-2">The diminished second chord (ii°) from minor mode</li>
+                <li class="mb-2">The flat third chord (♭III) from minor mode</li>
+            </ul>
+            <p>These borrowed chords create tension and emotional depth in the harmony.</p>
+        </div>
+
+        <!-- Assessment -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Knowledge Check</h3>
+            <p class="mb-4">Select the correct definition of modal interchange:</p>
+            <form>
+                <fieldset class="mb-4">
+                    <div class="mb-2">
+                        <input type="radio" id="option1" name="modal-interchange" value="1" required>
+                        <label for="option1">Borrowing chords from parallel modes to add harmonic interest</label>
+                    </div>
+                    <div class="mb-2">
+                        <input type="radio" id="option2" name="modal-interchange" value="2">
+                        <label for="option2">Using random chord progressions for emotional impact</label>
+                    </div>
+                    <div class="mb-2">
+                        <input type="radio" id="option3" name="modal-interchange" value="3">
+                        <label for="option3">Following only major scale chords in songwriting</label>
+                    </div>
+                    <div class="mb-2">
+                        <input type="radio" id="option4" name="modal-interchange" value="4">
+                        <label for="option4">Avoiding parallel modes to maintain simplicity</label>
+                    </div>
+                </fieldset>
+                <button type="button" onclick="checkAnswer()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Check Answer</button>
+                <p id="feedback" class="mt-4 font-semibold"></p>
+            </form>
+        </div>
+
+            <!-- Navigation Buttons -->
+        <div class="flex justify-between mt-6">
+            <a href="index.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+            <a href="shared-transition.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function checkAnswer() {
+            const correctAnswer = "1";
+            const selectedAnswer = document.querySelector('input[name="modal-interchange"]:checked');
+            if (selectedAnswer) {
+                const feedback = document.getElementById("feedback");
+                if (selectedAnswer.value === correctAnswer) {
+                    feedback.innerHTML = "Correct. Modal interchange involves borrowing chords from parallel modes.";
+                    feedback.classList.add("text-green-600");
+                    feedback.classList.remove("text-red-600");
+                } else {
+                    feedback.innerHTML = "Incorrect. Please review the definition and try again.";
+                    feedback.classList.add("text-red-600");
+                    feedback.classList.remove("text-green-600");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -3,122 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistics: Chi-Square Test of Independence</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Statistics: Chi-Square Test - James Kruck, PhD</title>
+    <meta name="description" content="Learn about the chi-square test of independence and how to determine relationships between categorical variables.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937; /* Darker text for better contrast */
+            line-height: 1.6;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Skip to content link for keyboard navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2563eb;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag-blue {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #1d4ed8; /* Darkened for better contrast */
+        }
+        
+        .tag-green {
+            background-color: rgba(16, 185, 129, 0.15); 
+            color: #047857; /* Darkened for better contrast */
+        }
+        
+        .tag-purple {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #6d28d9; /* Darkened for better contrast */
+        }
+        
+        .tag-orange {
+            background-color: rgba(249, 115, 22, 0.15);
+            color: #c2410c; /* Darkened for better contrast */
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        /* Increase text size for better readability */
+        p {
+            font-size: 1.0625rem;
+        }
+        
+        /* Improved link styling */
+        .text-link {
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+        }
+        
+        /* Radio custom styling */
+        .custom-radio {
+            display: grid;
+            grid-template-columns: 1em auto;
+            gap: 0.75em;
+            margin-bottom: 1em;
+            align-items: center;
+        }
+        
+        .custom-radio input[type="radio"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: #047857;
+            width: 1.25em;
+            height: 1.25em;
+            border: 2px solid #047857;
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+        }
+        
+        .custom-radio input[type="radio"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #047857;
+        }
+        
+        .custom-radio input[type="radio"]:checked::before {
+            transform: scale(1);
+        }
+        
+        .custom-radio input[type="radio"]:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Math formula styling */
+        .formula {
+            font-family: 'Inter', sans-serif;
+            background-color: rgba(16, 185, 129, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #047857;
+            margin: 1.5rem 0;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 flex flex-col min-h-screen">
-<!-- Header -->
-    <header class="bg-white shadow-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex">
-                    <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
+                        <a href="statistics.html" class="text-green-600 font-medium" aria-current="page">Statistics</a>
                     </div>
                 </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
+                <a href="statistics.html" class="text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">Statistics</a>
+            </div>
+        </div>
+    </nav>
     
-    <!-- Navigation -->
+    <!-- Breadcrumb Navigation -->
     <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <ol class="flex items-center space-x-2 text-sm text-gray-600">
                 <li>
-                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                    <a href="index.html" class="hover:text-gray-900 text-link">Workshop Home</a>
                 </li>
-                 <li class="flex items-center">
-                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-                <span class="text-blue-600 font-medium">Lesson</span>
-            </li>
+                <li class="flex items-center">
+                    <svg class="h-5 w-5 text-gray-400 mx-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <span class="text-green-600 font-medium">Statistics: Chi-Square Test</span>
+                </li>
             </ol>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero py-8" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">Chi-Square Test of Independence</h1>
+                <p class="text-xl text-gray-800 mb-6">
+                    Learn how to determine whether two categorical variables are related using the chi-square test of independence.
+                </p>
+                <div class="flex flex-wrap gap-3" aria-label="Topic tags">
+                    <span class="tag tag-green">Statistics</span>
+                    <span class="tag tag-blue">Hypothesis Testing</span>
+                    <span class="tag tag-orange">Data Analysis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="flex-grow max-w-5xl mx-auto p-6">
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <!-- Definition -->
-        <div class="bg-white rounded-lg shadow-sm p-6">
-            <h2 class="text-2xl font-bold mb-4">Understanding the Chi-Square Test</h2>
-            <p class="mb-4">The chi-square test of independence examines whether two categorical variables are independent of each other. This test is fundamental in statistical analysis for determining relationships between categorical data.</p>
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Understanding the Chi-Square Test</h2>
+            <p class="mb-4 text-gray-800">The chi-square test of independence examines whether two categorical variables are independent of each other or related in some way. This test is fundamental in statistical analysis when working with categorical data.</p>
+            <p class="text-gray-800">For example, researchers might use this test to determine whether:</p>
+            <ul class="space-y-2 mt-4 pl-6">
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Education level is related to voting preference</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Gender is related to product preference</span>
+                </li>
+                <li class="flex items-start">
+                    <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Treatment type is related to recovery outcomes</span>
+                </li>
+            </ul>
         </div>
 
         <!-- Technical Explanation -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-3">Technical Details</h3>
-            <p class="mb-4">The test compares observed frequencies with expected frequencies calculated under the assumption of independence. The test statistic is calculated as:</p>
-            <p class="mb-4 font-mono pl-4">Χ² = Σ((O-E)²/E)</p>
-            <p class="mb-4">Where:</p>
-            <ul class="list-disc pl-6 mb-4">
-                <li>O represents observed frequencies</li>
-                <li>E represents expected frequencies</li>
-                <li>Degrees of freedom = (r-1)(c-1)</li>
-                <li>r is the number of rows</li>
-                <li>c is the number of columns</li>
-            </ul>
-            <p>The null hypothesis states that variables are independent; the alternative hypothesis states they are related.</p>
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">How the Test Works</h3>
+            <p class="mb-4 text-gray-800">The chi-square test compares observed frequencies with expected frequencies calculated under the assumption of independence. The test evaluates whether any differences between observed and expected values are due to chance or a real relationship.</p>
+            
+            <div class="formula text-center">
+                <p class="mb-2 text-xl">Χ² = Σ((O-E)²/E)</p>
+                <p class="text-sm text-gray-600">Where O = observed frequency and E = expected frequency</p>
+            </div>
+            
+            <div class="bg-green-50 p-5 rounded-lg border border-green-100 mb-6">
+                <h4 class="font-semibold mb-2 text-green-800">Key Components</h4>
+                <ul class="space-y-2">
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><strong>Observed frequencies (O):</strong> The actual count in each category</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><strong>Expected frequencies (E):</strong> What we would expect if variables were independent</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><strong>Degrees of freedom:</strong> (r-1)(c-1) where r = number of rows and c = number of columns</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span><strong>p-value:</strong> Probability of obtaining the observed results by chance</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                    <h4 class="font-semibold mb-2 text-blue-800">Null Hypothesis (H₀)</h4>
+                    <p class="text-gray-800">The two categorical variables are independent (not related).</p>
+                </div>
+                
+                <div class="p-4 bg-orange-50 rounded-lg border border-orange-100">
+                    <h4 class="font-semibold mb-2 text-orange-800">Alternative Hypothesis (H₁)</h4>
+                    <p class="text-gray-800">The two categorical variables are dependent (related).</p>
+                </div>
+            </div>
+            
+            <p class="mt-6 text-gray-800">If the p-value is less than your significance level (typically 0.05), you reject the null hypothesis and conclude that the variables are related.</p>
+        </div>
+
+        <!-- Practical Example -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Practical Example</h3>
+            <p class="mb-4 text-gray-800">Imagine a researcher wants to know if education level (high school, college, graduate) is related to adoption of a new technology (adopted, not adopted).</p>
+            
+            <p class="mb-2 font-medium text-gray-800">The steps would be:</p>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Collect data on both variables for a sample population</li>
+                <li>Create a contingency table of observed frequencies</li>
+                <li>Calculate expected frequencies for each cell</li>
+                <li>Compute the chi-square statistic</li>
+                <li>Determine degrees of freedom: (3-1)(2-1) = 2</li>
+                <li>Find the p-value and compare to significance level</li>
+                <li>Draw a conclusion about the relationship</li>
+            </ol>
+            
+            <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                <h4 class="font-semibold mb-2 text-yellow-800">Important Considerations</h4>
+                <p class="text-gray-800">For reliable results, each expected frequency should be at least 5. If this assumption is violated, Fisher's exact test may be more appropriate for small samples.</p>
+            </div>
         </div>
 
         <!-- Assessment -->
-        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
-            <h3 class="text-lg font-bold mb-3">Knowledge Check</h3>
-            <p class="mb-4">What does the chi-square test of independence determine?</p>
-            <form>
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Knowledge Check</h3>
+            <p class="mb-6 text-gray-800">What does the chi-square test of independence determine?</p>
+            
+            <form class="bg-gray-50 p-5 rounded-lg border border-gray-200">
                 <fieldset class="mb-4">
-                    <div class="mb-2">
+                    <div class="custom-radio">
                         <input type="radio" id="option1" name="chi-square" value="1" required>
                         <label for="option1">The probability of an event occurring twice in a row</label>
                     </div>
-                    <div class="mb-2">
+                    <div class="custom-radio">
                         <input type="radio" id="option2" name="chi-square" value="2">
                         <label for="option2">The relationship between two categorical variables</label>
                     </div>
-                    <div class="mb-2">
+                    <div class="custom-radio">
                         <input type="radio" id="option3" name="chi-square" value="3">
                         <label for="option3">The average value of numerical data</label>
                     </div>
-                    <div class="mb-2">
+                    <div class="custom-radio">
                         <input type="radio" id="option4" name="chi-square" value="4">
                         <label for="option4">The difference between sample means</label>
                     </div>
                 </fieldset>
-                <button type="button" onclick="checkAnswer()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Check Answer</button>
-                <p id="feedback" class="mt-4 font-semibold"></p>
+                <button type="button" onclick="checkAnswer()" class="bg-green-600 text-white px-6 py-2.5 rounded-md hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    Check Answer
+                </button>
+                <p id="feedback" class="mt-4 font-semibold p-3 rounded-md hidden"></p>
             </form>
         </div>
 
         <!-- Navigation Buttons -->
-        <div class="flex justify-between mt-6">
-            <a href="index.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
-            <a href="shared-transition.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        <div class="flex justify-between mb-8">
+            <a href="index.html" class="inline-flex items-center px-6 py-2.5 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to Workshop
+            </a>
+            <a href="shared-transition.html" class="inline-flex items-center px-6 py-2.5 bg-green-600 text-white rounded-md hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                Continue
+                <svg class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+            </a>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 mt-12 py-6">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
         </div>
     </footer>
 
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="fixed bottom-8 right-8 bg-green-600 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
     <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Knowledge check functionality
         function checkAnswer() {
             const correctAnswer = "2";
             const selectedAnswer = document.querySelector('input[name="chi-square"]:checked');
+            const feedback = document.getElementById("feedback");
+            
+            feedback.classList.remove("hidden");
+            
             if (selectedAnswer) {
-                const feedback = document.getElementById("feedback");
                 if (selectedAnswer.value === correctAnswer) {
-                    feedback.innerHTML = "Correct. The chi-square test examines the relationship between categorical variables.";
-                    feedback.classList.add("text-green-600");
-                    feedback.classList.remove("text-red-600");
+                    feedback.innerHTML = "Correct! The chi-square test of independence examines the relationship between two categorical variables to determine if they are independent or related.";
+                    feedback.classList.add("bg-green-50", "text-green-800", "border", "border-green-200");
+                    feedback.classList.remove("bg-red-50", "text-red-800", "border-red-200");
                 } else {
-                    feedback.innerHTML = "Incorrect. Please review the definition and try again.";
-                    feedback.classList.add("text-red-600");
-                    feedback.classList.remove("text-green-600");
+                    feedback.innerHTML = "Incorrect. The chi-square test of independence determines whether two categorical variables are related or independent of each other.";
+                    feedback.classList.add("bg-red-50", "text-red-800", "border", "border-red-200");
+                    feedback.classList.remove("bg-green-50", "text-green-800", "border-green-200");
                 }
+            } else {
+                feedback.innerHTML = "Please select an answer before checking.";
+                feedback.classList.add("bg-yellow-50", "text-yellow-800", "border", "border-yellow-200");
+                feedback.classList.remove("bg-green-50", "text-green-800", "border-green-200", "bg-red-50", "text-red-800", "border-red-200");
             }
         }
     </script>

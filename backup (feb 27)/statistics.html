@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics: Chi-Square Test of Independence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+<!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">UDL Plus One Workshop</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="bg-gray-50 border-b" aria-label="Breadcrumb">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li>
+                    <a href="index.html" class="hover:text-gray-900">Workshop Home</a>
+                </li>
+                 <li class="flex items-center">
+                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <span class="text-blue-600 font-medium">Lesson</span>
+            </li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-5xl mx-auto p-6">
+        <!-- Definition -->
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <h2 class="text-2xl font-bold mb-4">Understanding the Chi-Square Test</h2>
+            <p class="mb-4">The chi-square test of independence examines whether two categorical variables are independent of each other. This test is fundamental in statistical analysis for determining relationships between categorical data.</p>
+        </div>
+
+        <!-- Technical Explanation -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Technical Details</h3>
+            <p class="mb-4">The test compares observed frequencies with expected frequencies calculated under the assumption of independence. The test statistic is calculated as:</p>
+            <p class="mb-4 font-mono pl-4">Χ² = Σ((O-E)²/E)</p>
+            <p class="mb-4">Where:</p>
+            <ul class="list-disc pl-6 mb-4">
+                <li>O represents observed frequencies</li>
+                <li>E represents expected frequencies</li>
+                <li>Degrees of freedom = (r-1)(c-1)</li>
+                <li>r is the number of rows</li>
+                <li>c is the number of columns</li>
+            </ul>
+            <p>The null hypothesis states that variables are independent; the alternative hypothesis states they are related.</p>
+        </div>
+
+        <!-- Assessment -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mt-6">
+            <h3 class="text-lg font-bold mb-3">Knowledge Check</h3>
+            <p class="mb-4">What does the chi-square test of independence determine?</p>
+            <form>
+                <fieldset class="mb-4">
+                    <div class="mb-2">
+                        <input type="radio" id="option1" name="chi-square" value="1" required>
+                        <label for="option1">The probability of an event occurring twice in a row</label>
+                    </div>
+                    <div class="mb-2">
+                        <input type="radio" id="option2" name="chi-square" value="2">
+                        <label for="option2">The relationship between two categorical variables</label>
+                    </div>
+                    <div class="mb-2">
+                        <input type="radio" id="option3" name="chi-square" value="3">
+                        <label for="option3">The average value of numerical data</label>
+                    </div>
+                    <div class="mb-2">
+                        <input type="radio" id="option4" name="chi-square" value="4">
+                        <label for="option4">The difference between sample means</label>
+                    </div>
+                </fieldset>
+                <button type="button" onclick="checkAnswer()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Check Answer</button>
+                <p id="feedback" class="mt-4 font-semibold"></p>
+            </form>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between mt-6">
+            <a href="index.html" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">Back</a>
+            <a href="shared-transition.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Continue</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 UDL Plus One Workshop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function checkAnswer() {
+            const correctAnswer = "2";
+            const selectedAnswer = document.querySelector('input[name="chi-square"]:checked');
+            if (selectedAnswer) {
+                const feedback = document.getElementById("feedback");
+                if (selectedAnswer.value === correctAnswer) {
+                    feedback.innerHTML = "Correct. The chi-square test examines the relationship between categorical variables.";
+                    feedback.classList.add("text-green-600");
+                    feedback.classList.remove("text-red-600");
+                } else {
+                    feedback.innerHTML = "Incorrect. Please review the definition and try again.";
+                    feedback.classList.add("text-red-600");
+                    feedback.classList.remove("text-green-600");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
