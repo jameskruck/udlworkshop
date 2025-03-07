@@ -1,0 +1,592 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Complete - James Kruck, PhD</title>
+    <meta name="description" content="Congratulations on completing the UDL Plus One Workshop! Learn about next steps and additional resources for implementing Universal Design for Learning.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1f2937; /* Darker text for better contrast */
+            line-height: 1.6;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 3px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Skip to content link for keyboard navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2563eb;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.2s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Tags */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag-blue {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #1d4ed8; /* Darkened for better contrast */
+        }
+        
+        .tag-green {
+            background-color: rgba(16, 185, 129, 0.15); 
+            color: #047857; /* Darkened for better contrast */
+        }
+        
+        .tag-purple {
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #6d28d9; /* Darkened for better contrast */
+        }
+        
+        .tag-orange {
+            background-color: rgba(249, 115, 22, 0.15);
+            color: #c2410c; /* Darkened for better contrast */
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 40;
+        }
+        
+        .mobile-menu.open {
+            display: block;
+        }
+        
+        /* Increase text size for better readability */
+        p {
+            font-size: 1.0625rem;
+        }
+        
+        /* Improved link styling */
+        .text-link {
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
+            padding: 2rem 0;
+        }
+
+        /* Certificate styling */
+        .certificate {
+            background-color: white;
+            border: 8px solid #047857;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            bottom: 0.5rem;
+            left: 0.5rem;
+            border: 2px solid #047857;
+            border-radius: 0.25rem;
+            pointer-events: none;
+        }
+
+        /* Content section styling */
+        .content-section {
+            margin-bottom: 2rem;
+        }
+        
+        /* Info box styling */
+        .info-box {
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-box-blue {
+            background-color: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .info-box-green {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .info-box-purple {
+            background-color: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        /* Resource card styling */
+        .resource-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Scroll to top button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <nav class="bg-white shadow-sm py-4 sticky top-0 z-10" aria-label="Main Navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <a href="index.html" class="font-bold text-xl text-blue-600" aria-label="James Kruck, PhD Home Page">James Kruck, PhD</a>
+                </div>
+                <div class="hidden md:block" aria-label="Desktop Navigation">
+                    <div class="flex space-x-8">
+                        <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                        <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">UDL Workshop</a>
+                        <a href="workshop-complete.html" class="text-green-600 font-medium" aria-current="page">Workshop Complete</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-600 p-2" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu, hidden by default -->
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation">
+            <div class="flex flex-col space-y-3">
+                <a href="https://jameskruck.com/index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Home</a>
+                <a href="https://jameskruck.com/projects.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">Projects</a>
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition py-2 px-3 rounded-md">UDL Workshop</a>
+                <a href="workshop-complete.html" class="text-green-600 font-medium py-2 px-3 rounded-md bg-green-50">Workshop Complete</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 id="hero-heading" class="text-3xl font-bold text-gray-900 mb-4">Congratulations!</h1>
+                <p class="text-xl text-gray-800 mb-6">
+                    You've completed the UDL Plus One Workshop and created a personalized implementation plan.
+                </p>
+                <div class="flex flex-wrap gap-3" aria-label="Topic tags">
+                    <span class="tag tag-blue">Success</span>
+                    <span class="tag tag-green">Implementation</span>
+                    <span class="tag tag-purple">Resources</span>
+                    <span class="tag tag-orange">Next Steps</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Certificate of Completion -->
+        <div class="mb-12">
+            <div class="certificate text-center">
+                <div class="mb-6">
+                    <svg class="h-20 w-20 text-green-600 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Certificate of Completion</h2>
+                <p class="text-xl mb-2">This certifies that</p>
+                <p class="text-2xl font-bold text-green-700 mb-2" id="participant-name">Workshop Participant</p>
+                <p class="text-xl mb-6">has successfully completed the</p>
+                <p class="text-3xl font-bold text-gray-900 mb-2">UDL Plus One Workshop</p>
+                <p class="text-lg text-gray-600 mb-6">Gaining practical skills in implementing Universal Design for Learning principles in educational contexts</p>
+                <p class="text-lg font-medium">February 27, 2025</p>
+            </div>
+            
+            <div class="text-center mt-6">
+                <button id="print-certificate" class="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                    </svg>
+                    Print Certificate
+                </button>
+            </div>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Key Takeaways</h2>
+            <p class="mb-6">Throughout this workshop, you've explored how Universal Design for Learning principles can create more accessible and effective learning experiences. Here's what you've accomplished:</p>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="info-box info-box-blue">
+                    <h3 class="font-semibold text-lg mb-3 text-blue-700">Experienced UDL in Action</h3>
+                    <p class="text-gray-800">You directly experienced how different approaches to presenting the same content can dramatically impact learning accessibility and effectiveness.</p>
+                </div>
+                
+                <div class="info-box info-box-green">
+                    <h3 class="font-semibold text-lg mb-3 text-green-700">Identified UDL Principles</h3>
+                    <p class="text-gray-800">You explored the three core principles: multiple means of engagement, representation, and action & expression.</p>
+                </div>
+                
+                <div class="info-box info-box-purple">
+                    <h3 class="font-semibold text-lg mb-3 text-purple-700">Created an Implementation Plan</h3>
+                    <p class="text-gray-800">You developed a personalized Plus One plan to enhance your teaching with strategic UDL improvements.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Next Steps for Implementation</h2>
+            
+            <div class="space-y-6">
+                <div class="bg-blue-50 p-5 rounded-lg border border-blue-100">
+                    <h3 class="text-xl font-semibold mb-3 text-blue-800">1. Implement Your Plus One Plan</h3>
+                    <p class="mb-3">Based on the implementation plan you created, start by focusing on just one enhancement to your teaching. Remember that small, targeted improvements can have significant impact.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Review your implementation timeline and gather any necessary resources</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Start with your identified "pinch point" where learners face the most challenges</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-blue-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Document your changes and student responses to inform future improvements</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-green-50 p-5 rounded-lg border border-green-100">
+                    <h3 class="text-xl font-semibold mb-3 text-green-800">2. Gather Feedback</h3>
+                    <p class="mb-3">As you implement your enhancements, collect feedback from your learners to understand the impact of your changes and identify opportunities for further improvement.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Ask students about their experience with the enhanced content</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Compare assessment outcomes before and after implementation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Be open to unexpected outcomes and adjust your approach as needed</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-purple-50 p-5 rounded-lg border border-purple-100">
+                    <h3 class="text-xl font-semibold mb-3 text-purple-800">3. Continue Your UDL Journey</h3>
+                    <p class="mb-3">The Plus One approach is about continuous, incremental improvement. After successfully implementing your first enhancement, consider your next area of focus.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Look for additional "pinch points" in your instruction</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Explore new UDL strategies and techniques through the resources below</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-5 w-5 text-purple-600 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span>Share your experiences with colleagues to build a community of practice</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Additional Resources</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="https://udlguidelines.cast.org/" target="_blank" rel="noopener" class="resource-card p-6 block hover:no-underline">
+                    <h3 class="text-lg font-semibold mb-2 text-blue-700">UDL Guidelines</h3>
+                    <p class="text-gray-700 mb-4">Comprehensive framework for implementing UDL in your teaching practice from CAST.</p>
+                    <span class="inline-flex items-center text-blue-600 font-medium">
+                        Visit Resource
+                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </span>
+                </a>
+                
+                <a href="https://www.washington.edu/doit/programs/center-universal-design-education/resources" target="_blank" rel="noopener" class="resource-card p-6 block hover:no-underline">
+                    <h3 class="text-lg font-semibold mb-2 text-green-700">UDL Implementation Resources</h3>
+                    <p class="text-gray-700 mb-4">Practical resources for implementing UDL in various educational contexts.</p>
+                    <span class="inline-flex items-center text-green-600 font-medium">
+                        Visit Resource
+                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </span>
+                </a>
+                
+                <a href="https://www.understood.org/en/school-learning/for-educators/universal-design-for-learning" target="_blank" rel="noopener" class="resource-card p-6 block hover:no-underline">
+                    <h3 class="text-lg font-semibold mb-2 text-purple-700">UDL for Educators</h3>
+                    <p class="text-gray-700 mb-4">Guides and articles on implementing UDL principles in various educational settings.</p>
+                    <span class="inline-flex items-center text-purple-600 font-medium">
+                        Visit Resource
+                        <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Workshop Feedback -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4">Help Us Improve</h2>
+            <p class="mb-6">Your feedback on this workshop will help us enhance the experience for future participants. Please consider sharing your thoughts:</p>
+            
+            <a href="https://forms.gle/udlplusonefeedback" target="_blank" rel="noopener" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                Complete Workshop Feedback
+            </a>
+        </div>
+
+        <!-- Return to Workshop Home -->
+        <div class="text-center mt-8">
+            <a href="index.html" class="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                Return to Workshop Home
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4">© 2025 James Kruck, PhD. All rights reserved.</p>
+            <p class="text-gray-400 text-sm">
+                Designed with a focus on accessibility and inclusive design principles.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button 
+        id="scrollToTopBtn" 
+        class="scroll-top-btn bg-blue-600 text-white p-3 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label="Scroll to top"
+    >
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+    
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Scroll to top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.style.opacity = '1';
+            } else {
+                scrollToTopBtn.style.opacity = '0';
+            }
+        });
+        
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Print certificate functionality
+        document.getElementById('print-certificate').addEventListener('click', () => {
+            // Option to personalize the certificate
+            const userName = prompt("Enter your name for the certificate:", "");
+            if (userName) {
+                document.getElementById('participant-name').textContent = userName;
+            }
+            
+            // Print the certificate section only
+            const printContent = document.querySelector('.certificate').outerHTML;
+            const printWindow = window.open('', '_blank');
+            
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>UDL Plus One Workshop - Certificate of Completion</title>
+                        <style>
+                            body {
+                                font-family: 'Arial', sans-serif;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                margin: 0;
+                                padding: 20px;
+                                box-sizing: border-box;
+                            }
+                            .certificate {
+                                background-color: white;
+                                border: 8px solid #047857;
+                                border-radius: 0.5rem;
+                                padding: 2rem;
+                                position: relative;
+                                max-width: 800px;
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+                            .certificate::before {
+                                content: '';
+                                position: absolute;
+                                top: 0.5rem;
+                                right: 0.5rem;
+                                bottom: 0.5rem;
+                                left: 0.5rem;
+                                border: 2px solid #047857;
+                                border-radius: 0.25rem;
+                                pointer-events: none;
+                            }
+                            svg {
+                                width: 80px;
+                                height: 80px;
+                                margin-bottom: 20px;
+                                color: #047857;
+                            }
+                            h2 {
+                                font-size: 28px;
+                                margin-bottom: 16px;
+                                color: #1f2937;
+                            }
+                            p {
+                                margin: 8px 0;
+                            }
+                            .participant-name {
+                                font-size: 24px;
+                                font-weight: bold;
+                                color: #047857;
+                                margin: 8px 0 16px 0;
+                            }
+                            .workshop-title {
+                                font-size: 28px;
+                                font-weight: bold;
+                                margin: 16px 0;
+                                color: #1f2937;
+                            }
+                            .description {
+                                font-size: 16px;
+                                color: #4b5563;
+                                margin-bottom: 24px;
+                            }
+                            .date {
+                                font-size: 18px;
+                                font-weight: 500;
+                                margin-top: 24px;
+                            }
+                            @media print {
+                                body {
+                                    height: auto;
+                                }
+                                .certificate {
+                                    border: 8px solid #047857;
+                                    page-break-inside: avoid;
+                                }
+                            }
+                        </style>
+                    </head>
+                    <body>${printContent}</body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            
+            // Add a slight delay to ensure styles are applied
+            setTimeout(() => {
+                printWindow.print();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
